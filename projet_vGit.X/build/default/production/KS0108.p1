@@ -1594,10 +1594,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-[v F3230 `Cuc ~T0 @X0 -> 3 `i t ]
+[v F3235 `Cuc ~T0 @X0 -> 3 `i t ]
 "80
 [; ;KS0108.c: 80: const unsigned char Font3x6[65][3]={
-[v _Font3x6 `F3230 ~T0 @X0 -> 65 `i e ]
+[v _Font3x6 `F3235 ~T0 @X0 -> 65 `i e ]
 [i _Font3x6
 :U ..
 :U ..

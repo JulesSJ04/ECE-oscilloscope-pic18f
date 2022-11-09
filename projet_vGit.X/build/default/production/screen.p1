@@ -1,5 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"36 ./KS0108.h
+"34 ./KS0108.h
+[; ;./KS0108.h: 34: extern void glcd_PlotPixel(unsigned char x, unsigned char y, unsigned char color);
+[; ;./KS0108.h: 34: extern void glcd_PlotPixel(unsigned char x, unsigned char y, unsigned char color);
+[v _glcd_PlotPixel `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"36
 [; ;./KS0108.h: 36: extern void glcd_FillScreen(unsigned char color);
 [; ;./KS0108.h: 36: extern void glcd_FillScreen(unsigned char color);
 [v _glcd_FillScreen `(v ~T0 @X0 0 ef1`uc ]
@@ -544,18 +548,136 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19
 [p x PBADEN = OFF ]
 "3 screen.c
-[; ;screen.c: 3: void display_titre(void)
-[v _display_titre `(v ~T0 @X0 1 ef ]
+[; ;screen.c: 3: void display_line(int x, int y, int final_x,int final_y)
+[v _display_line `(v ~T0 @X0 1 ef4`i`i`i`i ]
 "4
 [; ;screen.c: 4: {
 {
+[e :U _display_line ]
+"3
+[; ;screen.c: 3: void display_line(int x, int y, int final_x,int final_y)
+[v _x `i ~T0 @X0 1 r1 ]
+[v _y `i ~T0 @X0 1 r2 ]
+[v _final_x `i ~T0 @X0 1 r3 ]
+[v _final_y `i ~T0 @X0 1 r4 ]
+"4
+[; ;screen.c: 4: {
+[f ]
+"5
+[; ;screen.c: 5:     if(x==final_x)
+[e $ ! == _x _final_x 368  ]
+"6
+[; ;screen.c: 6:     {
+{
+"7
+[; ;screen.c: 7:         for(int j=x-1;j<=x+1;j++)
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j - _x -> 1 `i ]
+[e $U 372  ]
+[e :U 369 ]
+"8
+[; ;screen.c: 8:         {
+{
+"9
+[; ;screen.c: 9:             for(int i=y;i<final_y;i++)
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i _y ]
+[e $U 376  ]
+[e :U 373 ]
+"10
+[; ;screen.c: 10:             {
+{
+"11
+[; ;screen.c: 11:                 glcd_PlotPixel(j,i,1);
+[e ( _glcd_PlotPixel (3 , , -> _j `uc -> _i `uc -> -> 1 `i `uc ]
+"12
+[; ;screen.c: 12:             }
+}
+[e ++ _i -> 1 `i ]
+[e :U 376 ]
+[e $ < _i _final_y 373  ]
+[e :U 374 ]
+}
+"13
+[; ;screen.c: 13:         }
+}
+[e ++ _j -> 1 `i ]
+[e :U 372 ]
+[e $ <= _j + _x -> 1 `i 369  ]
+[e :U 370 ]
+}
+"15
+[; ;screen.c: 15:     }
+}
+[e :U 368 ]
+"16
+[; ;screen.c: 16:     if(y==final_y)
+[e $ ! == _y _final_y 377  ]
+"17
+[; ;screen.c: 17:     {
+{
+"18
+[; ;screen.c: 18:         for(int j=y-1;j<=y+1;j++)
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j - _y -> 1 `i ]
+[e $U 381  ]
+[e :U 378 ]
+"19
+[; ;screen.c: 19:         {
+{
+"20
+[; ;screen.c: 20:             for(int i=x;i<final_x;i++)
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i _x ]
+[e $U 385  ]
+[e :U 382 ]
+"21
+[; ;screen.c: 21:             {
+{
+"22
+[; ;screen.c: 22:                 glcd_PlotPixel(i,j,1);
+[e ( _glcd_PlotPixel (3 , , -> _i `uc -> _j `uc -> -> 1 `i `uc ]
+"23
+[; ;screen.c: 23:             }
+}
+[e ++ _i -> 1 `i ]
+[e :U 385 ]
+[e $ < _i _final_x 382  ]
+[e :U 383 ]
+}
+"24
+[; ;screen.c: 24:         }
+}
+[e ++ _j -> 1 `i ]
+[e :U 381 ]
+[e $ <= _j + _y -> 1 `i 378  ]
+[e :U 379 ]
+}
+"25
+[; ;screen.c: 25:     }
+}
+[e :U 377 ]
+"26
+[; ;screen.c: 26: }
+[e :UE 367 ]
+}
+"28
+[; ;screen.c: 28: void display_titre(void)
+[v _display_titre `(v ~T0 @X0 1 ef ]
+"29
+[; ;screen.c: 29: {
+{
 [e :U _display_titre ]
 [f ]
-[v F3229 `uc ~T0 @X0 -> 7 `i s ]
-[i F3229
+[v F3243 `uc ~T0 @X0 -> 7 `i s ]
+[i F3243
 :U ..
-"5
-[; ;screen.c: 5:     unsigned char string1[7] = { 'P', 'r', 'o', 'j', 'e', 't', '\0' };
+"30
+[; ;screen.c: 30:     unsigned char string1[7] = { 'P', 'r', 'o', 'j', 'e', 't', '\0' };
 -> -> 80 `ui `uc
 -> -> 114 `ui `uc
 -> -> 111 `ui `uc
@@ -566,12 +688,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string1 `uc ~T0 @X0 -> 7 `i a ]
-[e = _string1 F3229 ]
-[v F3231 `uc ~T0 @X0 -> 6 `i s ]
-[i F3231
+[e = _string1 F3243 ]
+[v F3245 `uc ~T0 @X0 -> 6 `i s ]
+[i F3245
 :U ..
-"6
-[; ;screen.c: 6:     unsigned char string2[6] = { 'M', 'C', 'U', ' ', ':', '\0' };
+"31
+[; ;screen.c: 31:     unsigned char string2[6] = { 'M', 'C', 'U', ' ', ':', '\0' };
 -> -> 77 `ui `uc
 -> -> 67 `ui `uc
 -> -> 85 `ui `uc
@@ -581,12 +703,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string2 `uc ~T0 @X0 -> 6 `i a ]
-[e = _string2 F3231 ]
-[v F3233 `uc ~T0 @X0 -> 10 `i s ]
-[i F3233
+[e = _string2 F3245 ]
+[v F3247 `uc ~T0 @X0 -> 10 `i s ]
+[i F3247
 :U ..
-"7
-[; ;screen.c: 7:  unsigned char string3[10] = {'E', 'a', 's', 'y', 'S', 'C', 'O', 'P', 'E', '\0'};
+"32
+[; ;screen.c: 32:  unsigned char string3[10] = {'E', 'a', 's', 'y', 'S', 'C', 'O', 'P', 'E', '\0'};
 -> -> 69 `ui `uc
 -> -> 97 `ui `uc
 -> -> 115 `ui `uc
@@ -600,66 +722,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string3 `uc ~T0 @X0 -> 10 `i a ]
-[e = _string3 F3233 ]
-"11
-[; ;screen.c: 11:  glcd_FillScreen(0);
+[e = _string3 F3247 ]
+"36
+[; ;screen.c: 36:  glcd_FillScreen(0);
 [e ( _glcd_FillScreen (1 -> -> 0 `i `uc ]
-"12
-[; ;screen.c: 12:  glcd_SetCursor(18,2);
+"37
+[; ;screen.c: 37:  glcd_SetCursor(18,2);
 [e ( _glcd_SetCursor (2 , -> -> 18 `i `uc -> -> 2 `i `uc ]
-"13
-[; ;screen.c: 13:  glcd_WriteString(string1,1,1);
+"38
+[; ;screen.c: 38:  glcd_WriteString(string1,1,1);
 [e ( _glcd_WriteString (3 , , &U _string1 -> -> 1 `i `uc -> -> 1 `i `uc ]
-"14
-[; ;screen.c: 14:  glcd_SetCursor(78,2);
+"39
+[; ;screen.c: 39:  glcd_SetCursor(78,2);
 [e ( _glcd_SetCursor (2 , -> -> 78 `i `uc -> -> 2 `i `uc ]
-"15
-[; ;screen.c: 15:  glcd_WriteString(string2,1,1);
+"40
+[; ;screen.c: 40:  glcd_WriteString(string2,1,1);
 [e ( _glcd_WriteString (3 , , &U _string2 -> -> 1 `i `uc -> -> 1 `i `uc ]
-"16
-[; ;screen.c: 16:  glcd_SetCursor(26,5);
+"41
+[; ;screen.c: 41:  glcd_SetCursor(26,5);
 [e ( _glcd_SetCursor (2 , -> -> 26 `i `uc -> -> 5 `i `uc ]
-"17
-[; ;screen.c: 17:  glcd_WriteString(string3,1,1);
+"42
+[; ;screen.c: 42:  glcd_WriteString(string3,1,1);
 [e ( _glcd_WriteString (3 , , &U _string3 -> -> 1 `i `uc -> -> 1 `i `uc ]
-"18
-[; ;screen.c: 18:  _delay((unsigned long)((4000)*(8000000/4000.0)));
+"43
+[; ;screen.c: 43:  _delay((unsigned long)((4000)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"19
-[; ;screen.c: 19:  glcd_FillScreen(0);
+"44
+[; ;screen.c: 44:  glcd_FillScreen(0);
 [e ( _glcd_FillScreen (1 -> -> 0 `i `uc ]
-"20
-[; ;screen.c: 20:  _delay((unsigned long)((1)*(8000000/4000000.0)));
+"45
+[; ;screen.c: 45:  _delay((unsigned long)((1)*(8000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-"21
-[; ;screen.c: 21: }
-[e :UE 367 ]
+"46
+[; ;screen.c: 46: }
+[e :UE 386 ]
 }
-"23
-[; ;screen.c: 23: void display_auteur(void)
+"48
+[; ;screen.c: 48: void display_auteur(void)
 [v _display_auteur `(v ~T0 @X0 1 ef ]
-"24
-[; ;screen.c: 24: {
+"49
+[; ;screen.c: 49: {
 {
 [e :U _display_auteur ]
 [f ]
-[v F3236 `uc ~T0 @X0 -> 3 `i s ]
-[i F3236
+[v F3250 `uc ~T0 @X0 -> 3 `i s ]
+[i F3250
 :U ..
-"25
-[; ;screen.c: 25:  unsigned char string1[3] = { 'b', 'y', '\0' };
+"50
+[; ;screen.c: 50:  unsigned char string1[3] = { 'b', 'y', '\0' };
 -> -> 98 `ui `uc
 -> -> 121 `ui `uc
 -> -> 0 `ui `uc
 ..
 ]
 [v _string1 `uc ~T0 @X0 -> 3 `i a ]
-[e = _string1 F3236 ]
-[v F3238 `uc ~T0 @X0 -> 5 `i s ]
-[i F3238
+[e = _string1 F3250 ]
+[v F3252 `uc ~T0 @X0 -> 5 `i s ]
+[i F3252
 :U ..
-"26
-[; ;screen.c: 26:  unsigned char string2[5] = {'E', 'r', 'i', 'c', '\0'};
+"51
+[; ;screen.c: 51:  unsigned char string2[5] = {'E', 'r', 'i', 'c', '\0'};
 -> -> 69 `ui `uc
 -> -> 114 `ui `uc
 -> -> 105 `ui `uc
@@ -668,23 +790,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string2 `uc ~T0 @X0 -> 5 `i a ]
-[e = _string2 F3238 ]
-[v F3240 `uc ~T0 @X0 -> 2 `i s ]
-[i F3240
+[e = _string2 F3252 ]
+[v F3254 `uc ~T0 @X0 -> 2 `i s ]
+[i F3254
 :U ..
-"27
-[; ;screen.c: 27:     unsigned char string3[2] = { '&', '\0' };
+"52
+[; ;screen.c: 52:     unsigned char string3[2] = { '&', '\0' };
 -> -> 38 `ui `uc
 -> -> 0 `ui `uc
 ..
 ]
 [v _string3 `uc ~T0 @X0 -> 2 `i a ]
-[e = _string3 F3240 ]
-[v F3242 `uc ~T0 @X0 -> 8 `i s ]
-[i F3242
+[e = _string3 F3254 ]
+[v F3256 `uc ~T0 @X0 -> 8 `i s ]
+[i F3256
 :U ..
-"28
-[; ;screen.c: 28:  unsigned char string4[8] = { 'Q', 'u', 'e', 'n', 't', 'i', 'n', '\0'};
+"53
+[; ;screen.c: 53:  unsigned char string4[8] = { 'Q', 'u', 'e', 'n', 't', 'i', 'n', '\0'};
 -> -> 81 `ui `uc
 -> -> 117 `ui `uc
 -> -> 101 `ui `uc
@@ -696,12 +818,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string4 `uc ~T0 @X0 -> 8 `i a ]
-[e = _string4 F3242 ]
-[v F3244 `uc ~T0 @X0 -> 6 `i s ]
-[i F3244
+[e = _string4 F3256 ]
+[v F3258 `uc ~T0 @X0 -> 6 `i s ]
+[i F3258
 :U ..
-"29
-[; ;screen.c: 29:  unsigned char string5[6] = { 'J', 'u', 'l', 'e', 's', '\0'};
+"54
+[; ;screen.c: 54:  unsigned char string5[6] = { 'J', 'u', 'l', 'e', 's', '\0'};
 -> -> 74 `ui `uc
 -> -> 117 `ui `uc
 -> -> 108 `ui `uc
@@ -711,69 +833,69 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string5 `uc ~T0 @X0 -> 6 `i a ]
-[e = _string5 F3244 ]
-"35
-[; ;screen.c: 35:  glcd_SetCursor(52,0);
+[e = _string5 F3258 ]
+"60
+[; ;screen.c: 60:  glcd_SetCursor(52,0);
 [e ( _glcd_SetCursor (2 , -> -> 52 `i `uc -> -> 0 `i `uc ]
-"36
-[; ;screen.c: 36:  glcd_WriteString(string1,1,1);
+"61
+[; ;screen.c: 61:  glcd_WriteString(string1,1,1);
 [e ( _glcd_WriteString (3 , , &U _string1 -> -> 1 `i `uc -> -> 1 `i `uc ]
-"37
-[; ;screen.c: 37:  glcd_SetCursor(45,2);
+"62
+[; ;screen.c: 62:  glcd_SetCursor(45,2);
 [e ( _glcd_SetCursor (2 , -> -> 45 `i `uc -> -> 2 `i `uc ]
-"38
-[; ;screen.c: 38:  glcd_WriteString(string2,1,1);
+"63
+[; ;screen.c: 63:  glcd_WriteString(string2,1,1);
 [e ( _glcd_WriteString (3 , , &U _string2 -> -> 1 `i `uc -> -> 1 `i `uc ]
-"39
-[; ;screen.c: 39:  glcd_SetCursor(54,3);
+"64
+[; ;screen.c: 64:  glcd_SetCursor(54,3);
 [e ( _glcd_SetCursor (2 , -> -> 54 `i `uc -> -> 3 `i `uc ]
-"40
-[; ;screen.c: 40:  glcd_WriteString(string3,1,1);
+"65
+[; ;screen.c: 65:  glcd_WriteString(string3,1,1);
 [e ( _glcd_WriteString (3 , , &U _string3 -> -> 1 `i `uc -> -> 1 `i `uc ]
-"41
-[; ;screen.c: 41:     glcd_SetCursor(35,4);
+"66
+[; ;screen.c: 66:     glcd_SetCursor(35,4);
 [e ( _glcd_SetCursor (2 , -> -> 35 `i `uc -> -> 4 `i `uc ]
-"42
-[; ;screen.c: 42:  glcd_WriteString(string4,1,1);
+"67
+[; ;screen.c: 67:  glcd_WriteString(string4,1,1);
 [e ( _glcd_WriteString (3 , , &U _string4 -> -> 1 `i `uc -> -> 1 `i `uc ]
-"43
-[; ;screen.c: 43:  glcd_SetCursor(54,5);
+"68
+[; ;screen.c: 68:  glcd_SetCursor(54,5);
 [e ( _glcd_SetCursor (2 , -> -> 54 `i `uc -> -> 5 `i `uc ]
-"44
-[; ;screen.c: 44:  glcd_WriteString(string3,1,1);
+"69
+[; ;screen.c: 69:  glcd_WriteString(string3,1,1);
 [e ( _glcd_WriteString (3 , , &U _string3 -> -> 1 `i `uc -> -> 1 `i `uc ]
-"45
-[; ;screen.c: 45:  glcd_SetCursor(41,6);
+"70
+[; ;screen.c: 70:  glcd_SetCursor(41,6);
 [e ( _glcd_SetCursor (2 , -> -> 41 `i `uc -> -> 6 `i `uc ]
-"46
-[; ;screen.c: 46:  glcd_WriteString(string5,1,1);
+"71
+[; ;screen.c: 71:  glcd_WriteString(string5,1,1);
 [e ( _glcd_WriteString (3 , , &U _string5 -> -> 1 `i `uc -> -> 1 `i `uc ]
-"47
-[; ;screen.c: 47:  _delay((unsigned long)((2000)*(8000000/4000.0)));
+"72
+[; ;screen.c: 72:  _delay((unsigned long)((2000)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"48
-[; ;screen.c: 48:  glcd_FillScreen(0);
+"73
+[; ;screen.c: 73:  glcd_FillScreen(0);
 [e ( _glcd_FillScreen (1 -> -> 0 `i `uc ]
-"49
-[; ;screen.c: 49:  _delay((unsigned long)((1)*(8000000/4000000.0)));
+"74
+[; ;screen.c: 74:  _delay((unsigned long)((1)*(8000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-"50
-[; ;screen.c: 50: }
-[e :UE 368 ]
+"75
+[; ;screen.c: 75: }
+[e :UE 387 ]
 }
-"52
-[; ;screen.c: 52: void display_menu(void)
+"77
+[; ;screen.c: 77: void display_menu(void)
 [v _display_menu `(v ~T0 @X0 1 ef ]
-"53
-[; ;screen.c: 53: {
+"78
+[; ;screen.c: 78: {
 {
 [e :U _display_menu ]
 [f ]
-[v F3247 `uc ~T0 @X0 -> 16 `i s ]
-[i F3247
+[v F3261 `uc ~T0 @X0 -> 16 `i s ]
+[i F3261
 :U ..
-"54
-[; ;screen.c: 54:     unsigned char string1[16] = {'C','h','o','i','s','i','r',' ','u','n',' ', 'm', 'o', 'd', 'e', '\0'};
+"79
+[; ;screen.c: 79:     unsigned char string1[16] = {'C','h','o','i','s','i','r',' ','u','n',' ', 'm', 'o', 'd', 'e', '\0'};
 -> -> 67 `ui `uc
 -> -> 104 `ui `uc
 -> -> 111 `ui `uc
@@ -793,12 +915,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string1 `uc ~T0 @X0 -> 16 `i a ]
-[e = _string1 F3247 ]
-[v F3249 `uc ~T0 @X0 -> 15 `i s ]
-[i F3249
+[e = _string1 F3261 ]
+[v F3263 `uc ~T0 @X0 -> 15 `i s ]
+[i F3263
 :U ..
-"55
-[; ;screen.c: 55:     unsigned char string2[15] = {'1','.','O','s','c','i','l','l','o','s','c','o','p','e','\0'};
+"80
+[; ;screen.c: 80:     unsigned char string2[15] = {'1','.','O','s','c','i','l','l','o','s','c','o','p','e','\0'};
 -> -> 49 `ui `uc
 -> -> 46 `ui `uc
 -> -> 79 `ui `uc
@@ -817,12 +939,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string2 `uc ~T0 @X0 -> 15 `i a ]
-[e = _string2 F3249 ]
-[v F3251 `uc ~T0 @X0 -> 16 `i s ]
-[i F3251
+[e = _string2 F3263 ]
+[v F3265 `uc ~T0 @X0 -> 16 `i s ]
+[i F3265
 :U ..
-"56
-[; ;screen.c: 56:     unsigned char string3[16] = {'2','.','R','e','c','t','a','n','g','u','l','a','i','r','e','\0'};
+"81
+[; ;screen.c: 81:     unsigned char string3[16] = {'2','.','R','e','c','t','a','n','g','u','l','a','i','r','e','\0'};
 -> -> 50 `ui `uc
 -> -> 46 `ui `uc
 -> -> 82 `ui `uc
@@ -842,57 +964,60 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string3 `uc ~T0 @X0 -> 16 `i a ]
-[e = _string3 F3251 ]
-[v F3253 `uc ~T0 @X0 -> 2 `i s ]
-[i F3253
+[e = _string3 F3265 ]
+[v F3267 `uc ~T0 @X0 -> 2 `i s ]
+[i F3267
 :U ..
-"57
-[; ;screen.c: 57:     unsigned char string4[2] = {'1','\0'};
+"82
+[; ;screen.c: 82:     unsigned char string4[2] = {'1','\0'};
 -> -> 49 `ui `uc
 -> -> 0 `ui `uc
 ..
 ]
 [v _string4 `uc ~T0 @X0 -> 2 `i a ]
-[e = _string4 F3253 ]
-[v F3255 `uc ~T0 @X0 -> 2 `i s ]
-[i F3255
+[e = _string4 F3267 ]
+[v F3269 `uc ~T0 @X0 -> 2 `i s ]
+[i F3269
 :U ..
-"58
-[; ;screen.c: 58:     unsigned char string5[2] = {'2','\0'};
+"83
+[; ;screen.c: 83:     unsigned char string5[2] = {'2','\0'};
 -> -> 50 `ui `uc
 -> -> 0 `ui `uc
 ..
 ]
 [v _string5 `uc ~T0 @X0 -> 2 `i a ]
-[e = _string5 F3255 ]
-"60
-[; ;screen.c: 60:     glcd_SetCursor(2,0);
+[e = _string5 F3269 ]
+"85
+[; ;screen.c: 85:     glcd_SetCursor(2,0);
 [e ( _glcd_SetCursor (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
-"61
-[; ;screen.c: 61:  glcd_WriteString(string1,1,1);
+"86
+[; ;screen.c: 86:  glcd_WriteString(string1,1,1);
 [e ( _glcd_WriteString (3 , , &U _string1 -> -> 1 `i `uc -> -> 1 `i `uc ]
-"62
-[; ;screen.c: 62:  glcd_SetCursor(2,2);
+"87
+[; ;screen.c: 87:  glcd_SetCursor(2,2);
 [e ( _glcd_SetCursor (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
-"63
-[; ;screen.c: 63:  glcd_WriteString(string2,1,1);
+"88
+[; ;screen.c: 88:  glcd_WriteString(string2,1,1);
 [e ( _glcd_WriteString (3 , , &U _string2 -> -> 1 `i `uc -> -> 1 `i `uc ]
-"64
-[; ;screen.c: 64:  glcd_SetCursor(2,3);
+"89
+[; ;screen.c: 89:  glcd_SetCursor(2,3);
 [e ( _glcd_SetCursor (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
-"65
-[; ;screen.c: 65:  glcd_WriteString(string3,1,1);
+"90
+[; ;screen.c: 90:  glcd_WriteString(string3,1,1);
 [e ( _glcd_WriteString (3 , , &U _string3 -> -> 1 `i `uc -> -> 1 `i `uc ]
-"66
-[; ;screen.c: 66:     glcd_SetCursor(2,3);
+"91
+[; ;screen.c: 91:     glcd_SetCursor(2,3);
 [e ( _glcd_SetCursor (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
-"67
-[; ;screen.c: 67:  glcd_WriteString(string3,1,1);
+"92
+[; ;screen.c: 92:  glcd_WriteString(string3,1,1);
 [e ( _glcd_WriteString (3 , , &U _string3 -> -> 1 `i `uc -> -> 1 `i `uc ]
-"70
-[; ;screen.c: 70:  _delay((unsigned long)((1)*(8000000/4000000.0)));
+"93
+[; ;screen.c: 93:     display_line(42,52,50,52);
+[e ( _display_line (4 , , , -> 42 `i -> 52 `i -> 50 `i -> 52 `i ]
+"96
+[; ;screen.c: 96:  _delay((unsigned long)((1)*(8000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-"71
-[; ;screen.c: 71: }
-[e :UE 369 ]
+"98
+[; ;screen.c: 98: }
+[e :UE 388 ]
 }

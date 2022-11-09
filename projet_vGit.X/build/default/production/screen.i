@@ -5657,6 +5657,7 @@ extern void glcd_Image(void);
 void display_titre(void);
 void display_auteur(void);
 void display_menu(void);
+void display_line(int x, int y, int final_x,int final_y);
 # 5 "./my_lib.h" 2
 
 # 1 "./rectangle.h" 1
@@ -5695,6 +5696,31 @@ int correspondance_7segment(int val);
 #pragma config PBADEN = OFF
 # 1 "screen.c" 2
 
+
+void display_line(int x, int y, int final_x,int final_y)
+{
+    if(x==final_x)
+    {
+        for(int j=x-1;j<=x+1;j++)
+        {
+            for(int i=y;i<final_y;i++)
+            {
+                glcd_PlotPixel(j,i,1);
+            }
+        }
+
+    }
+    if(y==final_y)
+    {
+        for(int j=y-1;j<=y+1;j++)
+        {
+            for(int i=x;i<final_x;i++)
+            {
+                glcd_PlotPixel(i,j,1);
+            }
+        }
+    }
+}
 
 void display_titre(void)
 {
@@ -5761,7 +5787,9 @@ void display_menu(void)
  glcd_WriteString(string3,1,1);
     glcd_SetCursor(2,3);
  glcd_WriteString(string3,1,1);
+    display_line(42,52,50,52);
 
 
  _delay((unsigned long)((1)*(8000000/4000000.0)));
+
 }
