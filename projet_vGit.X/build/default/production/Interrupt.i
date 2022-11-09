@@ -1,4 +1,4 @@
-# 1 "ADC_interrupt.c"
+# 1 "Interrupt.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "ADC_interrupt.c" 2
+# 1 "Interrupt.c" 2
 # 1 "./my_lib.h" 1
 
 
@@ -5694,7 +5694,7 @@ int correspondance_7segment(int val);
 #pragma config MCLRE = ON
 #pragma config CPUDIV = OSC1_PLL2
 #pragma config PBADEN = OFF
-# 1 "ADC_interrupt.c" 2
+# 1 "Interrupt.c" 2
 
 
 void initMyPIC18F(void)

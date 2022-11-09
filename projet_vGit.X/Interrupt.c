@@ -15,6 +15,7 @@ void initMyPIC18F(void)
     INTCONbits.GIE = 1;
     PIE1bits.ADIE = 1;
     INTCONbits.PEIE = 1;
+    INTCONbits.RBIE = 1;
 }
 
 
@@ -25,5 +26,18 @@ void __interrupt() irq_handle()
         PIR1bits.ADIF = 0;
         calcul_7segment(ADRESH);
     }
+    if(INTCONbits.RBIF == 1) 
+    {
+        INTCONbits.RBIF = 0;
+        if(PORTBbits.RB6 == 1)
+        {
+            //Move cursor
+        }
+        if(PORTBbits.RB7 == 1)
+        {
+            //Action
+        }
+    }
+        
     return;
 }

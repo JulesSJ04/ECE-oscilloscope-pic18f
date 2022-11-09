@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=7segment.c ADC_interrupt.c KS0108.c main.c rectangle.c screen.c
+SOURCEFILES_QUOTED_IF_SPACED=7segment.c KS0108.c main.c rectangle.c screen.c Interrupt.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/7segment.p1 ${OBJECTDIR}/ADC_interrupt.p1 ${OBJECTDIR}/KS0108.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/rectangle.p1 ${OBJECTDIR}/screen.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/7segment.p1.d ${OBJECTDIR}/ADC_interrupt.p1.d ${OBJECTDIR}/KS0108.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/rectangle.p1.d ${OBJECTDIR}/screen.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/7segment.p1 ${OBJECTDIR}/KS0108.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/rectangle.p1 ${OBJECTDIR}/screen.p1 ${OBJECTDIR}/Interrupt.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/7segment.p1.d ${OBJECTDIR}/KS0108.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/rectangle.p1.d ${OBJECTDIR}/screen.p1.d ${OBJECTDIR}/Interrupt.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/7segment.p1 ${OBJECTDIR}/ADC_interrupt.p1 ${OBJECTDIR}/KS0108.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/rectangle.p1 ${OBJECTDIR}/screen.p1
+OBJECTFILES=${OBJECTDIR}/7segment.p1 ${OBJECTDIR}/KS0108.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/rectangle.p1 ${OBJECTDIR}/screen.p1 ${OBJECTDIR}/Interrupt.p1
 
 # Source Files
-SOURCEFILES=7segment.c ADC_interrupt.c KS0108.c main.c rectangle.c screen.c
+SOURCEFILES=7segment.c KS0108.c main.c rectangle.c screen.c Interrupt.c
 
 
 
@@ -102,14 +102,6 @@ ${OBJECTDIR}/7segment.p1: 7segment.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/7segment.d ${OBJECTDIR}/7segment.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/7segment.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/ADC_interrupt.p1: ADC_interrupt.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/ADC_interrupt.p1.d 
-	@${RM} ${OBJECTDIR}/ADC_interrupt.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/ADC_interrupt.p1 ADC_interrupt.c 
-	@-${MV} ${OBJECTDIR}/ADC_interrupt.d ${OBJECTDIR}/ADC_interrupt.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/ADC_interrupt.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/KS0108.p1: KS0108.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/KS0108.p1.d 
@@ -142,6 +134,14 @@ ${OBJECTDIR}/screen.p1: screen.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/screen.d ${OBJECTDIR}/screen.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/screen.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/Interrupt.p1: Interrupt.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Interrupt.p1.d 
+	@${RM} ${OBJECTDIR}/Interrupt.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/Interrupt.p1 Interrupt.c 
+	@-${MV} ${OBJECTDIR}/Interrupt.d ${OBJECTDIR}/Interrupt.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Interrupt.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/7segment.p1: 7segment.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -150,14 +150,6 @@ ${OBJECTDIR}/7segment.p1: 7segment.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/7segment.p1 7segment.c 
 	@-${MV} ${OBJECTDIR}/7segment.d ${OBJECTDIR}/7segment.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/7segment.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/ADC_interrupt.p1: ADC_interrupt.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/ADC_interrupt.p1.d 
-	@${RM} ${OBJECTDIR}/ADC_interrupt.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/ADC_interrupt.p1 ADC_interrupt.c 
-	@-${MV} ${OBJECTDIR}/ADC_interrupt.d ${OBJECTDIR}/ADC_interrupt.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/ADC_interrupt.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/KS0108.p1: KS0108.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -190,6 +182,14 @@ ${OBJECTDIR}/screen.p1: screen.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/screen.p1 screen.c 
 	@-${MV} ${OBJECTDIR}/screen.d ${OBJECTDIR}/screen.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/screen.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Interrupt.p1: Interrupt.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Interrupt.p1.d 
+	@${RM} ${OBJECTDIR}/Interrupt.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/Interrupt.p1 Interrupt.c 
+	@-${MV} ${OBJECTDIR}/Interrupt.d ${OBJECTDIR}/Interrupt.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Interrupt.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
@@ -232,11 +232,3 @@ endif
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r build/default
 	${RM} -r dist/default
-
-# Enable dependency checking
-.dep.inc: .depcheck-impl
-
-DEPFILES=$(shell mplabwildcard ${POSSIBLE_DEPFILES})
-ifneq (${DEPFILES},)
-include ${DEPFILES}
-endif
