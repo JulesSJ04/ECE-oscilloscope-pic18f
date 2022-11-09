@@ -14,7 +14,6 @@
                    projectFiles="true">
       <itemPath>7segment.c</itemPath>
       <itemPath>7segment.h</itemPath>
-      <itemPath>ADC_interrupt.h</itemPath>
       <itemPath>KS0108.c</itemPath>
       <itemPath>KS0108.h</itemPath>
       <itemPath>main.c</itemPath>
@@ -24,6 +23,7 @@
       <itemPath>screen.c</itemPath>
       <itemPath>screen.h</itemPath>
       <itemPath>Interrupt.c</itemPath>
+      <itemPath>Interrupt.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

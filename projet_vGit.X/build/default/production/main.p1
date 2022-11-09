@@ -22,8 +22,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4
 [; ;./rectangle.h: 4: void PWM1_setDC(int dutycycle);
 [v _PWM1_setDC `(v ~T0 @X0 0 ef1`i ]
-"4 ./ADC_interrupt.h
-[; ;./ADC_interrupt.h: 4: void initMyPIC18F(void);
+"4 ./Interrupt.h
+[; ;./Interrupt.h: 4: void initMyPIC18F(void);
 [v _initMyPIC18F `(v ~T0 @X0 0 ef ]
 "6 ./screen.h
 [; ;./screen.h: 6: void display_menu(void);
@@ -68,8 +68,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6710: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0xFC2)));
 [v _ADCON0bits `VS272 ~T0 @X0 0 e@4034 ]
 "3 ./7segment.h
-[; ;./7segment.h: 3: void display_7segment();
-[v _display_7segment `(v ~T0 @X0 0 e? ]
+[; ;./7segment.h: 3: void display_7segment(void);
+[v _display_7segment `(v ~T0 @X0 0 ef ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">

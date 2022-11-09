@@ -4,7 +4,7 @@
 #include "KS0108.h"
 #include "screen.h"
 #include "rectangle.h"
-#include "ADC_interrupt.h"
+#include "Interrupt.h"
 #include "7segment.h"
 
 

@@ -5667,7 +5667,7 @@ void PWM1_Init(long frequence);
 void PWM1_setDC(int dutycycle);
 # 6 "./my_lib.h" 2
 
-# 1 "./ADC_interrupt.h" 1
+# 1 "./Interrupt.h" 1
 
 
 
@@ -5678,7 +5678,7 @@ void __attribute__((picinterrupt(("")))) irq_handle();
 # 1 "./7segment.h" 1
 
 
-void display_7segment();
+void display_7segment(void);
 void calcul_7segment(int adresh);
 int correspondance_7segment(int val);
 # 8 "./my_lib.h" 2
@@ -5790,6 +5790,6 @@ void display_menu(void)
     display_line(42,52,50,52);
 
 
- _delay((unsigned long)((1)*(8000000/4000000.0)));
+
 
 }

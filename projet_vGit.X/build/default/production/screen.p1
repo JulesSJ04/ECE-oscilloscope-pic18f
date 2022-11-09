@@ -1014,9 +1014,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "93
 [; ;screen.c: 93:     display_line(42,52,50,52);
 [e ( _display_line (4 , , , -> 42 `i -> 52 `i -> 50 `i -> 52 `i ]
-"96
-[; ;screen.c: 96:  _delay((unsigned long)((1)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
 "98
 [; ;screen.c: 98: }
 [e :UE 388 ]

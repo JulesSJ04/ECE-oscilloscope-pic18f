@@ -459,6 +459,7 @@ void glcd_WriteByte(unsigned char side, unsigned char data)
 	WR_DATA = data;				// Placement des données sur le registre du GLCD
 
 	// Delay10TCYx (10); 			//délai 8,33ms
+    //__delay_ms(8);
 
 	GLCD_E = 1;					//Passage de E de 0 à 1
 	__delay_us(1); 				//délai 833ns revu a 500ns
@@ -493,6 +494,7 @@ unsigned char data;
 	GLCD_RW = 1;			// Positionnement du bit pour lecture
 	
 	// Delay10TCYx (10); 		//délai 8,33ms
+    //__delay_ms(8);
 	
 	GLCD_E = 1;				//Passage de E de 0 à 1
 	__delay_us(1); 				//délai 833ns revu a 500ns

@@ -93,7 +93,7 @@ void display_menu(void)
     display_line(42,52,50,52);
 	//__delay_ms(2000);					//attend 2s
 	//glcd_FillScreen(0);					//efface l'ecran	
-	__delay_us(1);
+	//__delay_us(1);
     
 }
 

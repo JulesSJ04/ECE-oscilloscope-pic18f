@@ -19,7 +19,7 @@ int global_THREE;
 int global_FOUR;
 
 
-void display_7segment()
+void display_7segment(void)
 {
     PORTD = global_ONE;
     //PORTD = 255;
