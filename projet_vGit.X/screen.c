@@ -1,5 +1,30 @@
 #include "my_lib.h"
 
+void display_line(int x, int y, int final_x,int final_y)
+{
+    if(x==final_x)
+    {
+        for(int j=x-1;j<=x+1;j++)
+        {
+            for(int i=y;i<final_y;i++)
+            {
+                glcd_PlotPixel(j,i,1);
+            }
+        }
+
+    }
+    if(y==final_y)
+    {
+        for(int j=y-1;j<=y+1;j++)
+        {
+            for(int i=x;i<final_x;i++)
+            {
+                glcd_PlotPixel(i,j,1);
+            }
+        }
+    }
+}
+
 void display_titre(void)
 {
     unsigned char string1[7] = { 'P', 'r', 'o', 'j', 'e', 't', '\0' };
@@ -65,9 +90,11 @@ void display_menu(void)
 	glcd_WriteString(string3,f8X8,1);	//ecrit 
     glcd_SetCursor(2,3);				//place le curseur
 	glcd_WriteString(string3,f8X8,1);
+    display_line(42,52,50,52);
 	//__delay_ms(2000);					//attend 2s
 	//glcd_FillScreen(0);					//efface l'ecran	
 	__delay_us(1);
+    
 }
 
 
