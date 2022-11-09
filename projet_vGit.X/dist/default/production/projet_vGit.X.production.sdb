@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F4550 ]
 [d frameptr 4065 ]
-"22 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\7segment.c
+"22 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\7segment.c
 [v _display_7segment display_7segment `(v  1 e 1 0 ]
 "46
 [v _correspondance_7segment correspondance_7segment `(i  1 e 2 0 ]
@@ -13,6 +13,7 @@
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
 "7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
+[v i2___awdiv __awdiv `(i  1 e 2 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\float.c
@@ -41,43 +42,57 @@
 [v ___omul __omul `(uo  1 e 8 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"3 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\Interrupt.c
+"6 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\Interrupt.c
 [v _initMyPIC18F initMyPIC18F `(v  1 e 1 0 ]
-"22
+"30
 [v _irq_handle irq_handle `IIH(v  1 e 1 0 ]
-"404 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\KS0108.c
+"404 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\KS0108.c
 [v _glcd_Init glcd_Init `(v  1 e 1 0 ]
 "443
 [v _glcd_WriteByte glcd_WriteByte `(v  1 e 1 0 ]
+[v i2_glcd_WriteByte glcd_WriteByte `(v  1 e 1 0 ]
 "478
 [v _glcd_ReadByte glcd_ReadByte `(uc  1 e 1 0 ]
+[v i2_glcd_ReadByte glcd_ReadByte `(uc  1 e 1 0 ]
 "515
 [v _glcd_PlotPixel glcd_PlotPixel `(v  1 e 1 0 ]
+[v i2_glcd_PlotPixel glcd_PlotPixel `(v  1 e 1 0 ]
 "554
 [v _glcd_FillScreen glcd_FillScreen `(v  1 e 1 0 ]
+[v i2_glcd_FillScreen glcd_FillScreen `(v  1 e 1 0 ]
 "579
 [v _glcd_SetCursor glcd_SetCursor `(v  1 e 1 0 ]
+[v i2_glcd_SetCursor glcd_SetCursor `(v  1 e 1 0 ]
 "604
 [v _glcd_WriteChar8X8 glcd_WriteChar8X8 `(v  1 e 1 0 ]
+[v i2_glcd_WriteChar8X8 glcd_WriteChar8X8 `(v  1 e 1 0 ]
 "652
 [v _glcd_WriteChar3x6 glcd_WriteChar3x6 `(v  1 e 1 0 ]
+[v i2_glcd_WriteChar3x6 glcd_WriteChar3x6 `(v  1 e 1 0 ]
 "698
 [v _glcd_WriteString glcd_WriteString `(v  1 e 1 0 ]
-"3 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\main.c
+[v i2_glcd_WriteString glcd_WriteString `(v  1 e 1 0 ]
+"3 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"3 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\rectangle.c
+"3 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\rectangle.c
 [v _PWM1_Init PWM1_Init `(v  1 e 1 0 ]
 "35
 [v _PWM1_setDC PWM1_setDC `(v  1 e 1 0 ]
-"3 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\screen.c
+"3 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\screen.c
 [v _display_line display_line `(v  1 e 1 0 ]
+[v i2_display_line display_line `(v  1 e 1 0 ]
 "28
 [v _display_titre display_titre `(v  1 e 1 0 ]
 "48
 [v _display_auteur display_auteur `(v  1 e 1 0 ]
 "77
 [v _display_menu display_menu `(v  1 e 1 0 ]
-"16 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\7segment.c
+[v i2_display_menu display_menu `(v  1 e 1 0 ]
+"21 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X/my_lib.h
+[v _currently_in_menu currently_in_menu `i  1 e 2 0 ]
+"22
+[v _menu_selector menu_selector `i  1 e 2 0 ]
+"16 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\7segment.c
 [v _global_ONE global_ONE `i  1 e 2 0 ]
 "17
 [v _global_TWO global_TWO `i  1 e 2 0 ]
@@ -119,7 +134,7 @@
 [v _PORTAbits PORTAbits `VES52  1 e 1 @3968 ]
 "2453
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
-[s S556 . 1 `uc 1 RB0 1 0 :1:0 
+[s S566 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -129,7 +144,7 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "2483
-[s S565 . 1 `uc 1 INT0 1 0 :1:0 
+[s S575 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -137,14 +152,14 @@
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S573 . 1 `uc 1 . 1 0 :3:0 
+[s S583 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S576 . 1 `S556 1 . 1 0 `S565 1 . 1 0 `S573 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES576  1 e 1 @3969 ]
+[u S586 . 1 `S566 1 . 1 0 `S575 1 . 1 0 `S583 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES586  1 e 1 @3969 ]
 "2705
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
-[s S115 . 1 `uc 1 LATB0 1 0 :1:0 
+[s S117 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -154,7 +169,7 @@
 `uc 1 LATB7 1 0 :1:7 
 ]
 "3100
-[s S124 . 1 `uc 1 LB0 1 0 :1:0 
+[s S126 . 1 `uc 1 LB0 1 0 :1:0 
 `uc 1 LB1 1 0 :1:1 
 `uc 1 LB2 1 0 :1:2 
 `uc 1 LB3 1 0 :1:3 
@@ -163,8 +178,8 @@
 `uc 1 LB6 1 0 :1:6 
 `uc 1 LB7 1 0 :1:7 
 ]
-[u S133 . 1 `S115 1 . 1 0 `S124 1 . 1 0 ]
-[v _LATBbits LATBbits `VES133  1 e 1 @3978 ]
+[u S135 . 1 `S117 1 . 1 0 `S126 1 . 1 0 ]
+[v _LATBbits LATBbits `VES135  1 e 1 @3978 ]
 "3263
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
 "3427
@@ -175,7 +190,7 @@
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "4001
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-[s S486 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S496 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -185,15 +200,15 @@
 `uc 1 SPPIE 1 0 :1:7 
 ]
 "4408
-[s S495 . 1 `uc 1 . 1 0 :4:0 
+[s S505 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IE 1 0 :1:4 
 `uc 1 RC1IE 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 PSPIE 1 0 :1:7 
 ]
-[u S501 . 1 `S486 1 . 1 0 `S495 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES501  1 e 1 @3997 ]
-[s S520 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S511 . 1 `S496 1 . 1 0 `S505 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES511  1 e 1 @3997 ]
+[s S530 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -203,67 +218,67 @@
 `uc 1 SPPIF 1 0 :1:7 
 ]
 "4492
-[s S529 . 1 `uc 1 . 1 0 :4:0 
+[s S539 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 PSPIF 1 0 :1:7 
 ]
-[u S535 . 1 `S520 1 . 1 0 `S529 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES535  1 e 1 @3998 ]
+[u S545 . 1 `S530 1 . 1 0 `S539 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES545  1 e 1 @3998 ]
 "6242
 [v _CCP2CON CCP2CON `VEuc  1 e 1 @4026 ]
-[s S349 . 1 `uc 1 CCP2M 1 0 :4:0 
+[s S353 . 1 `uc 1 CCP2M 1 0 :4:0 
 `uc 1 DC2B 1 0 :2:4 
 ]
 "6261
-[s S352 . 1 `uc 1 CCP2M0 1 0 :1:0 
+[s S356 . 1 `uc 1 CCP2M0 1 0 :1:0 
 `uc 1 CCP2M1 1 0 :1:1 
 `uc 1 CCP2M2 1 0 :1:2 
 `uc 1 CCP2M3 1 0 :1:3 
 `uc 1 DC2B0 1 0 :1:4 
 `uc 1 DC2B1 1 0 :1:5 
 ]
-[u S359 . 1 `S349 1 . 1 0 `S352 1 . 1 0 ]
-[v _CCP2CONbits CCP2CONbits `VES359  1 e 1 @4026 ]
+[u S363 . 1 `S353 1 . 1 0 `S356 1 . 1 0 ]
+[v _CCP2CONbits CCP2CONbits `VES363  1 e 1 @4026 ]
 "6313
 [v _CCPR2L CCPR2L `VEuc  1 e 1 @4027 ]
 "6581
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "6666
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
-[s S260 . 1 `uc 1 . 1 0 :1:0 
+[s S262 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "6710
-[s S263 . 1 `uc 1 ADON 1 0 :1:0 
+[s S265 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 ]
-[s S267 . 1 `uc 1 . 1 0 :1:0 
+[s S269 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
 `uc 1 CHS2 1 0 :1:4 
 `uc 1 CHS3 1 0 :1:5 
 ]
-[s S274 . 1 `uc 1 . 1 0 :1:0 
+[s S276 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S277 . 1 `uc 1 . 1 0 :1:0 
+[s S279 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S280 . 1 `uc 1 . 1 0 :1:0 
+[s S282 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S283 . 1 `uc 1 . 1 0 :1:0 
+[s S285 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S286 . 1 `uc 1 . 1 0 :1:0 
+[s S288 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S289 . 1 `S260 1 . 1 0 `S263 1 . 1 0 `S267 1 . 1 0 `S274 1 . 1 0 `S277 1 . 1 0 `S280 1 . 1 0 `S283 1 . 1 0 `S286 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES289  1 e 1 @4034 ]
+[u S291 . 1 `S262 1 . 1 0 `S265 1 . 1 0 `S269 1 . 1 0 `S276 1 . 1 0 `S279 1 . 1 0 `S282 1 . 1 0 `S285 1 . 1 0 `S288 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES291  1 e 1 @4034 ]
 "6799
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
 "7200
@@ -274,7 +289,7 @@
 [v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
 "7986
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-[s S437 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S447 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -284,7 +299,7 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "8614
-[s S446 . 1 `uc 1 . 1 0 :1:0 
+[s S456 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -293,13 +308,15 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S455 . 1 `uc 1 . 1 0 :6:0 
+[s S465 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S459 . 1 `S437 1 . 1 0 `S446 1 . 1 0 `S455 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES459  1 e 1 @4082 ]
-"8 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\KS0108.c
+[u S469 . 1 `S447 1 . 1 0 `S456 1 . 1 0 `S465 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES469  1 e 1 @4082 ]
+"3 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\Interrupt.c
+[v _double_edge double_edge `i  1 e 2 0 ]
+"8 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\KS0108.c
 [v _acceuil acceuil `C[1024]uc  1 e 1024 0 ]
 "80
 [v _Font3x6 Font3x6 `C[65][3]uc  1 e 195 0 ]
@@ -308,99 +325,99 @@
 "398
 [v _x x `uc  1 e 1 0 ]
 [v _y y `uc  1 e 1 0 ]
-"3 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\main.c
+"3 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"22
+"23
 } 0
-"3 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\Interrupt.c
+"6 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\Interrupt.c
 [v _initMyPIC18F initMyPIC18F `(v  1 e 1 0 ]
 {
-"19
+"27
 } 0
-"404 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\KS0108.c
+"404 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\KS0108.c
 [v _glcd_Init glcd_Init `(v  1 e 1 0 ]
 {
 [v glcd_Init@mode mode `uc  1 a 1 wreg ]
 [v glcd_Init@mode mode `uc  1 a 1 wreg ]
 "407
-[v glcd_Init@mode mode `uc  1 a 1 13 ]
+[v glcd_Init@mode mode `uc  1 a 1 23 ]
 "438
 } 0
-"28 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\screen.c
+"28 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\screen.c
 [v _display_titre display_titre `(v  1 e 1 0 ]
 {
 "32
-[v display_titre@string3 string3 `[10]uc  1 a 10 25 ]
+[v display_titre@string3 string3 `[10]uc  1 a 10 35 ]
 "30
-[v display_titre@string1 string1 `[7]uc  1 a 7 35 ]
+[v display_titre@string1 string1 `[7]uc  1 a 7 45 ]
 "31
-[v display_titre@string2 string2 `[6]uc  1 a 6 42 ]
+[v display_titre@string2 string2 `[6]uc  1 a 6 52 ]
 "29
-[v display_titre@F3243 F3243 `[7]uc  1 s 7 F3243 ]
+[v display_titre@F3245 F3245 `[7]uc  1 s 7 F3245 ]
 "30
-[v display_titre@F3245 F3245 `[6]uc  1 s 6 F3245 ]
+[v display_titre@F3247 F3247 `[6]uc  1 s 6 F3247 ]
 "31
-[v display_titre@F3247 F3247 `[10]uc  1 s 10 F3247 ]
+[v display_titre@F3249 F3249 `[10]uc  1 s 10 F3249 ]
 "46
 } 0
 "77
 [v _display_menu display_menu `(v  1 e 1 0 ]
 {
-"81
-[v display_menu@string3 string3 `[16]uc  1 a 16 67 ]
-"79
-[v display_menu@string1 string1 `[16]uc  1 a 16 36 ]
-"80
-[v display_menu@string2 string2 `[15]uc  1 a 15 52 ]
-"83
-[v display_menu@string5 string5 `[2]uc  1 a 2 85 ]
 "82
-[v display_menu@string4 string4 `[2]uc  1 a 2 83 ]
-"78
-[v display_menu@F3261 F3261 `[16]uc  1 s 16 F3261 ]
-"79
-[v display_menu@F3263 F3263 `[15]uc  1 s 15 F3263 ]
+[v display_menu@string3 string3 `[16]uc  1 a 16 16 ]
 "80
-[v display_menu@F3265 F3265 `[16]uc  1 s 16 F3265 ]
+[v display_menu@string1 string1 `[16]uc  1 a 16 0 ]
 "81
-[v display_menu@F3267 F3267 `[2]uc  1 s 2 F3267 ]
+[v display_menu@string2 string2 `[15]uc  1 a 15 32 ]
+"84
+[v display_menu@string5 string5 `[2]uc  1 a 2 49 ]
+"83
+[v display_menu@string4 string4 `[2]uc  1 a 2 47 ]
+"79
+[v display_menu@F3263 F3263 `[16]uc  1 s 16 F3263 ]
+"80
+[v display_menu@F3265 F3265 `[15]uc  1 s 15 F3265 ]
+"81
+[v display_menu@F3267 F3267 `[16]uc  1 s 16 F3267 ]
 "82
 [v display_menu@F3269 F3269 `[2]uc  1 s 2 F3269 ]
-"98
+"83
+[v display_menu@F3271 F3271 `[2]uc  1 s 2 F3271 ]
+"112
 } 0
 "3
 [v _display_line display_line `(v  1 e 1 0 ]
 {
 "20
-[v display_line@i_398 i `i  1 a 2 34 ]
+[v display_line@i_406 i `i  1 a 2 44 ]
 "9
-[v display_line@i i `i  1 a 2 30 ]
+[v display_line@i i `i  1 a 2 40 ]
 "18
-[v display_line@j_397 j `i  1 a 2 32 ]
+[v display_line@j_405 j `i  1 a 2 42 ]
 "7
-[v display_line@j j `i  1 a 2 28 ]
+[v display_line@j j `i  1 a 2 38 ]
 "3
-[v display_line@x x `i  1 p 2 17 ]
-[v display_line@y y `i  1 p 2 19 ]
-[v display_line@final_x final_x `i  1 p 2 21 ]
-[v display_line@final_y final_y `i  1 p 2 23 ]
+[v display_line@x x `i  1 p 2 27 ]
+[v display_line@y y `i  1 p 2 29 ]
+[v display_line@final_x final_x `i  1 p 2 31 ]
+[v display_line@final_y final_y `i  1 p 2 33 ]
 "26
 } 0
-"515 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\KS0108.c
+"515 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\KS0108.c
 [v _glcd_PlotPixel glcd_PlotPixel `(v  1 e 1 0 ]
 {
 [v glcd_PlotPixel@xpos xpos `uc  1 a 1 wreg ]
 "518
-[v glcd_PlotPixel@side side `uc  1 a 1 16 ]
+[v glcd_PlotPixel@side side `uc  1 a 1 26 ]
 "517
-[v glcd_PlotPixel@data data `uc  1 a 1 15 ]
+[v glcd_PlotPixel@data data `uc  1 a 1 25 ]
 "515
 [v glcd_PlotPixel@xpos xpos `uc  1 a 1 wreg ]
-[v glcd_PlotPixel@ypos ypos `uc  1 p 1 10 ]
-[v glcd_PlotPixel@color color `uc  1 p 1 11 ]
+[v glcd_PlotPixel@ypos ypos `uc  1 p 1 20 ]
+[v glcd_PlotPixel@color color `uc  1 p 1 21 ]
 "518
-[v glcd_PlotPixel@xpos xpos `uc  1 a 1 14 ]
+[v glcd_PlotPixel@xpos xpos `uc  1 a 1 24 ]
 "549
 } 0
 "478
@@ -408,57 +425,57 @@
 {
 [v glcd_ReadByte@side side `uc  1 a 1 wreg ]
 "480
-[v glcd_ReadByte@data data `uc  1 a 1 1 ]
+[v glcd_ReadByte@data data `uc  1 a 1 11 ]
 "478
 [v glcd_ReadByte@side side `uc  1 a 1 wreg ]
 "482
-[v glcd_ReadByte@side side `uc  1 a 1 0 ]
+[v glcd_ReadByte@side side `uc  1 a 1 10 ]
 "510
 } 0
 "7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
 "10
-[v ___awdiv@quotient quotient `i  1 a 2 6 ]
+[v ___awdiv@quotient quotient `i  1 a 2 16 ]
 "11
-[v ___awdiv@sign sign `uc  1 a 1 5 ]
-[v ___awdiv@counter counter `uc  1 a 1 4 ]
+[v ___awdiv@sign sign `uc  1 a 1 15 ]
+[v ___awdiv@counter counter `uc  1 a 1 14 ]
 "7
-[v ___awdiv@dividend dividend `i  1 p 2 0 ]
-[v ___awdiv@divisor divisor `i  1 p 2 2 ]
+[v ___awdiv@dividend dividend `i  1 p 2 10 ]
+[v ___awdiv@divisor divisor `i  1 p 2 12 ]
 "41
 } 0
-"48 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\screen.c
+"48 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\screen.c
 [v _display_auteur display_auteur `(v  1 e 1 0 ]
 {
 "53
-[v display_auteur@string4 string4 `[8]uc  1 a 8 25 ]
+[v display_auteur@string4 string4 `[8]uc  1 a 8 35 ]
 "54
-[v display_auteur@string5 string5 `[6]uc  1 a 6 33 ]
+[v display_auteur@string5 string5 `[6]uc  1 a 6 43 ]
 "51
-[v display_auteur@string2 string2 `[5]uc  1 a 5 39 ]
+[v display_auteur@string2 string2 `[5]uc  1 a 5 49 ]
 "50
-[v display_auteur@string1 string1 `[3]uc  1 a 3 44 ]
+[v display_auteur@string1 string1 `[3]uc  1 a 3 54 ]
 "52
-[v display_auteur@string3 string3 `[2]uc  1 a 2 47 ]
+[v display_auteur@string3 string3 `[2]uc  1 a 2 57 ]
 "49
-[v display_auteur@F3250 F3250 `[3]uc  1 s 3 F3250 ]
+[v display_auteur@F3252 F3252 `[3]uc  1 s 3 F3252 ]
 "50
-[v display_auteur@F3252 F3252 `[5]uc  1 s 5 F3252 ]
+[v display_auteur@F3254 F3254 `[5]uc  1 s 5 F3254 ]
 "51
-[v display_auteur@F3254 F3254 `[2]uc  1 s 2 F3254 ]
+[v display_auteur@F3256 F3256 `[2]uc  1 s 2 F3256 ]
 "52
-[v display_auteur@F3256 F3256 `[8]uc  1 s 8 F3256 ]
+[v display_auteur@F3258 F3258 `[8]uc  1 s 8 F3258 ]
 "53
-[v display_auteur@F3258 F3258 `[6]uc  1 s 6 F3258 ]
+[v display_auteur@F3260 F3260 `[6]uc  1 s 6 F3260 ]
 "75
 } 0
-"698 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\KS0108.c
+"698 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\KS0108.c
 [v _glcd_WriteString glcd_WriteString `(v  1 e 1 0 ]
 {
-[v glcd_WriteString@str str `*.39uc  1 p 2 19 ]
-[v glcd_WriteString@font font `uc  1 p 1 21 ]
-[v glcd_WriteString@color color `uc  1 p 1 22 ]
+[v glcd_WriteString@str str `*.39uc  1 p 2 29 ]
+[v glcd_WriteString@font font `uc  1 p 1 31 ]
+[v glcd_WriteString@color color `uc  1 p 1 32 ]
 "708
 } 0
 "604
@@ -466,17 +483,17 @@
 {
 [v glcd_WriteChar8X8@ch ch `uc  1 a 1 wreg ]
 "608
-[v glcd_WriteChar8X8@chr chr `ui  1 a 2 13 ]
+[v glcd_WriteChar8X8@chr chr `ui  1 a 2 24 ]
 "607
-[v glcd_WriteChar8X8@side side `uc  1 a 1 18 ]
+[v glcd_WriteChar8X8@side side `uc  1 a 1 28 ]
 "606
-[v glcd_WriteChar8X8@i i `uc  1 a 1 17 ]
-[v glcd_WriteChar8X8@xpos xpos `uc  1 a 1 16 ]
+[v glcd_WriteChar8X8@i i `uc  1 a 1 27 ]
+[v glcd_WriteChar8X8@xpos xpos `uc  1 a 1 26 ]
 "604
 [v glcd_WriteChar8X8@ch ch `uc  1 a 1 wreg ]
-[v glcd_WriteChar8X8@color color `uc  1 p 1 10 ]
+[v glcd_WriteChar8X8@color color `uc  1 p 1 20 ]
 "607
-[v glcd_WriteChar8X8@ch ch `uc  1 a 1 15 ]
+[v glcd_WriteChar8X8@ch ch `uc  1 a 1 23 ]
 "646
 } 0
 "652
@@ -484,15 +501,15 @@
 {
 [v glcd_WriteChar3x6@ch ch `uc  1 a 1 wreg ]
 "655
-[v glcd_WriteChar3x6@side side `uc  1 a 1 16 ]
+[v glcd_WriteChar3x6@side side `uc  1 a 1 26 ]
 "654
-[v glcd_WriteChar3x6@i i `uc  1 a 1 15 ]
-[v glcd_WriteChar3x6@xpos xpos `uc  1 a 1 13 ]
+[v glcd_WriteChar3x6@i i `uc  1 a 1 25 ]
+[v glcd_WriteChar3x6@xpos xpos `uc  1 a 1 23 ]
 "652
 [v glcd_WriteChar3x6@ch ch `uc  1 a 1 wreg ]
-[v glcd_WriteChar3x6@color color `uc  1 p 1 10 ]
+[v glcd_WriteChar3x6@color color `uc  1 p 1 20 ]
 "655
-[v glcd_WriteChar3x6@ch ch `uc  1 a 1 14 ]
+[v glcd_WriteChar3x6@ch ch `uc  1 a 1 24 ]
 "692
 } 0
 "579
@@ -500,12 +517,12 @@
 {
 [v glcd_SetCursor@xpos xpos `uc  1 a 1 wreg ]
 "581
-[v glcd_SetCursor@side side `uc  1 a 1 11 ]
+[v glcd_SetCursor@side side `uc  1 a 1 21 ]
 "579
 [v glcd_SetCursor@xpos xpos `uc  1 a 1 wreg ]
-[v glcd_SetCursor@ypos ypos `uc  1 p 1 10 ]
+[v glcd_SetCursor@ypos ypos `uc  1 p 1 20 ]
 "581
-[v glcd_SetCursor@xpos xpos `uc  1 a 1 12 ]
+[v glcd_SetCursor@xpos xpos `uc  1 a 1 22 ]
 "599
 } 0
 "554
@@ -513,12 +530,12 @@
 {
 [v glcd_FillScreen@color color `uc  1 a 1 wreg ]
 "556
-[v glcd_FillScreen@i i `uc  1 a 1 12 ]
-[v glcd_FillScreen@j j `uc  1 a 1 11 ]
+[v glcd_FillScreen@i i `uc  1 a 1 22 ]
+[v glcd_FillScreen@j j `uc  1 a 1 21 ]
 "554
 [v glcd_FillScreen@color color `uc  1 a 1 wreg ]
 "558
-[v glcd_FillScreen@color color `uc  1 a 1 10 ]
+[v glcd_FillScreen@color color `uc  1 a 1 20 ]
 "574
 } 0
 "443
@@ -526,47 +543,170 @@
 {
 [v glcd_WriteByte@side side `uc  1 a 1 wreg ]
 [v glcd_WriteByte@side side `uc  1 a 1 wreg ]
-[v glcd_WriteByte@data data `uc  1 p 1 8 ]
+[v glcd_WriteByte@data data `uc  1 p 1 18 ]
 "445
-[v glcd_WriteByte@side side `uc  1 a 1 9 ]
+[v glcd_WriteByte@side side `uc  1 a 1 19 ]
 "472
 } 0
-"22 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\7segment.c
+"22 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\7segment.c
 [v _display_7segment display_7segment `(v  1 e 1 0 ]
 {
 "44
 } 0
-"35 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\rectangle.c
+"35 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\rectangle.c
 [v _PWM1_setDC PWM1_setDC `(v  1 e 1 0 ]
 {
-[v PWM1_setDC@dutycycle dutycycle `i  1 p 2 0 ]
+[v PWM1_setDC@dutycycle dutycycle `i  1 p 2 10 ]
 "58
 } 0
 "3
 [v _PWM1_Init PWM1_Init `(v  1 e 1 0 ]
 {
-[v PWM1_Init@frequence frequence `l  1 p 4 14 ]
+[v PWM1_Init@frequence frequence `l  1 p 4 24 ]
 "32
 } 0
 "7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
 {
 "10
-[v ___aldiv@quotient quotient `l  1 a 4 10 ]
+[v ___aldiv@quotient quotient `l  1 a 4 20 ]
 "11
-[v ___aldiv@sign sign `uc  1 a 1 9 ]
-[v ___aldiv@counter counter `uc  1 a 1 8 ]
+[v ___aldiv@sign sign `uc  1 a 1 19 ]
+[v ___aldiv@counter counter `uc  1 a 1 18 ]
 "7
-[v ___aldiv@dividend dividend `l  1 p 4 0 ]
-[v ___aldiv@divisor divisor `l  1 p 4 4 ]
+[v ___aldiv@dividend dividend `l  1 p 4 10 ]
+[v ___aldiv@divisor divisor `l  1 p 4 14 ]
 "41
 } 0
-"22 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\Interrupt.c
+"30 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\Interrupt.c
 [v _irq_handle irq_handle `IIH(v  1 e 1 0 ]
 {
-"43
+"74
 } 0
-"72 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\7segment.c
+"554 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\KS0108.c
+[v i2_glcd_FillScreen glcd_FillScreen `(v  1 e 1 0 ]
+{
+[v i2glcd_FillScreen@color color `uc  1 a 1 wreg ]
+[v i2glcd_FillScreen@i glcd_FillScreen `uc  1 a 1 12 ]
+[v i2glcd_FillScreen@j glcd_FillScreen `uc  1 a 1 11 ]
+[v i2glcd_FillScreen@color color `uc  1 a 1 wreg ]
+"558
+[v i2glcd_FillScreen@color color `uc  1 a 1 10 ]
+"574
+} 0
+"77 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\screen.c
+[v i2_display_menu display_menu `(v  1 e 1 0 ]
+{
+[v i2display_menu@string3 display_menu `[16]uc  1 a 16 52 ]
+[v i2display_menu@string1 display_menu `[16]uc  1 a 16 36 ]
+[v i2display_menu@string2 display_menu `[15]uc  1 a 15 68 ]
+[v i2display_menu@string5 display_menu `[2]uc  1 a 2 85 ]
+[v i2display_menu@string4 display_menu `[2]uc  1 a 2 83 ]
+"112
+} 0
+"698 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\KS0108.c
+[v i2_glcd_WriteString glcd_WriteString `(v  1 e 1 0 ]
+{
+[v i2glcd_WriteString@str str `*.39uc  1 p 2 19 ]
+[v i2glcd_WriteString@font font `uc  1 p 1 21 ]
+[v i2glcd_WriteString@color color `uc  1 p 1 22 ]
+"708
+} 0
+"604
+[v i2_glcd_WriteChar8X8 glcd_WriteChar8X8 `(v  1 e 1 0 ]
+{
+[v i2glcd_WriteChar8X8@ch ch `uc  1 a 1 wreg ]
+[v i2glcd_WriteChar8X8@chr glcd_WriteChar8X8 `ui  1 a 2 14 ]
+[v i2glcd_WriteChar8X8@side glcd_WriteChar8X8 `uc  1 a 1 18 ]
+[v i2glcd_WriteChar8X8@i glcd_WriteChar8X8 `uc  1 a 1 17 ]
+[v i2glcd_WriteChar8X8@xpos glcd_WriteChar8X8 `uc  1 a 1 16 ]
+[v i2glcd_WriteChar8X8@ch ch `uc  1 a 1 wreg ]
+[v i2glcd_WriteChar8X8@color color `uc  1 p 1 10 ]
+"607
+[v i2glcd_WriteChar8X8@ch ch `uc  1 a 1 13 ]
+"646
+} 0
+"652
+[v i2_glcd_WriteChar3x6 glcd_WriteChar3x6 `(v  1 e 1 0 ]
+{
+[v i2glcd_WriteChar3x6@ch ch `uc  1 a 1 wreg ]
+[v i2glcd_WriteChar3x6@side glcd_WriteChar3x6 `uc  1 a 1 16 ]
+[v i2glcd_WriteChar3x6@i glcd_WriteChar3x6 `uc  1 a 1 15 ]
+[v i2glcd_WriteChar3x6@xpos glcd_WriteChar3x6 `uc  1 a 1 13 ]
+[v i2glcd_WriteChar3x6@ch ch `uc  1 a 1 wreg ]
+[v i2glcd_WriteChar3x6@color color `uc  1 p 1 10 ]
+"655
+[v i2glcd_WriteChar3x6@ch ch `uc  1 a 1 14 ]
+"692
+} 0
+"579
+[v i2_glcd_SetCursor glcd_SetCursor `(v  1 e 1 0 ]
+{
+[v i2glcd_SetCursor@xpos xpos `uc  1 a 1 wreg ]
+[v i2glcd_SetCursor@side glcd_SetCursor `uc  1 a 1 12 ]
+[v i2glcd_SetCursor@xpos xpos `uc  1 a 1 wreg ]
+[v i2glcd_SetCursor@ypos ypos `uc  1 p 1 10 ]
+"581
+[v i2glcd_SetCursor@xpos xpos `uc  1 a 1 11 ]
+"599
+} 0
+"3 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\screen.c
+[v i2_display_line display_line `(v  1 e 1 0 ]
+{
+[v i2display_line@i_406 display_line `i  1 a 2 34 ]
+[v i2display_line@j_405 display_line `i  1 a 2 32 ]
+[v i2display_line@i display_line `i  1 a 2 30 ]
+[v i2display_line@j display_line `i  1 a 2 28 ]
+[v i2display_line@x x `i  1 p 2 17 ]
+[v i2display_line@y y `i  1 p 2 19 ]
+[v i2display_line@final_x final_x `i  1 p 2 21 ]
+[v i2display_line@final_y final_y `i  1 p 2 23 ]
+"26
+} 0
+"515 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\KS0108.c
+[v i2_glcd_PlotPixel glcd_PlotPixel `(v  1 e 1 0 ]
+{
+[v i2glcd_PlotPixel@xpos xpos `uc  1 a 1 wreg ]
+[v i2glcd_PlotPixel@side glcd_PlotPixel `uc  1 a 1 16 ]
+[v i2glcd_PlotPixel@data glcd_PlotPixel `uc  1 a 1 15 ]
+[v i2glcd_PlotPixel@xpos xpos `uc  1 a 1 wreg ]
+[v i2glcd_PlotPixel@ypos ypos `uc  1 p 1 10 ]
+[v i2glcd_PlotPixel@color color `uc  1 p 1 11 ]
+"518
+[v i2glcd_PlotPixel@xpos xpos `uc  1 a 1 14 ]
+"549
+} 0
+"443
+[v i2_glcd_WriteByte glcd_WriteByte `(v  1 e 1 0 ]
+{
+[v i2glcd_WriteByte@side side `uc  1 a 1 wreg ]
+[v i2glcd_WriteByte@side side `uc  1 a 1 wreg ]
+[v i2glcd_WriteByte@data data `uc  1 p 1 8 ]
+"445
+[v i2glcd_WriteByte@side side `uc  1 a 1 9 ]
+"472
+} 0
+"478
+[v i2_glcd_ReadByte glcd_ReadByte `(uc  1 e 1 0 ]
+{
+[v i2glcd_ReadByte@side side `uc  1 a 1 wreg ]
+[v i2glcd_ReadByte@data glcd_ReadByte `uc  1 a 1 1 ]
+[v i2glcd_ReadByte@side side `uc  1 a 1 wreg ]
+"482
+[v i2glcd_ReadByte@side side `uc  1 a 1 0 ]
+"510
+} 0
+"7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\awdiv.c
+[v i2___awdiv __awdiv `(i  1 e 2 0 ]
+{
+[v i2___awdiv@quotient __awdiv `i  1 a 2 6 ]
+[v i2___awdiv@sign __awdiv `uc  1 a 1 5 ]
+[v i2___awdiv@counter __awdiv `uc  1 a 1 4 ]
+[v i2___awdiv@dividend dividend `i  1 p 2 0 ]
+[v i2___awdiv@divisor divisor `i  1 p 2 2 ]
+"41
+} 0
+"72 C:\Users\jules\OneDrive\Documents\GitHub\oscilloscope_mcu\projet_vGit.X\7segment.c
 [v _calcul_7segment calcul_7segment `(v  1 e 1 0 ]
 {
 "79
@@ -640,17 +780,17 @@
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S950 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S968 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S955 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S958 . 4 `l 1 i 4 0 `d 1 f 4 0 `S950 1 fAsBytes 4 0 `S955 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S958  1 a 4 33 ]
+[s S973 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S976 . 4 `l 1 i 4 0 `d 1 f 4 0 `S968 1 fAsBytes 4 0 `S973 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S976  1 a 4 33 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 27 ]
-[s S1026 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S1044 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S1029 . 2 `s 1 i 2 0 `us 1 n 2 0 `S1026 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S1029  1 a 2 37 ]
+[u S1047 . 2 `s 1 i 2 0 `us 1 n 2 0 `S1044 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S1047  1 a 2 37 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 32 ]
 "11

@@ -1,11 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"3625 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3625: extern volatile unsigned char TRISB __attribute__((address(0xF93)));
-[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
-"2453
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2453: extern volatile unsigned char PORTB __attribute__((address(0xF81)));
-[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
+"4 ./Interrupt.h
+[; ;./Interrupt.h: 4: void initMyPIC18F(void);
+[v _initMyPIC18F `(v ~T0 @X0 0 ef ]
 "31 ./KS0108.h
 [; ;./KS0108.h: 31: extern void glcd_Init(unsigned char mode);
 [; ;./KS0108.h: 31: extern void glcd_Init(unsigned char mode);
@@ -22,9 +19,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4
 [; ;./rectangle.h: 4: void PWM1_setDC(int dutycycle);
 [v _PWM1_setDC `(v ~T0 @X0 0 ef1`i ]
-"4 ./Interrupt.h
-[; ;./Interrupt.h: 4: void initMyPIC18F(void);
-[v _initMyPIC18F `(v ~T0 @X0 0 ef ]
 "6 ./screen.h
 [; ;./screen.h: 6: void display_menu(void);
 [v _display_menu `(v ~T0 @X0 0 ef ]
@@ -598,6 +592,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x CPUDIV = OSC1_PLL2 ]
 "19
 [p x PBADEN = OFF ]
+"21
+[v _currently_in_menu `i ~T0 @X0 1 e ]
+"22
+[v _menu_selector `i ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "3 main.c
 [; ;main.c: 3: void main(void)
@@ -607,52 +605,49 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _main ]
 [f ]
-"6
-[; ;main.c: 6:     TRISB = 0;
-[e = _TRISB -> -> 0 `i `uc ]
-"7
-[; ;main.c: 7:     PORTB = 0;
-[e = _PORTB -> -> 0 `i `uc ]
-"8
-[; ;main.c: 8:     glcd_Init(1);
-[e ( _glcd_Init (1 -> -> 1 `i `uc ]
 "9
-[; ;main.c: 9:     display_titre();
-[e ( _display_titre ..  ]
-"10
-[; ;main.c: 10:     display_auteur();
-[e ( _display_auteur ..  ]
-"11
-[; ;main.c: 11:     PWM1_Init(1000);
-[e ( _PWM1_Init (1 -> -> 1000 `i `l ]
-"12
-[; ;main.c: 12:     PWM1_setDC(50);
-[e ( _PWM1_setDC (1 -> 50 `i ]
-"13
-[; ;main.c: 13:     initMyPIC18F();
+[; ;main.c: 9:     initMyPIC18F();
 [e ( _initMyPIC18F ..  ]
-"15
-[; ;main.c: 15:     while(1)
-[e :U 369 ]
+"10
+[; ;main.c: 10:     glcd_Init(1);
+[e ( _glcd_Init (1 -> -> 1 `i `uc ]
+"11
+[; ;main.c: 11:     display_titre();
+[e ( _display_titre ..  ]
+"12
+[; ;main.c: 12:     display_auteur();
+[e ( _display_auteur ..  ]
+"13
+[; ;main.c: 13:     PWM1_Init(1000);
+[e ( _PWM1_Init (1 -> -> 1000 `i `l ]
+"14
+[; ;main.c: 14:     PWM1_setDC(50);
+[e ( _PWM1_setDC (1 -> 50 `i ]
 "16
-[; ;main.c: 16:     {
-{
+[; ;main.c: 16:     menu_selector = 0;
+[e = _menu_selector -> 0 `i ]
 "17
-[; ;main.c: 17:         display_menu();
-[e ( _display_menu ..  ]
+[; ;main.c: 17:     while(1)
+[e :U 369 ]
 "18
-[; ;main.c: 18:         ADCON0bits.GO_DONE = 1;
-[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
+[; ;main.c: 18:     {
+{
 "19
-[; ;main.c: 19:         display_7segment();
-[e ( _display_7segment ..  ]
+[; ;main.c: 19:         display_menu();
+[e ( _display_menu ..  ]
+"20
+[; ;main.c: 20:         ADCON0bits.GO_DONE = 1;
+[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
 "21
-[; ;main.c: 21:     }
+[; ;main.c: 21:         display_7segment();
+[e ( _display_7segment ..  ]
+"22
+[; ;main.c: 22:     }
 }
 [e :U 368 ]
 [e $U 369  ]
 [e :U 370 ]
-"22
-[; ;main.c: 22: }
+"23
+[; ;main.c: 23: }
 [e :UE 367 ]
 }

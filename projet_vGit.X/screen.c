@@ -76,12 +76,14 @@ void display_auteur(void)
 
 void display_menu(void)
 {
+    currently_in_menu = 1;
     unsigned char string1[16] = {'C','h','o','i','s','i','r',' ','u','n',' ', 'm', 'o', 'd', 'e', '\0'};
     unsigned char string2[15] = {'1','.','O','s','c','i','l','l','o','s','c','o','p','e','\0'};
     unsigned char string3[16] = {'2','.','R','e','c','t','a','n','g','u','l','a','i','r','e','\0'};
     unsigned char string4[2] = {'1','\0'};
     unsigned char string5[2] = {'2','\0'};
     
+    //Ecriture du menu
     glcd_SetCursor(2,0);				//place le curseur
 	glcd_WriteString(string1,f8X8,1);	//ecrit 
 	glcd_SetCursor(2,2);				//place le curseur
@@ -89,8 +91,20 @@ void display_menu(void)
 	glcd_SetCursor(2,3);				//place le curseur
 	glcd_WriteString(string3,f8X8,1);	//ecrit 
     glcd_SetCursor(2,3);				//place le curseur
-	glcd_WriteString(string3,f8X8,1);
-    display_line(42,52,50,52);
+    //Numéros
+    glcd_SetCursor(42,5);
+	glcd_WriteString(string4,f8X8,1);
+    glcd_SetCursor(82,5);				//place le curseur
+	glcd_WriteString(string5,f8X8,1);
+    
+    //Where to display our cursor
+    if(currently_in_menu == 1 && menu_selector == 0)
+        display_line(42,52,50,52);
+    else if(currently_in_menu == 1 && menu_selector ==1)
+        display_line(82,52,90,52);
+    else
+        asm("NOP");
+        
 	//__delay_ms(2000);					//attend 2s
 	//glcd_FillScreen(0);					//efface l'ecran	
 	//__delay_us(1);

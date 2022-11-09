@@ -5694,6 +5694,9 @@ int correspondance_7segment(int val);
 #pragma config MCLRE = ON
 #pragma config CPUDIV = OSC1_PLL2
 #pragma config PBADEN = OFF
+
+int currently_in_menu;
+int menu_selector;
 # 1 "screen.c" 2
 
 
@@ -5773,11 +5776,13 @@ void display_auteur(void)
 
 void display_menu(void)
 {
+    currently_in_menu = 1;
     unsigned char string1[16] = {'C','h','o','i','s','i','r',' ','u','n',' ', 'm', 'o', 'd', 'e', '\0'};
     unsigned char string2[15] = {'1','.','O','s','c','i','l','l','o','s','c','o','p','e','\0'};
     unsigned char string3[16] = {'2','.','R','e','c','t','a','n','g','u','l','a','i','r','e','\0'};
     unsigned char string4[2] = {'1','\0'};
     unsigned char string5[2] = {'2','\0'};
+
 
     glcd_SetCursor(2,0);
  glcd_WriteString(string1,1,1);
@@ -5786,8 +5791,20 @@ void display_menu(void)
  glcd_SetCursor(2,3);
  glcd_WriteString(string3,1,1);
     glcd_SetCursor(2,3);
- glcd_WriteString(string3,1,1);
-    display_line(42,52,50,52);
+
+    glcd_SetCursor(42,5);
+ glcd_WriteString(string4,1,1);
+    glcd_SetCursor(82,5);
+ glcd_WriteString(string5,1,1);
+
+
+    if(currently_in_menu == 1 && menu_selector == 0)
+        display_line(42,52,50,52);
+    else if(currently_in_menu == 1 && menu_selector ==1)
+        display_line(82,52,90,52);
+    else
+        __asm("NOP");
+
 
 
 

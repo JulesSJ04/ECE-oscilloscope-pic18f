@@ -5694,7 +5694,13 @@ int correspondance_7segment(int val);
 #pragma config MCLRE = ON
 #pragma config CPUDIV = OSC1_PLL2
 #pragma config PBADEN = OFF
+
+int currently_in_menu;
+int menu_selector;
 # 1 "Interrupt.c" 2
+
+
+int double_edge = 0;
 
 
 void initMyPIC18F(void)
@@ -5709,10 +5715,15 @@ void initMyPIC18F(void)
     TRISA = 0b11110000;
     PORTA = 0b00000000;
 
+
+    TRISB = 0b11000000;
+    PORTB = 0x00;
+
     INTCONbits.GIE = 1;
     PIE1bits.ADIE = 1;
     INTCONbits.PEIE = 1;
     INTCONbits.RBIE = 1;
+
 }
 
 
@@ -5728,13 +5739,36 @@ void __attribute__((picinterrupt(("")))) irq_handle()
         INTCONbits.RBIF = 0;
         if(PORTBbits.RB6 == 1)
         {
+            if(double_edge == 0)
+            {
+                if(currently_in_menu==1 && menu_selector==0)
+                {
+                    menu_selector = 1;
+                    glcd_SetCursor(0,0);
+                    glcd_FillScreen(0);
+                    _delay((unsigned long)((1)*(8000000/4000000.0)));
+                    display_menu();
+                }
+                if(currently_in_menu==1 && menu_selector==1)
+                {
+                    menu_selector = 0;
+                    glcd_SetCursor(0,0);
+                    glcd_FillScreen(0);
+                    _delay((unsigned long)((1)*(8000000/4000000.0)));
+                    display_menu();
+                }
+                double_edge++;
+            }
+            else
+                double_edge = 0;
 
         }
         if(PORTBbits.RB7 == 1)
         {
 
         }
+        else
+            return;
     }
-
     return;
 }

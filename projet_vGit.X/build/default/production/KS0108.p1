@@ -563,6 +563,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x CPUDIV = OSC1_PLL2 ]
 "19
 [p x PBADEN = OFF ]
+"21
+[v _currently_in_menu `i ~T0 @X0 1 e ]
+"22
+[v _menu_selector `i ~T0 @X0 1 e ]
 "8 KS0108.c
 [; ;KS0108.c: 8: const unsigned char acceuil[1024]={
 [v _acceuil `Cuc ~T0 @X0 -> 1024 `i e ]
@@ -1594,10 +1598,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-[v F3235 `Cuc ~T0 @X0 -> 3 `i t ]
+[v F3237 `Cuc ~T0 @X0 -> 3 `i t ]
 "80
 [; ;KS0108.c: 80: const unsigned char Font3x6[65][3]={
-[v _Font3x6 `F3235 ~T0 @X0 -> 65 `i e ]
+[v _Font3x6 `F3237 ~T0 @X0 -> 65 `i e ]
 [i _Font3x6
 :U ..
 :U ..

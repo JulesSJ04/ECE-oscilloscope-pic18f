@@ -563,6 +563,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x CPUDIV = OSC1_PLL2 ]
 "19
 [p x PBADEN = OFF ]
+"21
+[v _currently_in_menu `i ~T0 @X0 1 e ]
+"22
+[v _menu_selector `i ~T0 @X0 1 e ]
 "3 rectangle.c
 [; ;rectangle.c: 3: void PWM1_Init(long frequence){
 [v _PWM1_Init `(v ~T0 @X0 1 ef1`l ]

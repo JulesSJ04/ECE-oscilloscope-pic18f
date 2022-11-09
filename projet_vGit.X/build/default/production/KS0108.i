@@ -5694,6 +5694,9 @@ int correspondance_7segment(int val);
 #pragma config MCLRE = ON
 #pragma config CPUDIV = OSC1_PLL2
 #pragma config PBADEN = OFF
+
+int currently_in_menu;
+int menu_selector;
 # 1 "KS0108.c" 2
 
 

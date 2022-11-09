@@ -5694,26 +5694,30 @@ int correspondance_7segment(int val);
 #pragma config MCLRE = ON
 #pragma config CPUDIV = OSC1_PLL2
 #pragma config PBADEN = OFF
+
+int currently_in_menu;
+int menu_selector;
 # 1 "main.c" 2
 
 
 void main(void)
 {
 
-    TRISB = 0;
-    PORTB = 0;
+
+
+
+    initMyPIC18F();
     glcd_Init(1);
     display_titre();
     display_auteur();
     PWM1_Init(1000);
     PWM1_setDC(50);
-    initMyPIC18F();
 
+    menu_selector = 0;
     while(1)
     {
         display_menu();
         ADCON0bits.GO_DONE = 1;
         display_7segment();
-
     }
 }
