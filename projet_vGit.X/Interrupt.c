@@ -43,6 +43,7 @@ void __interrupt() irq_handle()
             {
                 if(currently_in_menu==1 && menu_selector==0)
                 {
+                    have_to_FillScreen = 1;
                     menu_selector = 1; //On inverse l'état
                     glcd_SetCursor(0,0);
                     glcd_FillScreen(0); //On efface l'ecran 
@@ -51,6 +52,7 @@ void __interrupt() irq_handle()
                 }
                 if(currently_in_menu==1 && menu_selector==1)
                 {
+                    have_to_FillScreen = 1;
                     menu_selector = 0; //On inverse l'état
                     glcd_SetCursor(0,0);
                     glcd_FillScreen(0); //On efface l'ecran 

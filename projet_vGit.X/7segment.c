@@ -21,6 +21,11 @@ int global_FOUR;
 
 void display_7segment(void)
 {
+    PORTD = global_FOUR;
+    PORTAbits.RA3 = 1;
+    __delay_ms(DELAY);
+    PORTAbits.RA3 = 0;
+    
     PORTD = global_ONE;
     //PORTD = 255;
     PORTAbits.RA0 = 1;
@@ -36,11 +41,6 @@ void display_7segment(void)
     PORTAbits.RA2 = 1;
     __delay_ms(DELAY);
     PORTAbits.RA2 = 0;
-    
-    PORTD = global_FOUR;
-    PORTAbits.RA3 = 1;
-    __delay_ms(DELAY);
-    PORTAbits.RA3 = 0;
 }
 
 int correspondance_7segment(int val)

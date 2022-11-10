@@ -8,9 +8,10 @@ void main(void)
     //Reset PORTB
     initMyPIC18F();
     glcd_Init(1);
+    //glcd_Image();
     display_titre();
     display_auteur();
-    PWM1_Init(1000); //min 490 Hz - max 125000Hz
+    PWM1_Init(2000); //min 490 Hz - max 125000Hz
     PWM1_setDC(50); //0-100 dutyclycle
     
     menu_selector = 0;

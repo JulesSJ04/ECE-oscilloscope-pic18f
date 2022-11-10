@@ -1,7 +1,11 @@
 
 
 Microchip MPLAB XC8 Assembler V2.10 build 88905656 
+<<<<<<< HEAD
+                                                                                               Thu Nov 10 18:26:25 2022
+=======
                                                                                                Wed Nov 09 23:34:33 2022
+>>>>>>> parent of 4a05d67 (duty_cycle)
 
 Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
      1                           	processor	18F4550
@@ -4277,6 +4281,332 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   4263                           ; 2 bytes @ 0x55
   4264  000056                     	ds	2
   4265                           
+<<<<<<< HEAD
+  4266                           ; 4 bytes @ 0x1B
+  4267  00001C                     	ds	1
+  4268  00001D                     i2display_line@j:
+  4269                           	opt callstack 0
+  4270                           
+  4271                           ; 2 bytes @ 0x1C
+  4272  00001D                     	ds	2
+  4273  00001F                     i2display_line@i:
+  4274                           	opt callstack 0
+  4275                           
+  4276                           ; 2 bytes @ 0x1E
+  4277  00001F                     	ds	1
+  4278  000020                     i2___flmul@aexp:
+  4279                           	opt callstack 0
+  4280                           
+  4281                           ; 1 bytes @ 0x1F
+  4282  000020                     	ds	1
+  4283  000021                     i2___flmul@bexp:
+  4284                           	opt callstack 0
+  4285  000021                     i2display_line@j_409:
+  4286                           	opt callstack 0
+  4287                           
+  4288                           ; 2 bytes @ 0x20
+  4289  000021                     	ds	1
+  4290  000022                     i2___flmul@prod:
+  4291                           	opt callstack 0
+  4292                           
+  4293                           ; 4 bytes @ 0x21
+  4294  000022                     	ds	1
+  4295  000023                     i2display_line@i_410:
+  4296                           	opt callstack 0
+  4297                           
+  4298                           ; 2 bytes @ 0x22
+  4299  000023                     	ds	2
+  4300  000025                     i2display_menu@string1:
+  4301                           	opt callstack 0
+  4302                           
+  4303                           ; 16 bytes @ 0x24
+  4304  000025                     	ds	1
+  4305  000026                     i2___flmul@temp:
+  4306                           	opt callstack 0
+  4307                           
+  4308                           ; 2 bytes @ 0x25
+  4309  000026                     	ds	2
+  4310  000028                     calcul_7segment@adresh:
+  4311                           	opt callstack 0
+  4312                           
+  4313                           ; 2 bytes @ 0x27
+  4314  000028                     	ds	2
+  4315  00002A                     calcul_7segment@first_digit:
+  4316                           	opt callstack 0
+  4317                           
+  4318                           ; 2 bytes @ 0x29
+  4319  00002A                     	ds	2
+  4320  00002C                     calcul_7segment@second_digit:
+  4321                           	opt callstack 0
+  4322                           
+  4323                           ; 2 bytes @ 0x2B
+  4324  00002C                     	ds	2
+  4325  00002E                     calcul_7segment@third_digit:
+  4326                           	opt callstack 0
+  4327                           
+  4328                           ; 2 bytes @ 0x2D
+  4329  00002E                     	ds	2
+  4330  000030                     calcul_7segment@fourth_digit:
+  4331                           	opt callstack 0
+  4332                           
+  4333                           ; 2 bytes @ 0x2F
+  4334  000030                     	ds	2
+  4335  000032                     calcul_7segment@voltage_value:
+  4336                           	opt callstack 0
+  4337                           
+  4338                           ; 4 bytes @ 0x31
+  4339  000032                     	ds	3
+  4340  000035                     i2display_menu@string3:
+  4341                           	opt callstack 0
+  4342                           
+  4343                           ; 16 bytes @ 0x34
+  4344  000035                     	ds	16
+  4345  000045                     i2display_menu@string2:
+  4346                           	opt callstack 0
+  4347                           
+  4348                           ; 15 bytes @ 0x44
+  4349  000045                     	ds	15
+  4350  000054                     i2display_menu@string4:
+  4351                           	opt callstack 0
+  4352                           
+  4353                           ; 2 bytes @ 0x53
+  4354  000054                     	ds	2
+  4355  000056                     i2display_menu@string5:
+  4356                           	opt callstack 0
+  4357                           
+  4358                           ; 2 bytes @ 0x55
+  4359  000056                     	ds	2
+  4360                           
+  4361 ;;
+  4362 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+  4363 ;;
+  4364 ;; *************** function _main *****************
+  4365 ;; Defined at:
+  4366 ;;		line 3 in file "main.c"
+  4367 ;; Parameters:    Size  Location     Type
+  4368 ;;		None
+  4369 ;; Auto vars:     Size  Location     Type
+  4370 ;;		None
+  4371 ;; Return value:  Size  Location     Type
+  4372 ;;                  1    wreg      void 
+  4373 ;; Registers used:
+  4374 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+  4375 ;; Tracked objects:
+  4376 ;;		On entry : 0/0
+  4377 ;;		On exit  : 0/0
+  4378 ;;		Unchanged: 0/0
+  4379 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  4380 ;;      Params:         0       0       0       0       0       0       0       0       0
+  4381 ;;      Locals:         0       0       0       0       0       0       0       0       0
+  4382 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  4383 ;;      Totals:         0       0       0       0       0       0       0       0       0
+  4384 ;;Total ram usage:        0 bytes
+  4385 ;; Hardware stack levels required when called:    9
+  4386 ;; This function calls:
+  4387 ;;		_PWM1_Init
+  4388 ;;		_PWM1_setDC
+  4389 ;;		_display_7segment
+  4390 ;;		_display_auteur
+  4391 ;;		_display_menu
+  4392 ;;		_display_titre
+  4393 ;;		_glcd_Init
+  4394 ;;		_initMyPIC18F
+  4395 ;; This function is called by:
+  4396 ;;		Startup code after reset
+  4397 ;; This function uses a non-reentrant model
+  4398 ;;
+  4399                           
+  4400                           	psect	text0
+  4401  003046                     __ptext0:
+  4402                           	opt callstack 0
+  4403  003046                     _main:
+  4404                           	opt callstack 22
+  4405  003046                     
+  4406                           ;main.c: 9:     initMyPIC18F();
+  4407  003046  EC5F  F019         	call	_initMyPIC18F	;wreg free
+  4408  00304A                     
+  4409                           ;main.c: 10:     glcd_Init(1);
+  4410  00304A  0E01               	movlw	1
+  4411  00304C  ECED  F015         	call	_glcd_Init
+  4412  003050                     
+  4413                           ;main.c: 12:     display_titre();
+  4414  003050  EC29  F015         	call	_display_titre	;wreg free
+  4415  003054                     
+  4416                           ;main.c: 13:     display_auteur();
+  4417  003054  EC64  F00E         	call	_display_auteur	;wreg free
+  4418  003058                     
+  4419                           ;main.c: 14:     PWM1_Init(2000);
+  4420  003058  0ED0               	movlw	208
+  4421  00305A  0100               	movlb	0	; () banked
+  4422  00305C  6F78               	movwf	PWM1_Init@frequence& (0+255),b
+  4423  00305E  0E07               	movlw	7
+  4424  003060  6F79               	movwf	(PWM1_Init@frequence+1)& (0+255),b
+  4425  003062  0E00               	movlw	0
+  4426  003064  6F7A               	movwf	(PWM1_Init@frequence+2)& (0+255),b
+  4427  003066  0E00               	movlw	0
+  4428  003068  6F7B               	movwf	(PWM1_Init@frequence+3)& (0+255),b
+  4429  00306A  EC7D  F018         	call	_PWM1_Init	;wreg free
+  4430  00306E                     
+  4431                           ;main.c: 15:     PWM1_setDC(50);
+  4432  00306E  0E00               	movlw	0
+  4433  003070  0100               	movlb	0	; () banked
+  4434  003072  6F9C               	movwf	PWM1_setDC@dutycycle& (0+255),b
+  4435  003074  0E00               	movlw	0
+  4436  003076  6F9D               	movwf	(PWM1_setDC@dutycycle+1)& (0+255),b
+  4437  003078  0E48               	movlw	72
+  4438  00307A  6F9E               	movwf	(PWM1_setDC@dutycycle+2)& (0+255),b
+  4439  00307C  0E42               	movlw	66
+  4440  00307E  6F9F               	movwf	(PWM1_setDC@dutycycle+3)& (0+255),b
+  4441  003080  EC40  F016         	call	_PWM1_setDC	;wreg free
+  4442  003084                     
+  4443                           ;main.c: 17:     menu_selector = 0;
+  4444  003084  0E00               	movlw	0
+  4445  003086  0100               	movlb	0	; () banked
+  4446  003088  6FE0               	movwf	(_menu_selector+1)& (0+255),b
+  4447  00308A  0E00               	movlw	0
+  4448  00308C  6FDF               	movwf	_menu_selector& (0+255),b
+  4449  00308E                     l5569:
+  4450                           
+  4451                           ;main.c: 19:     {;main.c: 20:         display_menu();
+  4452  00308E  ECAC  F009         	call	_display_menu	;wreg free
+  4453  003092                     
+  4454                           ;main.c: 21:         ADCON0bits.GO_DONE = 1;
+  4455  003092  82C2               	bsf	194,1,c	;volatile
+  4456  003094                     
+  4457                           ;main.c: 22:         display_7segment();
+  4458  003094  EC58  F017         	call	_display_7segment	;wreg free
+  4459  003098  EF47  F018         	goto	l5569
+  4460  00309C  EF07  F000         	goto	start
+  4461  0030A0                     __end_of_main:
+  4462                           	opt callstack 0
+  4463                           
+  4464 ;; *************** function _initMyPIC18F *****************
+  4465 ;; Defined at:
+  4466 ;;		line 6 in file "Interrupt.c"
+  4467 ;; Parameters:    Size  Location     Type
+  4468 ;;		None
+  4469 ;; Auto vars:     Size  Location     Type
+  4470 ;;		None
+  4471 ;; Return value:  Size  Location     Type
+  4472 ;;                  1    wreg      void 
+  4473 ;; Registers used:
+  4474 ;;		wreg, status,2
+  4475 ;; Tracked objects:
+  4476 ;;		On entry : 0/0
+  4477 ;;		On exit  : 0/0
+  4478 ;;		Unchanged: 0/0
+  4479 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  4480 ;;      Params:         0       0       0       0       0       0       0       0       0
+  4481 ;;      Locals:         0       0       0       0       0       0       0       0       0
+  4482 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  4483 ;;      Totals:         0       0       0       0       0       0       0       0       0
+  4484 ;;Total ram usage:        0 bytes
+  4485 ;; Hardware stack levels used:    1
+  4486 ;; Hardware stack levels required when called:    5
+  4487 ;; This function calls:
+  4488 ;;		Nothing
+  4489 ;; This function is called by:
+  4490 ;;		_main
+  4491 ;; This function uses a non-reentrant model
+  4492 ;;
+  4493                           
+  4494                           	psect	text1
+  4495  0032BE                     __ptext1:
+  4496                           	opt callstack 0
+  4497  0032BE                     _initMyPIC18F:
+  4498                           	opt callstack 25
+  4499  0032BE                     
+  4500                           ;Interrupt.c: 9:     TRISD = 0b00000000;
+  4501  0032BE  0E00               	movlw	0
+  4502  0032C0  6E95               	movwf	149,c	;volatile
+  4503                           
+  4504                           ;Interrupt.c: 10:     PORTD = 0b00000000;
+  4505  0032C2  0E00               	movlw	0
+  4506  0032C4  6E83               	movwf	131,c	;volatile
+  4507                           
+  4508                           ;Interrupt.c: 12:     ADCON1 = 0b00001010;
+  4509  0032C6  0E0A               	movlw	10
+  4510  0032C8  6EC1               	movwf	193,c	;volatile
+  4511                           
+  4512                           ;Interrupt.c: 13:     ADCON0 = 0b00010001;
+  4513  0032CA  0E11               	movlw	17
+  4514  0032CC  6EC2               	movwf	194,c	;volatile
+  4515                           
+  4516                           ;Interrupt.c: 15:     TRISA = 0b11110000;
+  4517  0032CE  0EF0               	movlw	240
+  4518  0032D0  6E92               	movwf	146,c	;volatile
+  4519                           
+  4520                           ;Interrupt.c: 16:     PORTA = 0b00000000;
+  4521  0032D2  0E00               	movlw	0
+  4522  0032D4  6E80               	movwf	128,c	;volatile
+  4523                           
+  4524                           ;Interrupt.c: 19:     TRISB = 0b11000000;
+  4525  0032D6  0EC0               	movlw	192
+  4526  0032D8  6E93               	movwf	147,c	;volatile
+  4527                           
+  4528                           ;Interrupt.c: 20:     PORTB = 0x00;
+  4529  0032DA  0E00               	movlw	0
+  4530  0032DC  6E81               	movwf	129,c	;volatile
+  4531  0032DE                     
+  4532                           ;Interrupt.c: 22:     INTCONbits.GIE = 1;
+  4533  0032DE  8EF2               	bsf	242,7,c	;volatile
+  4534  0032E0                     
+  4535                           ;Interrupt.c: 23:     PIE1bits.ADIE = 1;
+  4536  0032E0  8C9D               	bsf	157,6,c	;volatile
+  4537  0032E2                     
+  4538                           ;Interrupt.c: 24:     INTCONbits.PEIE = 1;
+  4539  0032E2  8CF2               	bsf	242,6,c	;volatile
+  4540  0032E4                     
+  4541                           ;Interrupt.c: 25:     INTCONbits.RBIE = 1;
+  4542  0032E4  86F2               	bsf	242,3,c	;volatile
+  4543  0032E6  0012               	return		;funcret
+  4544  0032E8                     __end_of_initMyPIC18F:
+  4545                           	opt callstack 0
+  4546                           
+  4547 ;; *************** function _glcd_Init *****************
+  4548 ;; Defined at:
+  4549 ;;		line 404 in file "KS0108.c"
+  4550 ;; Parameters:    Size  Location     Type
+  4551 ;;  mode            1    wreg     unsigned char 
+  4552 ;; Auto vars:     Size  Location     Type
+  4553 ;;  mode            1   23[BANK0 ] unsigned char 
+  4554 ;; Return value:  Size  Location     Type
+  4555 ;;                  1    wreg      void 
+  4556 ;; Registers used:
+  4557 ;;		wreg, status,2, status,0, prodl, prodh, cstack
+  4558 ;; Tracked objects:
+  4559 ;;		On entry : 0/0
+  4560 ;;		On exit  : 0/0
+  4561 ;;		Unchanged: 0/0
+  4562 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  4563 ;;      Params:         0       0       0       0       0       0       0       0       0
+  4564 ;;      Locals:         0       1       0       0       0       0       0       0       0
+  4565 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  4566 ;;      Totals:         0       1       0       0       0       0       0       0       0
+  4567 ;;Total ram usage:        1 bytes
+  4568 ;; Hardware stack levels used:    1
+  4569 ;; Hardware stack levels required when called:    7
+  4570 ;; This function calls:
+  4571 ;;		_glcd_FillScreen
+  4572 ;;		_glcd_WriteByte
+  4573 ;; This function is called by:
+  4574 ;;		_main
+  4575 ;; This function uses a non-reentrant model
+  4576 ;;
+  4577                           
+  4578                           	psect	text2
+  4579  002BDA                     __ptext2:
+  4580                           	opt callstack 0
+  4581  002BDA                     _glcd_Init:
+  4582                           	opt callstack 23
+  4583                           
+  4584                           ;incstack = 0
+  4585                           ;glcd_Init@mode stored from wreg
+  4586  002BDA  0100               	movlb	0	; () banked
+  4587  002BDC  6F77               	movwf	glcd_Init@mode& (0+255),b
+  4588  002BDE                     
+  4589                           ;KS0108.c: 404: void glcd_Init(unsigned char mode);KS0108.c: 405: {;KS0108.c: 407:  PORT
+=======
   4266 ;;
   4267 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
   4268 ;;
@@ -4502,6 +4832,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   4488  0021AC  6F77               	movwf	glcd_Init@mode& (0+255),b
   4489  0021AE                     
   4490                           ;KS0108.c: 404: void glcd_Init(unsigned char mode);KS0108.c: 405: {;KS0108.c: 407:  PORT
+>>>>>>> parent of 4a05d67 (duty_cycle)
       +                          D = 0x00;
   4491  0021AE  0E00               	movlw	0
   4492  0021B0  6E83               	movwf	131,c	;volatile
@@ -12081,7 +12412,11 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.10 build 88905656 
+<<<<<<< HEAD
+Symbol Table                                                                                   Thu Nov 10 18:26:25 2022
+=======
 Symbol Table                                                                                   Wed Nov 09 23:34:33 2022
+>>>>>>> parent of 4a05d67 (duty_cycle)
 
                                _x 00D7                                 _y 00D6  
              display_menu@string1 0100               display_menu@string2 0120  
