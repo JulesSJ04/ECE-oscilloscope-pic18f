@@ -5708,10 +5708,11 @@ int have_to_FillScreen;
 
 int global_ADC_value;
 
-int global_ONE;
-int global_TWO;
-int global_THREE;
-int global_FOUR;
+
+int first_digit;
+int second_digit;
+int third_digit;
+int fourth_digit;
 # 1 "screen.c" 2
 
 
@@ -5719,14 +5720,10 @@ void display_line(int x, int y, int final_x,int final_y, int color)
 {
     if(x==final_x)
     {
-        for(int j=x-1;j<=x+1;j++)
-        {
             for(int i=y;i<final_y;i++)
             {
-                glcd_PlotPixel(j,i,color);
+                glcd_PlotPixel(x,i,color);
             }
-        }
-
     }
     if(y==final_y)
     {
@@ -5847,18 +5844,24 @@ void display_oscillo(int ADC_value)
 
     currently_in_menu = 0;
     currently_in_oscillo = 1;
-    int cpt;
+
 
     if(need_osc_refresh == 1)
     {
-        cpt = 0;
+
         need_osc_refresh = 0;
         unsigned char string1[2] = {'1','\0'};
         unsigned char string2[2] = {'2','\0'};
         unsigned char string3[2] = {'E','\0'};
+        unsigned char string4[2] = {'|','\0'};
 
-        display_line(27,0,27,64,1);
-        display_line(0,25,27,25,1);
+
+        for(int i = 0;i<8;i++)
+        {
+            glcd_SetCursor(15,i);
+            glcd_WriteString(string4,1,1);
+        }
+        display_line(0,17,20,17,1);
 
 
         if(current_oscillo_mode == 0)
@@ -5878,20 +5881,24 @@ void display_oscillo(int ADC_value)
         }
     }
 
+    char digit4 = (char)(fourth_digit+48);
+    char digit3 = (char)(third_digit+48);
+    char digit2 = (char)(second_digit+48);
+    char digit1 = (char)(first_digit+48);
 
-    unsigned char string_first_digit[3] = {'0','.' ,'\0'};
-    unsigned char string_second_digit[2] = {'0','\0'};
-    unsigned char string_third_digit[2] = {'0','\0'};
-    unsigned char string_fourth_digit[2] = {'0','\0'};
+    unsigned char string_fourth_digit[3] = {digit4,'.','\0'};
+    unsigned char string_third_digit[2] = {digit3,'\0'};
+    unsigned char string_second_digit[2] = {digit2,'\0'};
+    unsigned char string_first_digit[2] = {digit1,'\0'};
 
     glcd_SetCursor(2,3);
-    glcd_WriteString(string_first_digit,1,1);
-    glcd_SetCursor(2,4);
-    glcd_WriteString(string_second_digit,1,1);
-    glcd_SetCursor(2,5);
-    glcd_WriteString(string_third_digit,1,1);
-    glcd_SetCursor(2,6);
     glcd_WriteString(string_fourth_digit,1,1);
+    glcd_SetCursor(2,4);
+    glcd_WriteString(string_third_digit,1,1);
+    glcd_SetCursor(2,5);
+    glcd_WriteString(string_second_digit,1,1);
+    glcd_SetCursor(2,6);
+    glcd_WriteString(string_first_digit,1,1);
 
 
     if(cpt < 99)

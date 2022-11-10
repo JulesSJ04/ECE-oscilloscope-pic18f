@@ -13,6 +13,10 @@
 #define NINE 111
 #define DELAY 3
 
+int global_ONE;
+int global_TWO;
+int global_THREE;
+int global_FOUR;
 
 void display_7segment(void)
 {
@@ -66,10 +70,10 @@ int correspondance_7segment(int val)
 
 void calcul_7segment(int adresh)
 {
-    int first_digit;
+    /*int first_digit;
     int second_digit;
     int third_digit;
-    int fourth_digit;
+    int fourth_digit;*/
     
     float voltage_value = adresh * QUANTUM;
     

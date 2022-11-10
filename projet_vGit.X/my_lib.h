@@ -30,10 +30,11 @@ int have_to_FillScreen;
 
 int global_ADC_value;
    
-int global_ONE;
-int global_TWO;
-int global_THREE;
-int global_FOUR;
+
+int first_digit;
+int second_digit;
+int third_digit;
+int fourth_digit;
 /*
 #pragma config FOSC = HS
 #pragma config WDT = OFF

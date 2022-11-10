@@ -5708,10 +5708,11 @@ int have_to_FillScreen;
 
 int global_ADC_value;
 
-int global_ONE;
-int global_TWO;
-int global_THREE;
-int global_FOUR;
+
+int first_digit;
+int second_digit;
+int third_digit;
+int fourth_digit;
 # 1 "main.c" 2
 
 
@@ -5728,7 +5729,7 @@ void main(void)
     display_auteur();
     PWM1_Init(2000);
     PWM1_setDC(50);
-    need_osc_refresh = 0;
+    need_osc_refresh = 1;
     current_oscillo_mode = 0;
     menu_selector = 0;
     PORTAbits.RA5 = 1;

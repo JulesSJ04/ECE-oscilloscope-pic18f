@@ -5708,12 +5708,18 @@ int have_to_FillScreen;
 
 int global_ADC_value;
 
+
+int first_digit;
+int second_digit;
+int third_digit;
+int fourth_digit;
+# 1 "7segment.c" 2
+# 16 "7segment.c"
 int global_ONE;
 int global_TWO;
 int global_THREE;
 int global_FOUR;
-# 1 "7segment.c" 2
-# 17 "7segment.c"
+
 void display_7segment(void)
 {
     PORTD = global_FOUR;
@@ -5766,10 +5772,10 @@ int correspondance_7segment(int val)
 
 void calcul_7segment(int adresh)
 {
-    int first_digit;
-    int second_digit;
-    int third_digit;
-    int fourth_digit;
+
+
+
+
 
     float voltage_value = adresh * 0.0204919;
 

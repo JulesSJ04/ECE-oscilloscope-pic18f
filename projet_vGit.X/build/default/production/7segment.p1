@@ -547,18 +547,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./my_lib.h: 11: 
 [p x FOSC = HS ]
 "12
-[; ;./my_lib.h: 12: int global_ONE;
+[; ;./my_lib.h: 12: 
 [p x WDT = OFF ]
 "13
-[; ;./my_lib.h: 13: int global_TWO;
+[; ;./my_lib.h: 13: int first_digit;
 [p x PWRT = OFF ]
 "14
-[; ;./my_lib.h: 14: int global_THREE;
+[; ;./my_lib.h: 14: int second_digit;
 [p x BOR = OFF ]
 "15
-[; ;./my_lib.h: 15: int global_FOUR;
+[; ;./my_lib.h: 15: int third_digit;
 [p x LVP = OFF ]
 "16
+[; ;./my_lib.h: 16: int fourth_digit;
 [p x CPD = OFF ]
 "17
 [p x MCLRE = ON ]
@@ -582,136 +583,144 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _have_to_FillScreen `i ~T0 @X0 1 e ]
 "31
 [v _global_ADC_value `i ~T0 @X0 1 e ]
-"33
-[v _global_ONE `i ~T0 @X0 1 e ]
 "34
-[v _global_TWO `i ~T0 @X0 1 e ]
+[v _first_digit `i ~T0 @X0 1 e ]
 "35
-[v _global_THREE `i ~T0 @X0 1 e ]
+[v _second_digit `i ~T0 @X0 1 e ]
 "36
-[v _global_FOUR `i ~T0 @X0 1 e ]
-"17 7segment.c
-[v _display_7segment `(v ~T0 @X0 1 ef ]
+[v _third_digit `i ~T0 @X0 1 e ]
+"37
+[v _fourth_digit `i ~T0 @X0 1 e ]
+"16 7segment.c
+[v _global_ONE `i ~T0 @X0 1 e ]
+"17
+[v _global_TWO `i ~T0 @X0 1 e ]
 "18
+[v _global_THREE `i ~T0 @X0 1 e ]
+"19
+[v _global_FOUR `i ~T0 @X0 1 e ]
+"21
+[v _display_7segment `(v ~T0 @X0 1 ef ]
+"22
 {
 [e :U _display_7segment ]
 [f ]
-"19
+"23
 [e = _PORTD -> _global_FOUR `uc ]
-"20
-[e = . . _PORTAbits 0 3 -> -> 1 `i `uc ]
-"21
-[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"22
-[e = . . _PORTAbits 0 3 -> -> 0 `i `uc ]
 "24
-[e = _PORTD -> _global_ONE `uc ]
+[e = . . _PORTAbits 0 3 -> -> 1 `i `uc ]
+"25
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "26
-[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
-"27
-[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e = . . _PORTAbits 0 3 -> -> 0 `i `uc ]
 "28
-[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
+[e = _PORTD -> _global_ONE `uc ]
 "30
-[e = _PORTD -> _global_TWO `uc ]
+[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
 "31
-[e = . . _PORTAbits 0 1 -> -> 1 `i `uc ]
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "32
-[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"33
-[e = . . _PORTAbits 0 1 -> -> 0 `i `uc ]
+[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
+"34
+[e = _PORTD -> _global_TWO `uc ]
 "35
-[e = _PORTD -> _global_THREE `uc ]
+[e = . . _PORTAbits 0 1 -> -> 1 `i `uc ]
 "36
-[e = . . _PORTAbits 0 2 -> -> 1 `i `uc ]
-"37
 [e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"38
-[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
+"37
+[e = . . _PORTAbits 0 1 -> -> 0 `i `uc ]
 "39
+[e = _PORTD -> _global_THREE `uc ]
+"40
+[e = . . _PORTAbits 0 2 -> -> 1 `i `uc ]
+"41
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"42
+[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
+"43
 [e :UE 367 ]
 }
-"41
+"45
 [v _correspondance_7segment `(i ~T0 @X0 1 ef1`i ]
-"42
+"46
 {
 [e :U _correspondance_7segment ]
-"41
+"45
 [v _val `i ~T0 @X0 1 r1 ]
-"42
+"46
 [f ]
-"43
+"47
 [e $ ! == _val -> 0 `i 369  ]
-"44
+"48
 [e ) -> 63 `i ]
 [e $UE 368  ]
 [e $U 370  ]
-"45
+"49
 [e :U 369 ]
 [e $ ! == _val -> 1 `i 371  ]
-"46
+"50
 [e ) -> 6 `i ]
 [e $UE 368  ]
 [e $U 372  ]
-"47
+"51
 [e :U 371 ]
 [e $ ! == _val -> 2 `i 373  ]
-"48
+"52
 [e ) -> 91 `i ]
 [e $UE 368  ]
 [e $U 374  ]
-"49
+"53
 [e :U 373 ]
 [e $ ! == _val -> 3 `i 375  ]
-"50
+"54
 [e ) -> 79 `i ]
 [e $UE 368  ]
 [e $U 376  ]
-"51
+"55
 [e :U 375 ]
 [e $ ! == _val -> 4 `i 377  ]
-"52
+"56
 [e ) -> 102 `i ]
 [e $UE 368  ]
 [e $U 378  ]
-"53
+"57
 [e :U 377 ]
 [e $ ! == _val -> 5 `i 379  ]
-"54
+"58
 [e ) -> 109 `i ]
 [e $UE 368  ]
 [e $U 380  ]
-"55
+"59
 [e :U 379 ]
 [e $ ! == _val -> 6 `i 381  ]
-"56
+"60
 [e ) -> 125 `i ]
 [e $UE 368  ]
 [e $U 382  ]
-"57
+"61
 [e :U 381 ]
 [e $ ! == _val -> 7 `i 383  ]
-"58
+"62
 [e ) -> 7 `i ]
 [e $UE 368  ]
 [e $U 384  ]
-"59
+"63
 [e :U 383 ]
 [e $ ! == _val -> 8 `i 385  ]
-"60
+"64
 [e ) -> 127 `i ]
 [e $UE 368  ]
 [e $U 386  ]
-"61
+"65
 [e :U 385 ]
 [e $ ! == _val -> 9 `i 387  ]
-"62
+"66
 [e ) -> 111 `i ]
 [e $UE 368  ]
 [e $U 388  ]
-"63
+"67
 [e :U 387 ]
-"64
+"68
 [e ) -> 255 `i ]
 [e $UE 368  ]
 [e :U 388 ]
@@ -724,57 +733,49 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 374 ]
 [e :U 372 ]
 [e :U 370 ]
-"65
+"69
 [e :UE 368 ]
 }
-"67
+"71
 [v _calcul_7segment `(v ~T0 @X0 1 ef1`i ]
-"68
+"72
 {
 [e :U _calcul_7segment ]
-"67
-[v _adresh `i ~T0 @X0 1 r1 ]
-"68
-[f ]
-"69
-[v _first_digit `i ~T0 @X0 1 a ]
-"70
-[v _second_digit `i ~T0 @X0 1 a ]
 "71
-[v _third_digit `i ~T0 @X0 1 a ]
+[v _adresh `i ~T0 @X0 1 r1 ]
 "72
-[v _fourth_digit `i ~T0 @X0 1 a ]
-"74
+[f ]
+"78
 [v _voltage_value `f ~T0 @X0 1 a ]
 [e = _voltage_value -> * -> _adresh `d .0.0204919 `f ]
-"77
-[e = _fourth_digit -> _voltage_value `i ]
-"78
-[e =- _voltage_value -> _fourth_digit `f ]
-"79
-[e =* _voltage_value -> -> 10 `i `f ]
 "81
-[e = _third_digit -> _voltage_value `i ]
+[e = _fourth_digit -> _voltage_value `i ]
 "82
-[e =- _voltage_value -> _third_digit `f ]
+[e =- _voltage_value -> _fourth_digit `f ]
 "83
 [e =* _voltage_value -> -> 10 `i `f ]
 "85
-[e = _second_digit -> _voltage_value `i ]
+[e = _third_digit -> _voltage_value `i ]
 "86
-[e =- _voltage_value -> _second_digit `f ]
+[e =- _voltage_value -> _third_digit `f ]
 "87
 [e =* _voltage_value -> -> 10 `i `f ]
 "89
-[e = _first_digit -> _voltage_value `i ]
+[e = _second_digit -> _voltage_value `i ]
+"90
+[e =- _voltage_value -> _second_digit `f ]
 "91
-[e = _global_ONE ( _correspondance_7segment (1 _first_digit ]
-"92
-[e = _global_TWO ( _correspondance_7segment (1 _second_digit ]
+[e =* _voltage_value -> -> 10 `i `f ]
 "93
-[e = _global_THREE ( _correspondance_7segment (1 _third_digit ]
-"94
-[e = _global_FOUR + ( _correspondance_7segment (1 _fourth_digit -> 128 `i ]
+[e = _first_digit -> _voltage_value `i ]
 "95
+[e = _global_ONE ( _correspondance_7segment (1 _first_digit ]
+"96
+[e = _global_TWO ( _correspondance_7segment (1 _second_digit ]
+"97
+[e = _global_THREE ( _correspondance_7segment (1 _third_digit ]
+"98
+[e = _global_FOUR + ( _correspondance_7segment (1 _fourth_digit -> 128 `i ]
+"99
 [e :UE 389 ]
 }

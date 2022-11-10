@@ -605,18 +605,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./my_lib.h: 11: 
 [p x FOSC = HS ]
 "12
-[; ;./my_lib.h: 12: int global_ONE;
+[; ;./my_lib.h: 12: 
 [p x WDT = OFF ]
 "13
-[; ;./my_lib.h: 13: int global_TWO;
+[; ;./my_lib.h: 13: int first_digit;
 [p x PWRT = OFF ]
 "14
-[; ;./my_lib.h: 14: int global_THREE;
+[; ;./my_lib.h: 14: int second_digit;
 [p x BOR = OFF ]
 "15
-[; ;./my_lib.h: 15: int global_FOUR;
+[; ;./my_lib.h: 15: int third_digit;
 [p x LVP = OFF ]
 "16
+[; ;./my_lib.h: 16: int fourth_digit;
 [p x CPD = OFF ]
 "17
 [p x MCLRE = ON ]
@@ -640,14 +641,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _have_to_FillScreen `i ~T0 @X0 1 e ]
 "31
 [v _global_ADC_value `i ~T0 @X0 1 e ]
-"33
-[v _global_ONE `i ~T0 @X0 1 e ]
 "34
-[v _global_TWO `i ~T0 @X0 1 e ]
+[v _first_digit `i ~T0 @X0 1 e ]
 "35
-[v _global_THREE `i ~T0 @X0 1 e ]
+[v _second_digit `i ~T0 @X0 1 e ]
 "36
-[v _global_FOUR `i ~T0 @X0 1 e ]
+[v _third_digit `i ~T0 @X0 1 e ]
+"37
+[v _fourth_digit `i ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "3 main.c
 [; ;main.c: 3: void main(void)
@@ -676,8 +677,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 15:     PWM1_setDC(50);
 [e ( _PWM1_setDC (1 -> -> 50 `i `f ]
 "16
-[; ;main.c: 16:     need_osc_refresh = 0;
-[e = _need_osc_refresh -> 0 `i ]
+[; ;main.c: 16:     need_osc_refresh = 1;
+[e = _need_osc_refresh -> 1 `i ]
 "17
 [; ;main.c: 17:     current_oscillo_mode = 0;
 [e = _current_oscillo_mode -> 0 `i ]

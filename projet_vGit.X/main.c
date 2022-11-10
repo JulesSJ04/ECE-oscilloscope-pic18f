@@ -13,7 +13,7 @@ void main(void)
     display_auteur();
     PWM1_Init(2000); //min 490 Hz - max 125000Hz
     PWM1_setDC(50); //0-100 dutyclycle
-    need_osc_refresh = 0;
+    need_osc_refresh = 1;
     current_oscillo_mode = 0;
     menu_selector = 0;
     PORTAbits.RA5 = 1;
