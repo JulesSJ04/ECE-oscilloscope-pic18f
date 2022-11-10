@@ -302,7 +302,7 @@ const unsigned char Font8x8[2048] =
          50, 122,  72,  72, 122,  50,   0,   0, //'÷'
          50, 122,  74,  72, 120,  48,   0,   0, //'_'
          58, 123,  65,  65, 123, 122,  64,   0, //'_'
-         58, 122,  66,  64, 120, 120,  64,   0, //'•'
+         58, 122,  66,  64, 120, 120,  64,   0, //'?'
         154, 186, 160, 160, 250, 122,   0,   0, //'_'
           1,  25,  60, 102, 102,  60,  25,   1, //'+'
          61, 125,  64,  64, 125,  61,   0,   0, //'_'
@@ -406,14 +406,14 @@ void glcd_Init(unsigned char mode)
 	// Reset the display
 	PORTD = 0x00;					
 	GLCD_RST = 0;					
-	__delay_us(1);				
+	//__delay_us(1);				
 	GLCD_RST = 1;				
 
 	GLCD_E=0;
 	GLCD_CS1=0;
 	GLCD_CS2=0;
 	GLCD_RS=0;
-	__delay_us(1);        			//délai pour initialisation
+	//__delay_us(1);        			//délai pour initialisation
 
  	glcd_WriteByte(GLCD_LEFT,  0xC0);    // Specifie la première ligne RAM line en haut
   	glcd_WriteByte(GLCD_RIGHT, 0xC0);    //   de l'écran
@@ -459,12 +459,11 @@ void glcd_WriteByte(unsigned char side, unsigned char data)
 	WR_DATA = data;				// Placement des données sur le registre du GLCD
 
 	// Delay10TCYx (10); 			//délai 8,33ms
-    //__delay_ms(8);
 
 	GLCD_E = 1;					//Passage de E de 0 à 1
-	__delay_us(1); 				//délai 833ns revu a 500ns
+	//__delay_us(1); 				//délai 833ns revu a 500ns
 	GLCD_E = 0;					//Passage de E de 1 à 0
-	__delay_us(1); 				//délai 833ns revu a 500ns							
+	//__delay_us(1); 				//délai 833ns revu a 500ns							
 								// Le GLCD récupère les données !
 								
 	GLCD_CS1 = 0;
@@ -494,14 +493,13 @@ unsigned char data;
 	GLCD_RW = 1;			// Positionnement du bit pour lecture
 	
 	// Delay10TCYx (10); 		//délai 8,33ms
-    //__delay_ms(8);
 	
 	GLCD_E = 1;				//Passage de E de 0 à 1
-	__delay_us(1); 				//délai 833ns revu a 500ns
+	//__delay_us(1); 				//délai 833ns revu a 500ns
 	
 	data = RD_DATA;			// Récupération des données
 	GLCD_E = 0;				//Passage de E de 1 à 0
-	__delay_us(1); 				//délai 833ns revu a 500ns
+	//__delay_us(1); 				//délai 833ns revu a 500ns
 	
 	GLCD_CS1 = 0;
 	GLCD_CS2 = 0;				// relachement des ChipSelect

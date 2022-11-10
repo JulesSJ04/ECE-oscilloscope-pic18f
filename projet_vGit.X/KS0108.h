@@ -1,3 +1,4 @@
+#include <xc.h>
 
 #define 	LCD_WIDTH			128
 #define 	LCD_HEIGHT			64

@@ -20,6 +20,8 @@
 
 int currently_in_menu;
 int menu_selector; //1, 2
+
+int have_to_FillScreen;
     
 /*
 #pragma config FOSC = HS

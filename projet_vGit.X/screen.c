@@ -76,6 +76,13 @@ void display_auteur(void)
 
 void display_menu(void)
 {
+    if(have_to_FillScreen == 1)
+    {
+        have_to_FillScreen = 0;
+        glcd_FillScreen(0);					//efface l'ecran
+    }
+    
+    
     currently_in_menu = 1;
     unsigned char string1[16] = {'C','h','o','i','s','i','r',' ','u','n',' ', 'm', 'o', 'd', 'e', '\0'};
     unsigned char string2[15] = {'1','.','O','s','c','i','l','l','o','s','c','o','p','e','\0'};
@@ -99,15 +106,19 @@ void display_menu(void)
     
     //Where to display our cursor
     if(currently_in_menu == 1 && menu_selector == 0)
+    {
         display_line(42,52,50,52);
+    }
     else if(currently_in_menu == 1 && menu_selector ==1)
+    {
         display_line(82,52,90,52);
+    } 
     else
         asm("NOP");
-        
+          
 	//__delay_ms(2000);					//attend 2s
-	//glcd_FillScreen(0);					//efface l'ecran	
-	//__delay_us(1);
+		
+	//__delay_ms(1);
     
 }
 
