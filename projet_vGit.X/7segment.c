@@ -13,11 +13,6 @@
 #define NINE 111
 #define DELAY 3
 
-int global_ONE;
-int global_TWO;
-int global_THREE;
-int global_FOUR;
-
 
 void display_7segment(void)
 {

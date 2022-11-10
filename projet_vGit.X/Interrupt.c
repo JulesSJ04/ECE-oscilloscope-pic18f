@@ -32,7 +32,8 @@ void __interrupt() irq_handle()
     if(PIR1bits.ADIF == 1)
     {
         PIR1bits.ADIF = 0;
-        calcul_7segment(ADRESH);
+        global_ADC_value = ADRESH;
+        calcul_7segment(global_ADC_value);
     }
     if(INTCONbits.RBIF == 1) 
     {

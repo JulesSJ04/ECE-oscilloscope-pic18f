@@ -21,8 +21,18 @@
 int currently_in_menu;
 int menu_selector; //1, 2
 
+int current_oscillo_mode;
+int currently_in_oscillo;
+int need_osc_refresh;
+
 int have_to_FillScreen;
-    
+
+int global_ADC_value;
+   
+int global_ONE;
+int global_TWO;
+int global_THREE;
+int global_FOUR;
 /*
 #pragma config FOSC = HS
 #pragma config WDT = OFF

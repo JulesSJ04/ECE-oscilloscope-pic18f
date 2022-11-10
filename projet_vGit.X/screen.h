@@ -4,6 +4,7 @@
 void display_titre(void);
 void display_auteur(void);
 void display_menu(void);
-void display_line(int x, int y, int final_x,int final_y);
+void display_line(int x, int y, int final_x,int final_y, int color);
+void display_oscillo(int ADC_value);
 
 

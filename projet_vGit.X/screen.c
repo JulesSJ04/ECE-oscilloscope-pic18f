@@ -1,6 +1,6 @@
 #include "my_lib.h"
 
-void display_line(int x, int y, int final_x,int final_y)
+void display_line(int x, int y, int final_x,int final_y, int color)
 {
     if(x==final_x)
     {
@@ -8,7 +8,7 @@ void display_line(int x, int y, int final_x,int final_y)
         {
             for(int i=y;i<final_y;i++)
             {
-                glcd_PlotPixel(j,i,1);
+                glcd_PlotPixel(j,i,color);
             }
         }
 
@@ -19,7 +19,7 @@ void display_line(int x, int y, int final_x,int final_y)
         {
             for(int i=x;i<final_x;i++)
             {
-                glcd_PlotPixel(i,j,1);
+                glcd_PlotPixel(i,j,color);
             }
         }
     }
@@ -107,11 +107,11 @@ void display_menu(void)
     //Where to display our cursor
     if(currently_in_menu == 1 && menu_selector == 0)
     {
-        display_line(42,52,50,52);
+        display_line(42,52,50,52,1);
     }
     else if(currently_in_menu == 1 && menu_selector ==1)
     {
-        display_line(82,52,90,52);
+        display_line(82,52,90,52,1);
     } 
     else
         asm("NOP");
@@ -119,6 +119,77 @@ void display_menu(void)
 	//__delay_ms(2000);					//attend 2s
 		
 	//__delay_ms(1);
+    
+}
+
+void display_oscillo(int ADC_value)
+{
+    if(have_to_FillScreen == 1)
+    {
+        have_to_FillScreen = 0;
+        glcd_FillScreen(0);					//efface l'ecran
+    }
+    //Declaration des variables locales
+    currently_in_menu = 0;
+    currently_in_oscillo = 1;
+    int cpt;
+    
+    if(need_osc_refresh == 1) //Se refresh seulement si changement
+    {
+        cpt = 0;
+        unsigned char string1[2] = {'1','\0'};
+        unsigned char string2[2] = {'2','\0'};
+        unsigned char string3[2] = {'E','\0'};
+        //Dessin des barres du mode
+        display_line(27,0,27,64,1); //Ligne verticale
+        display_line(0,20,27,20,1); //Ligne verticale
+
+        //Affichage du mode de l'oscilloscope
+        if(current_oscillo_mode == 0)
+        {
+            glcd_SetCursor(2,1);
+            glcd_WriteString(string1,f8X8,1);
+        }
+        else if(current_oscillo_mode == 1)
+        {
+            glcd_SetCursor(2,1);
+            glcd_WriteString(string2,f8X8,1);
+        }
+        else
+        {
+            glcd_SetCursor(2,1);
+            glcd_WriteString(string3,f8X8,1);
+        }
+    }
+    
+    //Affichage de la tension analogique
+    unsigned char string_first_digit[3] = {(char)(global_FOUR+48),'.' ,'\0'};
+    unsigned char string_second_digit[2] = {(char)(global_THREE+48),'\0'};
+    unsigned char string_third_digit[2] = {(char)(global_TWO+48),'\0'};
+    unsigned char string_fourth_digit[2] = {(char)(global_ONE+48),'\0'};
+    
+    glcd_SetCursor(2,3);
+    glcd_WriteString(string_first_digit,f8X8,1);
+    glcd_SetCursor(2,4);
+    glcd_WriteString(string_second_digit,f8X8,1);
+    glcd_SetCursor(2,5);
+    glcd_WriteString(string_third_digit,f8X8,1);
+    glcd_SetCursor(2,6);
+    glcd_WriteString(string_fourth_digit,f8X8,1);
+    
+    //Affichage de la value de l'ADC
+    if(cpt < 100)
+    {
+        display_line(27,0,27,64,0);
+        glcd_PlotPixel(cpt+27,ADC_value,1);
+        ++cpt;
+    }
+    else if(cpt >= 100)
+    {
+        cpt = 0;
+        display_line(27,0,27,64,0);
+        glcd_PlotPixel(cpt+28,ADC_value,1);
+    }
     
 }
 

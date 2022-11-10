@@ -17,9 +17,10 @@ void main(void)
     menu_selector = 0;
     while(1)
     {
-        display_menu();
+        //display_menu();
         ADCON0bits.GO_DONE = 1;
-        display_7segment();
+        display_oscillo((global_ADC_value/255)*64);
+        //display_7segment();
     }
 }
 
