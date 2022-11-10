@@ -19,7 +19,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4
 [; ;./rectangle.h: 4: void PWM1_setDC(float dutycycle);
 [v _PWM1_setDC `(v ~T0 @X0 0 ef1`f ]
-"6672 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+"2320 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2320:     struct {
+[s S101 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S101 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 ]
+"2329
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2329:     struct {
+[s S102 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S102 . AN0 AN1 AN2 AN3 T0CKI AN4 OSC2 ]
+"2338
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2338:     struct {
+[s S103 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S103 . . VREFM VREFP . LVDIN ]
+"2345
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2345:     struct {
+[s S104 :5 `uc 1 :1 `uc 1 ]
+[n S104 . . HLVDIN ]
+"2349
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2349:     struct {
+[s S105 :1 `uc 1 ]
+[n S105 . ULPWUIN ]
+"2319
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2319: typedef union {
+[u S100 `S101 1 `S102 1 `S103 1 `S104 1 `S105 1 ]
+[n S100 . . . . . . ]
+"2353
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2353: extern volatile PORTAbits_t PORTAbits __attribute__((address(0xF80)));
+[v _PORTAbits `VS100 ~T0 @X0 0 e@3968 ]
+"6672
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6672:     struct {
 [s S273 :1 `uc 1 :1 `uc 1 ]
 [n S273 . . GO_NOT_DONE ]
@@ -61,6 +88,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8 ./screen.h
 [; ;./screen.h: 8: void display_oscillo(int ADC_value);
 [v _display_oscillo `(v ~T0 @X0 0 ef1`i ]
+"3 ./7segment.h
+[; ;./7segment.h: 3: void display_7segment(void);
+[v _display_7segment `(v ~T0 @X0 0 ef ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -572,18 +602,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "11 ./my_lib.h
-[; ;./my_lib.h: 11: int global_ONE;
+[; ;./my_lib.h: 11: 
 [p x FOSC = HS ]
 "12
-[; ;./my_lib.h: 12: int global_TWO;
+[; ;./my_lib.h: 12: int global_ONE;
 [p x WDT = OFF ]
 "13
-[; ;./my_lib.h: 13: int global_THREE;
+[; ;./my_lib.h: 13: int global_TWO;
 [p x PWRT = OFF ]
 "14
-[; ;./my_lib.h: 14: int global_FOUR;
+[; ;./my_lib.h: 14: int global_THREE;
 [p x BOR = OFF ]
 "15
+[; ;./my_lib.h: 15: int global_FOUR;
 [p x LVP = OFF ]
 "16
 [p x CPD = OFF ]
@@ -603,17 +634,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _currently_in_oscillo `i ~T0 @X0 1 e ]
 "26
 [v _need_osc_refresh `i ~T0 @X0 1 e ]
-"28
+"27
+[v _cpt `i ~T0 @X0 1 e ]
+"29
 [v _have_to_FillScreen `i ~T0 @X0 1 e ]
-"30
+"31
 [v _global_ADC_value `i ~T0 @X0 1 e ]
-"32
-[v _global_ONE `i ~T0 @X0 1 e ]
 "33
-[v _global_TWO `i ~T0 @X0 1 e ]
+[v _global_ONE `i ~T0 @X0 1 e ]
 "34
-[v _global_THREE `i ~T0 @X0 1 e ]
+[v _global_TWO `i ~T0 @X0 1 e ]
 "35
+[v _global_THREE `i ~T0 @X0 1 e ]
+"36
 [v _global_FOUR `i ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "3 main.c
@@ -642,28 +675,40 @@ Version 4.0 HI-TECH Software Intermediate Code
 "15
 [; ;main.c: 15:     PWM1_setDC(50);
 [e ( _PWM1_setDC (1 -> -> 50 `i `f ]
+"16
+[; ;main.c: 16:     need_osc_refresh = 0;
+[e = _need_osc_refresh -> 0 `i ]
 "17
-[; ;main.c: 17:     menu_selector = 0;
-[e = _menu_selector -> 0 `i ]
+[; ;main.c: 17:     current_oscillo_mode = 0;
+[e = _current_oscillo_mode -> 0 `i ]
 "18
-[; ;main.c: 18:     while(1)
-[e :U 369 ]
+[; ;main.c: 18:     menu_selector = 0;
+[e = _menu_selector -> 0 `i ]
 "19
-[; ;main.c: 19:     {
-{
+[; ;main.c: 19:     PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"20
+[; ;main.c: 20:     while(1)
+[e :U 369 ]
 "21
-[; ;main.c: 21:         ADCON0bits.GO_DONE = 1;
+[; ;main.c: 21:     {
+{
+"23
+[; ;main.c: 23:         ADCON0bits.GO_DONE = 1;
 [e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
-"22
-[; ;main.c: 22:         display_oscillo((global_ADC_value/255)*64);
-[e ( _display_oscillo (1 * / _global_ADC_value -> 255 `i -> 64 `i ]
 "24
-[; ;main.c: 24:     }
+[; ;main.c: 24:         display_oscillo((int)(global_ADC_value/4));
+[e ( _display_oscillo (1 / _global_ADC_value -> 4 `i ]
+"25
+[; ;main.c: 25:         display_7segment();
+[e ( _display_7segment ..  ]
+"26
+[; ;main.c: 26:     }
 }
 [e :U 368 ]
 [e $U 369  ]
 [e :U 370 ]
-"25
-[; ;main.c: 25: }
+"27
+[; ;main.c: 27: }
 [e :UE 367 ]
 }

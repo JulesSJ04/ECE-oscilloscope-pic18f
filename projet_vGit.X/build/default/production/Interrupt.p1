@@ -625,18 +625,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "11 ./my_lib.h
-[; ;./my_lib.h: 11: int global_ONE;
+[; ;./my_lib.h: 11: 
 [p x FOSC = HS ]
 "12
-[; ;./my_lib.h: 12: int global_TWO;
+[; ;./my_lib.h: 12: int global_ONE;
 [p x WDT = OFF ]
 "13
-[; ;./my_lib.h: 13: int global_THREE;
+[; ;./my_lib.h: 13: int global_TWO;
 [p x PWRT = OFF ]
 "14
-[; ;./my_lib.h: 14: int global_FOUR;
+[; ;./my_lib.h: 14: int global_THREE;
 [p x BOR = OFF ]
 "15
+[; ;./my_lib.h: 15: int global_FOUR;
 [p x LVP = OFF ]
 "16
 [p x CPD = OFF ]
@@ -656,17 +657,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _currently_in_oscillo `i ~T0 @X0 1 e ]
 "26
 [v _need_osc_refresh `i ~T0 @X0 1 e ]
-"28
+"27
+[v _cpt `i ~T0 @X0 1 e ]
+"29
 [v _have_to_FillScreen `i ~T0 @X0 1 e ]
-"30
+"31
 [v _global_ADC_value `i ~T0 @X0 1 e ]
-"32
-[v _global_ONE `i ~T0 @X0 1 e ]
 "33
-[v _global_TWO `i ~T0 @X0 1 e ]
+[v _global_ONE `i ~T0 @X0 1 e ]
 "34
-[v _global_THREE `i ~T0 @X0 1 e ]
+[v _global_TWO `i ~T0 @X0 1 e ]
 "35
+[v _global_THREE `i ~T0 @X0 1 e ]
+"36
 [v _global_FOUR `i ~T0 @X0 1 e ]
 "3 Interrupt.c
 [; ;Interrupt.c: 3: int double_edge = 0;

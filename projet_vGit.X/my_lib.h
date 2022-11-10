@@ -24,6 +24,7 @@ int menu_selector; //1, 2
 int current_oscillo_mode;
 int currently_in_oscillo;
 int need_osc_refresh;
+int cpt;
 
 int have_to_FillScreen;
 

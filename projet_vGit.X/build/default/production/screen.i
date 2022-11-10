@@ -5702,6 +5702,7 @@ int menu_selector;
 int current_oscillo_mode;
 int currently_in_oscillo;
 int need_osc_refresh;
+int cpt;
 
 int have_to_FillScreen;
 
@@ -5838,11 +5839,11 @@ void display_menu(void)
 
 void display_oscillo(int ADC_value)
 {
-    if(have_to_FillScreen == 1)
-    {
-        have_to_FillScreen = 0;
-        glcd_FillScreen(0);
-    }
+
+
+
+
+
 
     currently_in_menu = 0;
     currently_in_oscillo = 1;
@@ -5851,12 +5852,13 @@ void display_oscillo(int ADC_value)
     if(need_osc_refresh == 1)
     {
         cpt = 0;
+        need_osc_refresh = 0;
         unsigned char string1[2] = {'1','\0'};
         unsigned char string2[2] = {'2','\0'};
         unsigned char string3[2] = {'E','\0'};
 
         display_line(27,0,27,64,1);
-        display_line(0,20,27,20,1);
+        display_line(0,25,27,25,1);
 
 
         if(current_oscillo_mode == 0)
@@ -5877,10 +5879,10 @@ void display_oscillo(int ADC_value)
     }
 
 
-    unsigned char string_first_digit[3] = {(char)(global_FOUR+48),'.' ,'\0'};
-    unsigned char string_second_digit[2] = {(char)(global_THREE+48),'\0'};
-    unsigned char string_third_digit[2] = {(char)(global_TWO+48),'\0'};
-    unsigned char string_fourth_digit[2] = {(char)(global_ONE+48),'\0'};
+    unsigned char string_first_digit[3] = {'0','.' ,'\0'};
+    unsigned char string_second_digit[2] = {'0','\0'};
+    unsigned char string_third_digit[2] = {'0','\0'};
+    unsigned char string_fourth_digit[2] = {'0','\0'};
 
     glcd_SetCursor(2,3);
     glcd_WriteString(string_first_digit,1,1);
@@ -5892,17 +5894,18 @@ void display_oscillo(int ADC_value)
     glcd_WriteString(string_fourth_digit,1,1);
 
 
-    if(cpt < 100)
+    if(cpt < 99)
     {
-        display_line(27,0,27,64,0);
+        display_line(28+cpt,0,28+cpt,64,0);
         glcd_PlotPixel(cpt+27,ADC_value,1);
         ++cpt;
     }
-    else if(cpt >= 100)
+    else if(cpt >= 99)
     {
         cpt = 0;
-        display_line(27,0,27,64,0);
-        glcd_PlotPixel(cpt+28,ADC_value,1);
+        display_line(28+cpt,0,28+cpt,64,0);
+        glcd_PlotPixel(cpt+27,ADC_value,1);
+        cpt++;
     }
 
 }

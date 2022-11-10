@@ -5702,6 +5702,7 @@ int menu_selector;
 int current_oscillo_mode;
 int currently_in_oscillo;
 int need_osc_refresh;
+int cpt;
 
 int have_to_FillScreen;
 

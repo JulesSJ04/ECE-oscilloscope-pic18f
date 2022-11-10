@@ -5702,6 +5702,7 @@ int menu_selector;
 int current_oscillo_mode;
 int currently_in_oscillo;
 int need_osc_refresh;
+int cpt;
 
 int have_to_FillScreen;
 
@@ -5727,13 +5728,15 @@ void main(void)
     display_auteur();
     PWM1_Init(2000);
     PWM1_setDC(50);
-
+    need_osc_refresh = 0;
+    current_oscillo_mode = 0;
     menu_selector = 0;
+    PORTAbits.RA5 = 1;
     while(1)
     {
 
         ADCON0bits.GO_DONE = 1;
-        display_oscillo((global_ADC_value/255)*64);
-
+        display_oscillo((int)(global_ADC_value/4));
+        display_7segment();
     }
 }
