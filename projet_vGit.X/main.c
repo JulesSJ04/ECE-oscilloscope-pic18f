@@ -24,6 +24,11 @@ void main(void)
     {
         ADCON0bits.GO_DONE = 1;
         //display_menu();
+        if(have_to_FillScreen == 1)
+        {
+        have_to_FillScreen = 0;
+        glcd_FillScreen(0);					//efface l'ecran
+        }
         if(currently_in_menu == 1)
         {
             currently_in_oscillo = 0;
