@@ -57,6 +57,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4408
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4408: extern volatile PIE1bits_t PIE1bits __attribute__((address(0xF9D)));
 [v _PIE1bits `VS174 ~T0 @X0 0 e@3997 ]
+"8511
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8511:     struct {
+[s S356 :7 `uc 1 :1 `uc 1 ]
+[n S356 . . NOT_RBPU ]
+"8515
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8515:     struct {
+[s S357 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S357 . RBIP . TMR0IP . INTEDG2 INTEDG1 INTEDG0 nRBPU ]
+"8525
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8525:     struct {
+[s S358 :2 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
+[n S358 . . T0IP . RBPU ]
+"8510
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8510: typedef union {
+[u S355 `S356 1 `S357 1 `S358 1 ]
+[n S355 . . . . ]
+"8532
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8532: extern volatile INTCON2bits_t INTCON2bits __attribute__((address(0xFF1)));
+[v _INTCON2bits `VS355 ~T0 @X0 0 e@4081 ]
 [t ~ __interrupt . k ]
 [t T37 __interrupt ]
 "4474
@@ -99,21 +118,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2483
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2483: extern volatile PORTBbits_t PORTBbits __attribute__((address(0xF81)));
 [v _PORTBbits `VS106 ~T0 @X0 0 e@3969 ]
-"36 ./KS0108.h
-[; ;./KS0108.h: 36: extern void glcd_SetCursor(unsigned char xpos,unsigned char ypos);
-[; ;./KS0108.h: 36: extern void glcd_SetCursor(unsigned char xpos,unsigned char ypos);
-[v _glcd_SetCursor `(v ~T0 @X0 0 ef2`uc`uc ]
-"37
-[; ;./KS0108.h: 37: extern void glcd_FillScreen(unsigned char color);
-[; ;./KS0108.h: 37: extern void glcd_FillScreen(unsigned char color);
-[v _glcd_FillScreen `(v ~T0 @X0 0 ef1`uc ]
-[v F3152 `(v ~T0 @X0 1 tf1`ul ]
-"187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
-[v __delay `JF3152 ~T0 @X0 0 e ]
-[p i __delay ]
-"6 ./screen.h
-[; ;./screen.h: 6: void display_menu(void);
-[v _display_menu `(v ~T0 @X0 0 ef ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -628,63 +632,57 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./my_lib.h: 11: 
 [p x FOSC = HS ]
 "12
-[; ;./my_lib.h: 12: 
+[; ;./my_lib.h: 12: int global_ADC_value;
 [p x WDT = OFF ]
 "13
-[; ;./my_lib.h: 13: int first_digit;
+[; ;./my_lib.h: 13: 
 [p x PWRT = OFF ]
 "14
-[; ;./my_lib.h: 14: int second_digit;
+[; ;./my_lib.h: 14: 
 [p x BOR = OFF ]
 "15
-[; ;./my_lib.h: 15: int third_digit;
+[; ;./my_lib.h: 15: int first_digit;
 [p x LVP = OFF ]
 "16
-[; ;./my_lib.h: 16: int fourth_digit;
+[; ;./my_lib.h: 16: int second_digit;
 [p x CPD = OFF ]
 "17
-[; ;./my_lib.h: 17: 
+[; ;./my_lib.h: 17: int third_digit;
 [p x MCLRE = ON ]
 "18
-[; ;./my_lib.h: 18: long frequence;
+[; ;./my_lib.h: 18: int fourth_digit;
 [p x CPUDIV = OSC1_PLL2 ]
 "19
-[; ;./my_lib.h: 19: int dutycycle;
 [p x PBADEN = OFF ]
-"21
-[v _currently_in_menu `i ~T0 @X0 1 e ]
 "22
+[v _currently_in_menu `i ~T0 @X0 1 e ]
+"23
 [v _menu_selector `i ~T0 @X0 1 e ]
 "24
-[v _current_oscillo_mode `i ~T0 @X0 1 e ]
-"25
-[v _currently_in_oscillo `i ~T0 @X0 1 e ]
+[v _need_menu_refresh `i ~T0 @X0 1 e ]
 "26
-[v _need_osc_refresh `i ~T0 @X0 1 e ]
+[v _current_oscillo_mode `i ~T0 @X0 1 e ]
 "27
-[v _cpt `i ~T0 @X0 1 e ]
+[v _currently_in_oscillo `i ~T0 @X0 1 e ]
+"28
+[v _need_osc_refresh `i ~T0 @X0 1 e ]
 "29
-[v _have_to_FillScreen `i ~T0 @X0 1 e ]
+[v _cpt `i ~T0 @X0 1 e ]
 "31
+[v _have_to_FillScreen `i ~T0 @X0 1 e ]
+"33
 [v _global_ADC_value `i ~T0 @X0 1 e ]
-"34
-[v _first_digit `i ~T0 @X0 1 e ]
-"35
-[v _second_digit `i ~T0 @X0 1 e ]
 "36
-[v _third_digit `i ~T0 @X0 1 e ]
+[v _first_digit `i ~T0 @X0 1 e ]
 "37
-[v _fourth_digit `i ~T0 @X0 1 e ]
+[v _second_digit `i ~T0 @X0 1 e ]
+"38
+[v _third_digit `i ~T0 @X0 1 e ]
 "39
-[v _frequence `l ~T0 @X0 1 e ]
-"40
-[v _dutycycle `i ~T0 @X0 1 e ]
+[v _fourth_digit `i ~T0 @X0 1 e ]
 "3 Interrupt.c
-[; ;Interrupt.c: 3: int double_edge = 0;
+[; ;Interrupt.c: 3: int double_edge;
 [v _double_edge `i ~T0 @X0 1 e ]
-[i _double_edge
--> 0 `i
-]
 "6
 [; ;Interrupt.c: 6: void initMyPIC18F(void)
 [v _initMyPIC18F `(v ~T0 @X0 1 ef ]
@@ -715,7 +713,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Interrupt.c: 19:     TRISB = 0b11000000;
 [e = _TRISB -> -> 192 `i `uc ]
 "20
-[; ;Interrupt.c: 20:     PORTB = 0x00;
+[; ;Interrupt.c: 20:     PORTB = 0b00000000;
 [e = _PORTB -> -> 0 `i `uc ]
 "22
 [; ;Interrupt.c: 22:     INTCONbits.GIE = 1;
@@ -729,158 +727,160 @@ Version 4.0 HI-TECH Software Intermediate Code
 "25
 [; ;Interrupt.c: 25:     INTCONbits.RBIE = 1;
 [e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-"27
-[; ;Interrupt.c: 27: }
+"26
+[; ;Interrupt.c: 26:     INTCON2bits.RBIP = 1;
+[e = . . _INTCON2bits 1 0 -> -> 1 `i `uc ]
+"29
+[; ;Interrupt.c: 29: }
 [e :UE 367 ]
 }
 [v $root$_irq_handle `(v ~T0 @X0 0 e ]
-"30
-[; ;Interrupt.c: 30: void __attribute__((picinterrupt(("")))) irq_handle()
+"32
+[; ;Interrupt.c: 32: void __attribute__((picinterrupt(("")))) irq_handle()
 [v _irq_handle `(v ~T37 @X0 1 ef ]
-"31
-[; ;Interrupt.c: 31: {
+"33
+[; ;Interrupt.c: 33: {
 {
 [e :U _irq_handle ]
 [f ]
-"32
-[; ;Interrupt.c: 32:     if(PIR1bits.ADIF == 1)
-[e $ ! == -> . . _PIR1bits 0 6 `i -> 1 `i 369  ]
-"33
-[; ;Interrupt.c: 33:     {
-{
 "34
-[; ;Interrupt.c: 34:         PIR1bits.ADIF = 0;
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;Interrupt.c: 34:     if(PIR1bits.ADIF == 1)
+[e $ ! == -> . . _PIR1bits 0 6 `i -> 1 `i 369  ]
 "35
-[; ;Interrupt.c: 35:         global_ADC_value = ADRESH;
-[e = _global_ADC_value -> _ADRESH `i ]
+[; ;Interrupt.c: 35:     {
+{
 "36
-[; ;Interrupt.c: 36:         calcul_7segment(global_ADC_value);
-[e ( _calcul_7segment (1 _global_ADC_value ]
+[; ;Interrupt.c: 36:         PIR1bits.ADIF = 0;
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
 "37
-[; ;Interrupt.c: 37:     }
+[; ;Interrupt.c: 37:         global_ADC_value = ADRESH;
+[e = _global_ADC_value -> _ADRESH `i ]
+"38
+[; ;Interrupt.c: 38:         calcul_7segment(global_ADC_value);
+[e ( _calcul_7segment (1 _global_ADC_value ]
+"39
+[; ;Interrupt.c: 39:     }
 }
 [e :U 369 ]
-"38
-[; ;Interrupt.c: 38:     if(INTCONbits.RBIF == 1)
-[e $ ! == -> . . _INTCONbits 0 0 `i -> 1 `i 370  ]
-"39
-[; ;Interrupt.c: 39:     {
-{
 "40
-[; ;Interrupt.c: 40:         INTCONbits.RBIF = 0;
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+[; ;Interrupt.c: 40:     if(INTCONbits.RBIF == 1)
+[e $ ! == -> . . _INTCONbits 0 0 `i -> 1 `i 370  ]
 "41
-[; ;Interrupt.c: 41:         if(PORTBbits.RB6 == 1)
-[e $ ! == -> . . _PORTBbits 0 6 `i -> 1 `i 371  ]
-"42
-[; ;Interrupt.c: 42:         {
+[; ;Interrupt.c: 41:     {
 {
-"43
-[; ;Interrupt.c: 43:             if(double_edge == 0)
-[e $ ! == _double_edge -> 0 `i 372  ]
 "44
-[; ;Interrupt.c: 44:             {
-{
+[; ;Interrupt.c: 44:         INTCONbits.RBIF = 0;
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
 "45
-[; ;Interrupt.c: 45:                 if(currently_in_menu==1 && menu_selector==0)
-[e $ ! && == _currently_in_menu -> 1 `i == _menu_selector -> 0 `i 373  ]
+[; ;Interrupt.c: 45:         if(PORTBbits.RB6 == 1)
+[e $ ! == -> . . _PORTBbits 0 6 `i -> 1 `i 371  ]
 "46
-[; ;Interrupt.c: 46:                 {
+[; ;Interrupt.c: 46:         {
 {
 "47
-[; ;Interrupt.c: 47:                     have_to_FillScreen = 1;
-[e = _have_to_FillScreen -> 1 `i ]
+[; ;Interrupt.c: 47:             if(double_edge == 0)
+[e $ ! == _double_edge -> 0 `i 372  ]
 "48
-[; ;Interrupt.c: 48:                     menu_selector = 1;
-[e = _menu_selector -> 1 `i ]
-"49
-[; ;Interrupt.c: 49:                     glcd_SetCursor(0,0);
-[e ( _glcd_SetCursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"50
-[; ;Interrupt.c: 50:                     glcd_FillScreen(0);
-[e ( _glcd_FillScreen (1 -> -> 0 `i `uc ]
-"51
-[; ;Interrupt.c: 51:                     _delay((unsigned long)((1)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-"52
-[; ;Interrupt.c: 52:                     display_menu();
-[e ( _display_menu ..  ]
-"53
-[; ;Interrupt.c: 53:                 }
-}
-[e :U 373 ]
-"54
-[; ;Interrupt.c: 54:                 if(currently_in_menu==1 && menu_selector==1)
-[e $ ! && == _currently_in_menu -> 1 `i == _menu_selector -> 1 `i 374  ]
-"55
-[; ;Interrupt.c: 55:                 {
+[; ;Interrupt.c: 48:             {
 {
-"56
-[; ;Interrupt.c: 56:                     have_to_FillScreen = 1;
-[e = _have_to_FillScreen -> 1 `i ]
-"57
-[; ;Interrupt.c: 57:                     menu_selector = 0;
-[e = _menu_selector -> 0 `i ]
-"58
-[; ;Interrupt.c: 58:                     glcd_SetCursor(0,0);
-[e ( _glcd_SetCursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"59
-[; ;Interrupt.c: 59:                     glcd_FillScreen(0);
-[e ( _glcd_FillScreen (1 -> -> 0 `i `uc ]
-"60
-[; ;Interrupt.c: 60:                     _delay((unsigned long)((1)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-"61
-[; ;Interrupt.c: 61:                     display_menu();
-[e ( _display_menu ..  ]
-"62
-[; ;Interrupt.c: 62:                 }
-}
-[e :U 374 ]
-"63
-[; ;Interrupt.c: 63:                 double_edge++;
+"49
+[; ;Interrupt.c: 49:                 if(currently_in_menu==1 && menu_selector==0)
+[e $ ! && == _currently_in_menu -> 1 `i == _menu_selector -> 0 `i 373  ]
+"50
+[; ;Interrupt.c: 50:                 {
+{
+"52
+[; ;Interrupt.c: 52:                     menu_selector = 1;
+[e = _menu_selector -> 1 `i ]
+"53
+[; ;Interrupt.c: 53:                     double_edge++;
 [e ++ _double_edge -> 1 `i ]
-"64
-[; ;Interrupt.c: 64:             }
+"54
+[; ;Interrupt.c: 54:                     return;
+[e $UE 368  ]
+"55
+[; ;Interrupt.c: 55:                 }
 }
-[e $U 375  ]
-"65
-[; ;Interrupt.c: 65:             else
-[e :U 372 ]
-"66
-[; ;Interrupt.c: 66:                 double_edge = 0;
-[e = _double_edge -> 0 `i ]
+[e $U 374  ]
+"56
+[; ;Interrupt.c: 56:                 else if(currently_in_menu==1 && menu_selector==1)
+[e :U 373 ]
+[e $ ! && == _currently_in_menu -> 1 `i == _menu_selector -> 1 `i 375  ]
+"57
+[; ;Interrupt.c: 57:                 {
+{
+"58
+[; ;Interrupt.c: 58:                     menu_selector = 0;
+[e = _menu_selector -> 0 `i ]
+"59
+[; ;Interrupt.c: 59:                     double_edge++;
+[e ++ _double_edge -> 1 `i ]
+"60
+[; ;Interrupt.c: 60:                     return;
+[e $UE 368  ]
+"61
+[; ;Interrupt.c: 61:                 }
+}
 [e :U 375 ]
+[e :U 374 ]
+"62
+[; ;Interrupt.c: 62:             }
+}
+[e $U 376  ]
+"63
+[; ;Interrupt.c: 63:             else
+[e :U 372 ]
+"64
+[; ;Interrupt.c: 64:             {
+{
+"65
+[; ;Interrupt.c: 65:                 double_edge = 0;
+[e = _double_edge -> 0 `i ]
+"67
+[; ;Interrupt.c: 67:                 return;
+[e $UE 368  ]
 "68
-[; ;Interrupt.c: 68:         }
+[; ;Interrupt.c: 68:             }
+}
+[e :U 376 ]
+"69
+[; ;Interrupt.c: 69:         }
 }
 [e :U 371 ]
-"69
-[; ;Interrupt.c: 69:         if(PORTBbits.RB7 == 1)
-[e $ ! == -> . . _PORTBbits 0 7 `i -> 1 `i 376  ]
 "70
-[; ;Interrupt.c: 70:         {
+[; ;Interrupt.c: 70:         if(PORTBbits.RB7 == 1)
+[e $ ! == -> . . _PORTBbits 0 7 `i -> 1 `i 377  ]
+"71
+[; ;Interrupt.c: 71:         {
 {
 "72
-[; ;Interrupt.c: 72:         }
-}
-[e $U 377  ]
-"73
-[; ;Interrupt.c: 73:         else
-[e :U 376 ]
-"74
-[; ;Interrupt.c: 74:             return;
+[; ;Interrupt.c: 72:             return;
 [e $UE 368  ]
-[e :U 377 ]
+"74
+[; ;Interrupt.c: 74:         }
+}
+[e $U 378  ]
 "75
-[; ;Interrupt.c: 75:     }
+[; ;Interrupt.c: 75:         else
+[e :U 377 ]
+"76
+[; ;Interrupt.c: 76:         {
+{
+"78
+[; ;Interrupt.c: 78:             return;
+[e $UE 368  ]
+"79
+[; ;Interrupt.c: 79:         }
+}
+[e :U 378 ]
+"80
+[; ;Interrupt.c: 80:     }
 }
 [e :U 370 ]
-"76
-[; ;Interrupt.c: 76:     return;
+"82
+[; ;Interrupt.c: 82:     return;
 [e $UE 368  ]
-"77
-[; ;Interrupt.c: 77: }
+"83
+[; ;Interrupt.c: 83: }
 [e :UE 368 ]
 }

@@ -10,14 +10,11 @@ void display_line(int x, int y, int final_x,int final_y, int color)
             }
     }
     if(y==final_y)
-    {
-        for(int j=y-1;j<=y+1;j++)
-        {
-            for(int i=x;i<final_x;i++)
-            {
-                glcd_PlotPixel(i,j,color);
-            }
-        }
+    {        
+        for(int i=x;i<final_x;i++)
+           {
+               glcd_PlotPixel(i,y,color);
+           } 
     }
 }
 
@@ -72,50 +69,50 @@ void display_auteur(void)
 
 void display_menu(void)
 {
-    if(have_to_FillScreen == 1)
+    /*if(have_to_FillScreen == 1)
     {
         have_to_FillScreen = 0;
         glcd_FillScreen(0);					//efface l'ecran
+    }*/
+
+    //currently_in_menu = 1;
+    //currently_in_oscillo = 0;
+    if(need_menu_refresh == 1)
+    {
+        unsigned char string1[16] = {'C','h','o','i','s','i','r',' ','u','n',' ', 'm', 'o', 'd', 'e', '\0'};
+        unsigned char string2[15] = {'1','.','O','s','c','i','l','l','o','s','c','o','p','e','\0'};
+        unsigned char string3[16] = {'2','.','R','e','c','t','a','n','g','u','l','a','i','r','e','\0'};
+        unsigned char string4[2] = {'1','\0'};
+        unsigned char string5[2] = {'2','\0'};
+
+        //Ecriture du menu
+        glcd_SetCursor(2,0);				//place le curseur
+        glcd_WriteString(string1,f8X8,1);	//ecrit 
+        glcd_SetCursor(2,2);				//place le curseur
+        glcd_WriteString(string2,f8X8,1);	//ecrit
+        glcd_SetCursor(2,3);				//place le curseur
+        glcd_WriteString(string3,f8X8,1);	//ecrit 
+        glcd_SetCursor(2,3);				//place le curseur
+        //Numéros
+        glcd_SetCursor(42,5);
+        glcd_WriteString(string4,f8X8,1);
+        glcd_SetCursor(82,5);				//place le curseur
+        glcd_WriteString(string5,f8X8,1);
+        need_menu_refresh = 0;
     }
-    
-    
-    currently_in_menu = 1;
-    unsigned char string1[16] = {'C','h','o','i','s','i','r',' ','u','n',' ', 'm', 'o', 'd', 'e', '\0'};
-    unsigned char string2[15] = {'1','.','O','s','c','i','l','l','o','s','c','o','p','e','\0'};
-    unsigned char string3[16] = {'2','.','R','e','c','t','a','n','g','u','l','a','i','r','e','\0'};
-    unsigned char string4[2] = {'1','\0'};
-    unsigned char string5[2] = {'2','\0'};
-    
-    //Ecriture du menu
-    glcd_SetCursor(2,0);				//place le curseur
-	glcd_WriteString(string1,f8X8,1);	//ecrit 
-	glcd_SetCursor(2,2);				//place le curseur
-	glcd_WriteString(string2,f8X8,1);	//ecrit
-	glcd_SetCursor(2,3);				//place le curseur
-	glcd_WriteString(string3,f8X8,1);	//ecrit 
-    glcd_SetCursor(2,3);				//place le curseur
-    //Numéros
-    glcd_SetCursor(42,5);
-	glcd_WriteString(string4,f8X8,1);
-    glcd_SetCursor(82,5);				//place le curseur
-	glcd_WriteString(string5,f8X8,1);
     
     //Where to display our cursor
-    if(currently_in_menu == 1 && menu_selector == 0)
+    if(menu_selector == 0)
     {
+        display_line(82,52,90,52,0);
         display_line(42,52,50,52,1);
     }
-    else if(currently_in_menu == 1 && menu_selector ==1)
+    else if(menu_selector == 1)
     {
         display_line(82,52,90,52,1);
+        display_line(42,52,50,52,0);
     } 
-    else
-        asm("NOP");
-          
-	//__delay_ms(2000);					//attend 2s
-		
-	//__delay_ms(1);
-    
+           
 }
 
 void display_oscillo(int ADC_value)

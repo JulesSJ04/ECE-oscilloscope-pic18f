@@ -5696,8 +5696,10 @@ int correspondance_7segment(int val);
 #pragma config CPUDIV = OSC1_PLL2
 #pragma config PBADEN = OFF
 
+
 int currently_in_menu;
 int menu_selector;
+int need_menu_refresh;
 
 int current_oscillo_mode;
 int currently_in_oscillo;
@@ -5719,7 +5721,7 @@ int dutycycle;
 # 1 "Interrupt.c" 2
 
 
-int double_edge = 0;
+int double_edge;
 
 
 void initMyPIC18F(void)
@@ -5736,12 +5738,14 @@ void initMyPIC18F(void)
 
 
     TRISB = 0b11000000;
-    PORTB = 0x00;
+    PORTB = 0b00000000;
 
     INTCONbits.GIE = 1;
     PIE1bits.ADIE = 1;
     INTCONbits.PEIE = 1;
     INTCONbits.RBIE = 1;
+    INTCON2bits.RBIP = 1;
+
 
 }
 
@@ -5756,6 +5760,8 @@ void __attribute__((picinterrupt(("")))) irq_handle()
     }
     if(INTCONbits.RBIF == 1)
     {
+
+
         INTCONbits.RBIF = 0;
         if(PORTBbits.RB6 == 1)
         {
@@ -5763,34 +5769,36 @@ void __attribute__((picinterrupt(("")))) irq_handle()
             {
                 if(currently_in_menu==1 && menu_selector==0)
                 {
-                    have_to_FillScreen = 1;
+
                     menu_selector = 1;
-                    glcd_SetCursor(0,0);
-                    glcd_FillScreen(0);
-                    _delay((unsigned long)((1)*(8000000/4000000.0)));
-                    display_menu();
+                    double_edge++;
+                    return;
                 }
-                if(currently_in_menu==1 && menu_selector==1)
+                else if(currently_in_menu==1 && menu_selector==1)
                 {
-                    have_to_FillScreen = 1;
                     menu_selector = 0;
-                    glcd_SetCursor(0,0);
-                    glcd_FillScreen(0);
-                    _delay((unsigned long)((1)*(8000000/4000000.0)));
-                    display_menu();
+                    double_edge++;
+                    return;
                 }
-                double_edge++;
             }
             else
+            {
                 double_edge = 0;
 
+                return;
+            }
         }
         if(PORTBbits.RB7 == 1)
         {
+            return;
 
         }
         else
+        {
+
             return;
+        }
     }
+
     return;
 }
