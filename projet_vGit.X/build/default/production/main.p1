@@ -85,7 +85,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6710
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6710: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0xFC2)));
 [v _ADCON0bits `VS272 ~T0 @X0 0 e@4034 ]
-"8 ./screen.h
+"6 ./screen.h
+[; ;./screen.h: 6: void display_menu(void);
+[v _display_menu `(v ~T0 @X0 0 ef ]
+"8
 [; ;./screen.h: 8: void display_oscillo(int ADC_value);
 [v _display_oscillo `(v ~T0 @X0 0 ef1`i ]
 "3 ./7segment.h
@@ -605,49 +608,53 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./my_lib.h: 11: 
 [p x FOSC = HS ]
 "12
-[; ;./my_lib.h: 12: 
+[; ;./my_lib.h: 12: int global_ADC_value;
 [p x WDT = OFF ]
 "13
-[; ;./my_lib.h: 13: int first_digit;
+[; ;./my_lib.h: 13: 
 [p x PWRT = OFF ]
 "14
-[; ;./my_lib.h: 14: int second_digit;
+[; ;./my_lib.h: 14: 
 [p x BOR = OFF ]
 "15
-[; ;./my_lib.h: 15: int third_digit;
+[; ;./my_lib.h: 15: int first_digit;
 [p x LVP = OFF ]
 "16
-[; ;./my_lib.h: 16: int fourth_digit;
+[; ;./my_lib.h: 16: int second_digit;
 [p x CPD = OFF ]
 "17
+[; ;./my_lib.h: 17: int third_digit;
 [p x MCLRE = ON ]
 "18
+[; ;./my_lib.h: 18: int fourth_digit;
 [p x CPUDIV = OSC1_PLL2 ]
 "19
 [p x PBADEN = OFF ]
-"21
-[v _currently_in_menu `i ~T0 @X0 1 e ]
 "22
+[v _currently_in_menu `i ~T0 @X0 1 e ]
+"23
 [v _menu_selector `i ~T0 @X0 1 e ]
 "24
-[v _current_oscillo_mode `i ~T0 @X0 1 e ]
-"25
-[v _currently_in_oscillo `i ~T0 @X0 1 e ]
+[v _need_menu_refresh `i ~T0 @X0 1 e ]
 "26
-[v _need_osc_refresh `i ~T0 @X0 1 e ]
+[v _current_oscillo_mode `i ~T0 @X0 1 e ]
 "27
-[v _cpt `i ~T0 @X0 1 e ]
+[v _currently_in_oscillo `i ~T0 @X0 1 e ]
+"28
+[v _need_osc_refresh `i ~T0 @X0 1 e ]
 "29
-[v _have_to_FillScreen `i ~T0 @X0 1 e ]
+[v _cpt `i ~T0 @X0 1 e ]
 "31
+[v _have_to_FillScreen `i ~T0 @X0 1 e ]
+"33
 [v _global_ADC_value `i ~T0 @X0 1 e ]
-"34
-[v _first_digit `i ~T0 @X0 1 e ]
-"35
-[v _second_digit `i ~T0 @X0 1 e ]
 "36
-[v _third_digit `i ~T0 @X0 1 e ]
+[v _first_digit `i ~T0 @X0 1 e ]
 "37
+[v _second_digit `i ~T0 @X0 1 e ]
+"38
+[v _third_digit `i ~T0 @X0 1 e ]
+"39
 [v _fourth_digit `i ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "3 main.c
@@ -683,33 +690,73 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 17:     current_oscillo_mode = 0;
 [e = _current_oscillo_mode -> 0 `i ]
 "18
-[; ;main.c: 18:     menu_selector = 0;
-[e = _menu_selector -> 0 `i ]
+[; ;main.c: 18:     need_menu_refresh = 1;
+[e = _need_menu_refresh -> 1 `i ]
 "19
 [; ;main.c: 19:     PORTAbits.RA5 = 1;
 [e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
 "20
-[; ;main.c: 20:     while(1)
-[e :U 369 ]
+[; ;main.c: 20:     currently_in_oscillo = 0;
+[e = _currently_in_oscillo -> 0 `i ]
 "21
-[; ;main.c: 21:     {
-{
+[; ;main.c: 21:     currently_in_menu = 1;
+[e = _currently_in_menu -> 1 `i ]
+"22
+[; ;main.c: 22:     menu_selector = 1;
+[e = _menu_selector -> 1 `i ]
 "23
-[; ;main.c: 23:         ADCON0bits.GO_DONE = 1;
-[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
+[; ;main.c: 23:     while(1)
+[e :U 369 ]
 "24
-[; ;main.c: 24:         display_oscillo((int)(global_ADC_value/4));
-[e ( _display_oscillo (1 / _global_ADC_value -> 4 `i ]
+[; ;main.c: 24:     {
+{
 "25
-[; ;main.c: 25:         display_7segment();
+[; ;main.c: 25:         ADCON0bits.GO_DONE = 1;
+[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
+"27
+[; ;main.c: 27:         if(currently_in_menu == 1)
+[e $ ! == _currently_in_menu -> 1 `i 371  ]
+"28
+[; ;main.c: 28:         {
+{
+"29
+[; ;main.c: 29:             currently_in_oscillo = 0;
+[e = _currently_in_oscillo -> 0 `i ]
+"30
+[; ;main.c: 30:             display_menu();
+[e ( _display_menu ..  ]
+"31
+[; ;main.c: 31:         }
+}
+[e $U 372  ]
+"32
+[; ;main.c: 32:         else if(currently_in_oscillo == 1)
+[e :U 371 ]
+[e $ ! == _currently_in_oscillo -> 1 `i 373  ]
+"33
+[; ;main.c: 33:         {
+{
+"34
+[; ;main.c: 34:             currently_in_menu = 0;
+[e = _currently_in_menu -> 0 `i ]
+"35
+[; ;main.c: 35:             display_oscillo((int)((global_ADC_value/4) - 64)*(-1));
+[e ( _display_oscillo (1 * - / _global_ADC_value -> 4 `i -> 64 `i -U -> 1 `i ]
+"36
+[; ;main.c: 36:         }
+}
+[e :U 373 ]
+[e :U 372 ]
+"37
+[; ;main.c: 37:         display_7segment();
 [e ( _display_7segment ..  ]
-"26
-[; ;main.c: 26:     }
+"38
+[; ;main.c: 38:     }
 }
 [e :U 368 ]
 [e $U 369  ]
 [e :U 370 ]
-"27
-[; ;main.c: 27: }
+"39
+[; ;main.c: 39: }
 [e :UE 367 ]
 }

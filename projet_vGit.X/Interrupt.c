@@ -1,6 +1,6 @@
 #include "my_lib.h"
 
-int double_edge = 0; //Variable permettant de vérifier si le bouton n'est pris qu'une fois en compte
+int double_edge; //Variable permettant de vérifier si le bouton n'est pris qu'une fois en compte
 //CAR RB6 et RB7 emettent une interruption sur front montant et front descendant
 
 void initMyPIC18F(void)
@@ -17,12 +17,14 @@ void initMyPIC18F(void)
     
     //Mode inputs
     TRISB = 0b11000000;
-    PORTB = 0x00;
+    PORTB = 0b00000000;
     
     INTCONbits.GIE = 1;
     PIE1bits.ADIE = 1;
     INTCONbits.PEIE = 1;
     INTCONbits.RBIE = 1;
+    INTCON2bits.RBIP = 1; //Haute priorité
+    //RCONbits.IPEN = 0;
     //INTCON2bits. = 1;
 }
 
@@ -37,6 +39,8 @@ void __interrupt() irq_handle()
     }
     if(INTCONbits.RBIF == 1) 
     {
+        //INTCONbits.GIE = 0;
+        //ADCON0bits.GO_DONE = 0;
         INTCONbits.RBIF = 0;
         if(PORTBbits.RB6 == 1)
         {
@@ -44,35 +48,37 @@ void __interrupt() irq_handle()
             {
                 if(currently_in_menu==1 && menu_selector==0)
                 {
-                    have_to_FillScreen = 1;
+                    
                     menu_selector = 1; //On inverse l'état
-                    glcd_SetCursor(0,0);
-                    glcd_FillScreen(0); //On efface l'ecran 
-                    __delay_us(1);
-                    display_menu(); //Affiche le curseur au bon endroit
+                    double_edge++;
+                    return;
                 }
-                if(currently_in_menu==1 && menu_selector==1)
-                {
-                    have_to_FillScreen = 1;
+                else if(currently_in_menu==1 && menu_selector==1)
+                {                  
                     menu_selector = 0; //On inverse l'état
-                    glcd_SetCursor(0,0);
-                    glcd_FillScreen(0); //On efface l'ecran 
-                    __delay_us(1);
-                    display_menu(); //Affiche le curseur au bon endroit
+                    double_edge++;
+                    return;
                 }
-                double_edge++;
             }
             else
+            {
                 double_edge = 0;
-            
+                //INTCONbits.GIE = 1;
+                return;
+            }                 
         }
         if(PORTBbits.RB7 == 1)
         {
-            //Action
+            return;
+            //INTCONbits.GIE = 1;
         }
         else
-            return;
-    }  
+        {
+            //INTCONbits.GIE = 1;
+            return;         
+        }      
+    } 
+    //INTCONbits.RBIE = 1;
     return;
 }
 

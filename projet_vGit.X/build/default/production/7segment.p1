@@ -547,49 +547,53 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./my_lib.h: 11: 
 [p x FOSC = HS ]
 "12
-[; ;./my_lib.h: 12: 
+[; ;./my_lib.h: 12: int global_ADC_value;
 [p x WDT = OFF ]
 "13
-[; ;./my_lib.h: 13: int first_digit;
+[; ;./my_lib.h: 13: 
 [p x PWRT = OFF ]
 "14
-[; ;./my_lib.h: 14: int second_digit;
+[; ;./my_lib.h: 14: 
 [p x BOR = OFF ]
 "15
-[; ;./my_lib.h: 15: int third_digit;
+[; ;./my_lib.h: 15: int first_digit;
 [p x LVP = OFF ]
 "16
-[; ;./my_lib.h: 16: int fourth_digit;
+[; ;./my_lib.h: 16: int second_digit;
 [p x CPD = OFF ]
 "17
+[; ;./my_lib.h: 17: int third_digit;
 [p x MCLRE = ON ]
 "18
+[; ;./my_lib.h: 18: int fourth_digit;
 [p x CPUDIV = OSC1_PLL2 ]
 "19
 [p x PBADEN = OFF ]
-"21
-[v _currently_in_menu `i ~T0 @X0 1 e ]
 "22
+[v _currently_in_menu `i ~T0 @X0 1 e ]
+"23
 [v _menu_selector `i ~T0 @X0 1 e ]
 "24
-[v _current_oscillo_mode `i ~T0 @X0 1 e ]
-"25
-[v _currently_in_oscillo `i ~T0 @X0 1 e ]
+[v _need_menu_refresh `i ~T0 @X0 1 e ]
 "26
-[v _need_osc_refresh `i ~T0 @X0 1 e ]
+[v _current_oscillo_mode `i ~T0 @X0 1 e ]
 "27
-[v _cpt `i ~T0 @X0 1 e ]
+[v _currently_in_oscillo `i ~T0 @X0 1 e ]
+"28
+[v _need_osc_refresh `i ~T0 @X0 1 e ]
 "29
-[v _have_to_FillScreen `i ~T0 @X0 1 e ]
+[v _cpt `i ~T0 @X0 1 e ]
 "31
+[v _have_to_FillScreen `i ~T0 @X0 1 e ]
+"33
 [v _global_ADC_value `i ~T0 @X0 1 e ]
-"34
-[v _first_digit `i ~T0 @X0 1 e ]
-"35
-[v _second_digit `i ~T0 @X0 1 e ]
 "36
-[v _third_digit `i ~T0 @X0 1 e ]
+[v _first_digit `i ~T0 @X0 1 e ]
 "37
+[v _second_digit `i ~T0 @X0 1 e ]
+"38
+[v _third_digit `i ~T0 @X0 1 e ]
+"39
 [v _fourth_digit `i ~T0 @X0 1 e ]
 "16 7segment.c
 [v _global_ONE `i ~T0 @X0 1 e ]

@@ -15,13 +15,25 @@ void main(void)
     PWM1_setDC(50); //0-100 dutyclycle
     need_osc_refresh = 1;
     current_oscillo_mode = 0;
-    menu_selector = 0;
+    need_menu_refresh = 1;
     PORTAbits.RA5 = 1;
+    currently_in_oscillo = 0;
+    currently_in_menu = 1;
+    menu_selector = 1;
     while(1)
     {
-        //display_menu();
         ADCON0bits.GO_DONE = 1;
-        display_oscillo((int)(global_ADC_value/4));
+        //display_menu();
+        if(currently_in_menu == 1)
+        {
+            currently_in_oscillo = 0;
+            display_menu();
+        }
+        else if(currently_in_oscillo == 1)
+        {
+            currently_in_menu = 0;
+            display_oscillo((int)((global_ADC_value/4) - 64)*(-1));
+        }
         display_7segment();
     }
 }

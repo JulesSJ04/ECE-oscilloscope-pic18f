@@ -17,9 +17,11 @@
 #pragma config MCLRE = ON
 #pragma config CPUDIV = OSC1_PLL2
 #pragma config PBADEN = OFF
+//#pragma CONFIG DEBUG=OFF
 
 int currently_in_menu;
 int menu_selector; //1, 2
+int need_menu_refresh;
 
 int current_oscillo_mode;
 int currently_in_oscillo;
