@@ -85,6 +85,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6710
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6710: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0xFC2)));
 [v _ADCON0bits `VS272 ~T0 @X0 0 e@4034 ]
+"37 ./KS0108.h
+[; ;./KS0108.h: 37: extern void glcd_FillScreen(unsigned char color);
+[; ;./KS0108.h: 37: extern void glcd_FillScreen(unsigned char color);
+[v _glcd_FillScreen `(v ~T0 @X0 0 ef1`uc ]
 "6 ./screen.h
 [; ;./screen.h: 6: void display_menu(void);
 [v _display_menu `(v ~T0 @X0 0 ef ]
@@ -714,49 +718,65 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 25:         ADCON0bits.GO_DONE = 1;
 [e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
 "27
-[; ;main.c: 27:         if(currently_in_menu == 1)
-[e $ ! == _currently_in_menu -> 1 `i 371  ]
+[; ;main.c: 27:         if(have_to_FillScreen == 1)
+[e $ ! == _have_to_FillScreen -> 1 `i 371  ]
 "28
 [; ;main.c: 28:         {
 {
 "29
-[; ;main.c: 29:             currently_in_oscillo = 0;
-[e = _currently_in_oscillo -> 0 `i ]
+[; ;main.c: 29:         have_to_FillScreen = 0;
+[e = _have_to_FillScreen -> 0 `i ]
 "30
-[; ;main.c: 30:             display_menu();
-[e ( _display_menu ..  ]
+[; ;main.c: 30:         glcd_FillScreen(0);
+[e ( _glcd_FillScreen (1 -> -> 0 `i `uc ]
 "31
 [; ;main.c: 31:         }
 }
-[e $U 372  ]
-"32
-[; ;main.c: 32:         else if(currently_in_oscillo == 1)
 [e :U 371 ]
-[e $ ! == _currently_in_oscillo -> 1 `i 373  ]
+"32
+[; ;main.c: 32:         if(currently_in_menu == 1)
+[e $ ! == _currently_in_menu -> 1 `i 372  ]
 "33
 [; ;main.c: 33:         {
 {
 "34
-[; ;main.c: 34:             currently_in_menu = 0;
-[e = _currently_in_menu -> 0 `i ]
+[; ;main.c: 34:             currently_in_oscillo = 0;
+[e = _currently_in_oscillo -> 0 `i ]
 "35
-[; ;main.c: 35:             display_oscillo((int)((global_ADC_value/4) - 64)*(-1));
-[e ( _display_oscillo (1 * - / _global_ADC_value -> 4 `i -> 64 `i -U -> 1 `i ]
+[; ;main.c: 35:             display_menu();
+[e ( _display_menu ..  ]
 "36
 [; ;main.c: 36:         }
 }
-[e :U 373 ]
-[e :U 372 ]
+[e $U 373  ]
 "37
-[; ;main.c: 37:         display_7segment();
-[e ( _display_7segment ..  ]
+[; ;main.c: 37:         else if(currently_in_oscillo == 1)
+[e :U 372 ]
+[e $ ! == _currently_in_oscillo -> 1 `i 374  ]
 "38
-[; ;main.c: 38:     }
+[; ;main.c: 38:         {
+{
+"39
+[; ;main.c: 39:             currently_in_menu = 0;
+[e = _currently_in_menu -> 0 `i ]
+"40
+[; ;main.c: 40:             display_oscillo((int)((global_ADC_value/4) - 64)*(-1));
+[e ( _display_oscillo (1 * - / _global_ADC_value -> 4 `i -> 64 `i -U -> 1 `i ]
+"41
+[; ;main.c: 41:         }
+}
+[e :U 374 ]
+[e :U 373 ]
+"42
+[; ;main.c: 42:         display_7segment();
+[e ( _display_7segment ..  ]
+"43
+[; ;main.c: 43:     }
 }
 [e :U 368 ]
 [e $U 369  ]
 [e :U 370 ]
-"39
-[; ;main.c: 39: }
+"44
+[; ;main.c: 44: }
 [e :UE 367 ]
 }

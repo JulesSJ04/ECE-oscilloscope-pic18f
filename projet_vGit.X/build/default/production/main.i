@@ -5764,6 +5764,11 @@ void main(void)
     {
         ADCON0bits.GO_DONE = 1;
 
+        if(have_to_FillScreen == 1)
+        {
+        have_to_FillScreen = 0;
+        glcd_FillScreen(0);
+        }
         if(currently_in_menu == 1)
         {
             currently_in_oscillo = 0;

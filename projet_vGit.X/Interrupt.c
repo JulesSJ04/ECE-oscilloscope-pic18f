@@ -2,6 +2,7 @@
 
 int double_edge; //Variable permettant de vérifier si le bouton n'est pris qu'une fois en compte
 //CAR RB6 et RB7 emettent une interruption sur front montant et front descendant
+int double_edgeRB7;
 
 void initMyPIC18F(void)
 {
@@ -69,12 +70,39 @@ void __interrupt() irq_handle()
         }
         if(PORTBbits.RB7 == 1)
         {
-            return;
-            //INTCONbits.GIE = 1;
+            if(double_edgeRB7 == 0)
+            {
+                if(currently_in_menu == 1)
+                {
+                    if(menu_selector == 1)
+                    {
+                        currently_in_menu = 0; //On sort du menu
+                        currently_in_oscillo = 1; //On passe à l'oscillos
+                        double_edgeRB7++;
+                        need_osc_refresh = 1; //On refraichit l'oscillo
+                        have_to_FillScreen = 1; //Besoin de rafraichir l'écran
+                        return;
+                    }
+                }
+                else if(currently_in_oscillo == 1)
+                    {
+                        currently_in_menu = 1; //On passe au menu
+                        currently_in_oscillo = 0; //On sort de l'oscillos
+                        double_edgeRB7++;
+                        need_menu_refresh = 1; //Besoin de refraichir le menu
+                        have_to_FillScreen = 1; //Besoin de rafraichir l'écran
+                        return;
+                    }
+            }
+            else
+            {
+                double_edgeRB7 = 0;
+                return;
+            }   
         }
         else
         {
-            //INTCONbits.GIE = 1;
+            
             return;         
         }      
     } 

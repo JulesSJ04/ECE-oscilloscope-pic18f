@@ -5723,6 +5723,7 @@ int dutycycle;
 
 int double_edge;
 
+int double_edgeRB7;
 
 void initMyPIC18F(void)
 {
@@ -5790,8 +5791,34 @@ void __attribute__((picinterrupt(("")))) irq_handle()
         }
         if(PORTBbits.RB7 == 1)
         {
-            return;
-
+            if(double_edgeRB7 == 0)
+            {
+                if(currently_in_menu == 1)
+                {
+                    if(menu_selector == 1)
+                    {
+                        currently_in_menu = 0;
+                        currently_in_oscillo = 1;
+                        double_edgeRB7++;
+                        have_to_FillScreen = 1;
+                        return;
+                    }
+                }
+                else if(currently_in_oscillo == 1)
+                    {
+                        currently_in_menu = 1;
+                        currently_in_oscillo = 0;
+                        double_edgeRB7++;
+                        need_menu_refresh = 1;
+                        have_to_FillScreen = 1;
+                        return;
+                    }
+            }
+            else
+            {
+                double_edgeRB7 = 0;
+                return;
+            }
         }
         else
         {
