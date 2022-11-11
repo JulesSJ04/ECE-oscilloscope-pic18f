@@ -564,10 +564,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./my_lib.h: 16: int fourth_digit;
 [p x CPD = OFF ]
 "17
+[; ;./my_lib.h: 17: 
 [p x MCLRE = ON ]
 "18
+[; ;./my_lib.h: 18: long frequence;
 [p x CPUDIV = OSC1_PLL2 ]
 "19
+[; ;./my_lib.h: 19: int dutycycle;
 [p x PBADEN = OFF ]
 "21
 [v _currently_in_menu `i ~T0 @X0 1 e ]
@@ -593,12 +596,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _third_digit `i ~T0 @X0 1 e ]
 "37
 [v _fourth_digit `i ~T0 @X0 1 e ]
+"39
+[v _frequence `l ~T0 @X0 1 e ]
+"40
+[v _dutycycle `i ~T0 @X0 1 e ]
 "3 rectangle.c
-[; ;rectangle.c: 3: void PWM1_Init(long frequence){
+[; ;rectangle.c: 3: void PWM1_Init(long freq){
 [v _PWM1_Init `(v ~T0 @X0 1 ef1`l ]
 {
 [e :U _PWM1_Init ]
-[v _frequence `l ~T0 @X0 1 r1 ]
+[v _freq `l ~T0 @X0 1 r1 ]
 [f ]
 "4
 [; ;rectangle.c: 4:     OSCCON = 0b01110010;
@@ -616,33 +623,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;rectangle.c: 9:     T2CON = 0b00000111;
 [e = _T2CON -> -> 7 `i `uc ]
 "10
-[; ;rectangle.c: 10:     PR2 = (int) ((125000 - frequence) / frequence);
-[e = _PR2 -> -> / - -> 125000 `l _frequence _frequence `i `uc ]
-"12
-[; ;rectangle.c: 12: }
+[; ;rectangle.c: 10:     PR2 = (int) ((125000 - freq) / freq);
+[e = _PR2 -> -> / - -> 125000 `l _freq _freq `i `uc ]
+"11
+[; ;rectangle.c: 11: }
 [e :UE 367 ]
 }
-"15
-[; ;rectangle.c: 15: void PWM1_setDC(float dutycycle){
+"14
+[; ;rectangle.c: 14: void PWM1_setDC(float dc){
 [v _PWM1_setDC `(v ~T0 @X0 1 ef1`f ]
 {
 [e :U _PWM1_setDC ]
-[v _dutycycle `f ~T0 @X0 1 r1 ]
+[v _dc `f ~T0 @X0 1 r1 ]
 [f ]
-"16
-[; ;rectangle.c: 16:     float calcul = ((PR2 + 1) * (dutycycle / 100));
+"15
+[; ;rectangle.c: 15:     float calcul = ((PR2 + 1) * (dc / 100));
 [v _calcul `f ~T0 @X0 1 a ]
-[e = _calcul * -> + -> _PR2 `i -> 1 `i `f / _dutycycle -> -> 100 `i `f ]
-"17
-[; ;rectangle.c: 17:     CCPR2L = (int) calcul;
+[e = _calcul * -> + -> _PR2 `i -> 1 `i `f / _dc -> -> 100 `i `f ]
+"16
+[; ;rectangle.c: 16:     CCPR2L = (int) calcul;
 [e = _CCPR2L -> -> _calcul `i `uc ]
-"19
-[; ;rectangle.c: 19:     CCP2CONbits.DC2B1 = 0;
+"18
+[; ;rectangle.c: 18:     CCP2CONbits.DC2B1 = 0;
 [e = . . _CCP2CONbits 1 5 -> -> 0 `i `uc ]
-"20
-[; ;rectangle.c: 20:     CCP2CONbits.DC2B0 = 0;
+"19
+[; ;rectangle.c: 19:     CCP2CONbits.DC2B0 = 0;
 [e = . . _CCP2CONbits 1 4 -> -> 0 `i `uc ]
-"21
-[; ;rectangle.c: 21: }
+"20
+[; ;rectangle.c: 20: }
 [e :UE 368 ]
 }

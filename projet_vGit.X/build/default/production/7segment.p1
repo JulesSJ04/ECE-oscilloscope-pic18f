@@ -562,10 +562,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./my_lib.h: 16: int fourth_digit;
 [p x CPD = OFF ]
 "17
+[; ;./my_lib.h: 17: 
 [p x MCLRE = ON ]
 "18
+[; ;./my_lib.h: 18: long frequence;
 [p x CPUDIV = OSC1_PLL2 ]
 "19
+[; ;./my_lib.h: 19: int dutycycle;
 [p x PBADEN = OFF ]
 "21
 [v _currently_in_menu `i ~T0 @X0 1 e ]
@@ -591,6 +594,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _third_digit `i ~T0 @X0 1 e ]
 "37
 [v _fourth_digit `i ~T0 @X0 1 e ]
+"39
+[v _frequence `l ~T0 @X0 1 e ]
+"40
+[v _dutycycle `i ~T0 @X0 1 e ]
 "16 7segment.c
 [v _global_ONE `i ~T0 @X0 1 e ]
 "17

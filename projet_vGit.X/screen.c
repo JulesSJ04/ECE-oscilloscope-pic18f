@@ -36,7 +36,7 @@ void display_titre(void)
 	glcd_WriteString(string2,f8X8,1);	//ecrit
 	glcd_SetCursor(26,5);				//place le curseur
 	glcd_WriteString(string3,f8X8,1);	//ecrit 
-	__delay_ms(4000);					//attend 2s
+	__delay_ms(2000);					//attend 2s
 	glcd_FillScreen(0);					//efface l'ecran	
 	__delay_us(1);
 }

@@ -35,6 +35,9 @@ int first_digit;
 int second_digit;
 int third_digit;
 int fourth_digit;
+
+long frequence;
+int dutycycle;
 /*
 #pragma config FOSC = HS
 #pragma config WDT = OFF

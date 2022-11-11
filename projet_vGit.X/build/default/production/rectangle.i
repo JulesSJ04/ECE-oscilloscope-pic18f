@@ -5664,8 +5664,8 @@ void display_oscillo(int ADC_value);
 # 1 "./rectangle.h" 1
 
 
-void PWM1_Init(long frequence);
-void PWM1_setDC(float dutycycle);
+void PWM1_Init(long freq);
+void PWM1_setDC(float dc);
 # 6 "./my_lib.h" 2
 
 # 1 "./Interrupt.h" 1
@@ -5713,23 +5713,25 @@ int first_digit;
 int second_digit;
 int third_digit;
 int fourth_digit;
+
+long frequence;
+int dutycycle;
 # 1 "rectangle.c" 2
 
 
-void PWM1_Init(long frequence){
+void PWM1_Init(long freq){
     OSCCON = 0b01110010;
     TRISC = 0b11111101;
 
     CCP2CON = 0b00001100;
     TMR2 = 0;
     T2CON = 0b00000111;
-    PR2 = (int) ((125000 - frequence) / frequence);
-
+    PR2 = (int) ((125000 - freq) / freq);
 }
 
 
-void PWM1_setDC(float dutycycle){
-    float calcul = ((PR2 + 1) * (dutycycle / 100));
+void PWM1_setDC(float dc){
+    float calcul = ((PR2 + 1) * (dc / 100));
     CCPR2L = (int) calcul;
 
     CCP2CONbits.DC2B1 = 0;

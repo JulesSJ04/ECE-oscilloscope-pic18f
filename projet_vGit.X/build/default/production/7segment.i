@@ -5664,8 +5664,8 @@ void display_oscillo(int ADC_value);
 # 1 "./rectangle.h" 1
 
 
-void PWM1_Init(long frequence);
-void PWM1_setDC(float dutycycle);
+void PWM1_Init(long freq);
+void PWM1_setDC(float dc);
 # 6 "./my_lib.h" 2
 
 # 1 "./Interrupt.h" 1
@@ -5713,6 +5713,9 @@ int first_digit;
 int second_digit;
 int third_digit;
 int fourth_digit;
+
+long frequence;
+int dutycycle;
 # 1 "7segment.c" 2
 # 16 "7segment.c"
 int global_ONE;

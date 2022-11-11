@@ -5664,8 +5664,8 @@ void display_oscillo(int ADC_value);
 # 1 "./rectangle.h" 1
 
 
-void PWM1_Init(long frequence);
-void PWM1_setDC(float dutycycle);
+void PWM1_Init(long freq);
+void PWM1_setDC(float dc);
 # 6 "./my_lib.h" 2
 
 # 1 "./Interrupt.h" 1
@@ -5713,6 +5713,9 @@ int first_digit;
 int second_digit;
 int third_digit;
 int fourth_digit;
+
+long frequence;
+int dutycycle;
 # 1 "screen.c" 2
 
 
@@ -5752,7 +5755,7 @@ void display_titre(void)
  glcd_WriteString(string2,1,1);
  glcd_SetCursor(26,5);
  glcd_WriteString(string3,1,1);
- _delay((unsigned long)((4000)*(8000000/4000.0)));
+ _delay((unsigned long)((2000)*(8000000/4000.0)));
  glcd_FillScreen(0);
  _delay((unsigned long)((1)*(8000000/4000000.0)));
 }

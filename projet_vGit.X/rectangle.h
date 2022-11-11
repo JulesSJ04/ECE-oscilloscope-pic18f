@@ -1,6 +1,6 @@
 #include <xc.h>
 
-void PWM1_Init(long frequence);
-void PWM1_setDC(float dutycycle);
+void PWM1_Init(long freq);
+void PWM1_setDC(float dc);
 
 

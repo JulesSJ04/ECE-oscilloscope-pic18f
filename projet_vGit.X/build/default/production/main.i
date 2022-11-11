@@ -5664,8 +5664,8 @@ void display_oscillo(int ADC_value);
 # 1 "./rectangle.h" 1
 
 
-void PWM1_Init(long frequence);
-void PWM1_setDC(float dutycycle);
+void PWM1_Init(long freq);
+void PWM1_setDC(float dc);
 # 6 "./my_lib.h" 2
 
 # 1 "./Interrupt.h" 1
@@ -5713,22 +5713,44 @@ int first_digit;
 int second_digit;
 int third_digit;
 int fourth_digit;
+
+long frequence;
+int dutycycle;
 # 1 "main.c" 2
 
 
 void main(void)
 {
+    frequence = 10000;
+    dutycycle = 75;
 
 
 
 
     initMyPIC18F();
     glcd_Init(1);
-
+    glcd_Image();
+    _delay((unsigned long)((2000)*(8000000/4000.0)));
     display_titre();
     display_auteur();
-    PWM1_Init(2000);
-    PWM1_setDC(50);
+    if(frequence < 490)
+    {
+        frequence = 490;
+    }
+    if(frequence > 62500)
+    {
+        frequence = 62500;
+    }
+    if(dutycycle < 0)
+    {
+        dutycycle = 0;
+    }
+    if(dutycycle > 100)
+    {
+        dutycycle = 100;
+    }
+    PWM1_Init(frequence);
+    PWM1_setDC(dutycycle);
     need_osc_refresh = 1;
     current_oscillo_mode = 0;
     menu_selector = 0;
