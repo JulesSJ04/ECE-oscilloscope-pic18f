@@ -7,6 +7,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./KS0108.h: 32: extern void glcd_Init(unsigned char mode);
 [; ;./KS0108.h: 32: extern void glcd_Init(unsigned char mode);
 [v _glcd_Init `(v ~T0 @X0 0 ef1`uc ]
+"41
+[; ;./KS0108.h: 41: extern void glcd_Image(void);
+[; ;./KS0108.h: 41: extern void glcd_Image(void);
+[v _glcd_Image `(v ~T0 @X0 0 ef ]
+[v F3152 `(v ~T0 @X0 1 tf1`ul ]
+"187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
+[v __delay `JF3152 ~T0 @X0 0 e ]
+[p i __delay ]
 "4 ./screen.h
 [; ;./screen.h: 4: void display_titre(void);
 [v _display_titre `(v ~T0 @X0 0 ef ]
@@ -14,10 +22,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./screen.h: 5: void display_auteur(void);
 [v _display_auteur `(v ~T0 @X0 0 ef ]
 "3 ./rectangle.h
-[; ;./rectangle.h: 3: void PWM1_Init(long frequence);
+[; ;./rectangle.h: 3: void PWM1_Init(long freq);
 [v _PWM1_Init `(v ~T0 @X0 0 ef1`l ]
 "4
-[; ;./rectangle.h: 4: void PWM1_setDC(float dutycycle);
+[; ;./rectangle.h: 4: void PWM1_setDC(float dc);
 [v _PWM1_setDC `(v ~T0 @X0 0 ef1`f ]
 "2320 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2320:     struct {
@@ -633,6 +641,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./my_lib.h: 18: int fourth_digit;
 [p x CPUDIV = OSC1_PLL2 ]
 "19
+[; ;./my_lib.h: 19: 
 [p x PBADEN = OFF ]
 "22
 [v _currently_in_menu `i ~T0 @X0 1 e ]
@@ -660,6 +669,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _third_digit `i ~T0 @X0 1 e ]
 "39
 [v _fourth_digit `i ~T0 @X0 1 e ]
+"41
+[v _frequence `l ~T0 @X0 1 e ]
+"42
+[v _dutycycle `i ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "3 main.c
 [; ;main.c: 3: void main(void)
@@ -669,114 +682,178 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _main ]
 [f ]
-"9
-[; ;main.c: 9:     initMyPIC18F();
+"5
+[; ;main.c: 5:     frequence = 10000;
+[e = _frequence -> -> 10000 `i `l ]
+"6
+[; ;main.c: 6:     dutycycle = 75;
+[e = _dutycycle -> 75 `i ]
+"11
+[; ;main.c: 11:     initMyPIC18F();
 [e ( _initMyPIC18F ..  ]
-"10
-[; ;main.c: 10:     glcd_Init(1);
-[e ( _glcd_Init (1 -> -> 1 `i `uc ]
 "12
-[; ;main.c: 12:     display_titre();
-[e ( _display_titre ..  ]
+[; ;main.c: 12:     glcd_Init(1);
+[e ( _glcd_Init (1 -> -> 1 `i `uc ]
 "13
-[; ;main.c: 13:     display_auteur();
-[e ( _display_auteur ..  ]
+[; ;main.c: 13:     glcd_Image();
+[e ( _glcd_Image ..  ]
 "14
-[; ;main.c: 14:     PWM1_Init(2000);
-[e ( _PWM1_Init (1 -> -> 2000 `i `l ]
+[; ;main.c: 14:     _delay((unsigned long)((2000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "15
-[; ;main.c: 15:     PWM1_setDC(50);
-[e ( _PWM1_setDC (1 -> -> 50 `i `f ]
+[; ;main.c: 15:     display_titre();
+[e ( _display_titre ..  ]
 "16
-[; ;main.c: 16:     need_osc_refresh = 1;
-[e = _need_osc_refresh -> 1 `i ]
+[; ;main.c: 16:     display_auteur();
+[e ( _display_auteur ..  ]
 "17
-[; ;main.c: 17:     current_oscillo_mode = 0;
-[e = _current_oscillo_mode -> 0 `i ]
+[; ;main.c: 17:     if(frequence < 490)
+[e $ ! < _frequence -> -> 490 `i `l 368  ]
 "18
-[; ;main.c: 18:     need_menu_refresh = 1;
-[e = _need_menu_refresh -> 1 `i ]
+[; ;main.c: 18:     {
+{
 "19
-[; ;main.c: 19:     PORTAbits.RA5 = 1;
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+[; ;main.c: 19:         frequence = 490;
+[e = _frequence -> -> 490 `i `l ]
 "20
-[; ;main.c: 20:     currently_in_oscillo = 0;
-[e = _currently_in_oscillo -> 0 `i ]
-"21
-[; ;main.c: 21:     currently_in_menu = 1;
-[e = _currently_in_menu -> 1 `i ]
-"22
-[; ;main.c: 22:     menu_selector = 1;
-[e = _menu_selector -> 1 `i ]
-"23
-[; ;main.c: 23:     while(1)
-[e :U 369 ]
-"24
-[; ;main.c: 24:     {
-{
-"25
-[; ;main.c: 25:         ADCON0bits.GO_DONE = 1;
-[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
-"27
-[; ;main.c: 27:         if(have_to_FillScreen == 1)
-[e $ ! == _have_to_FillScreen -> 1 `i 371  ]
-"28
-[; ;main.c: 28:         {
-{
-"29
-[; ;main.c: 29:         have_to_FillScreen = 0;
-[e = _have_to_FillScreen -> 0 `i ]
-"30
-[; ;main.c: 30:         glcd_FillScreen(0);
-[e ( _glcd_FillScreen (1 -> -> 0 `i `uc ]
-"31
-[; ;main.c: 31:         }
-}
-[e :U 371 ]
-"32
-[; ;main.c: 32:         if(currently_in_menu == 1)
-[e $ ! == _currently_in_menu -> 1 `i 372  ]
-"33
-[; ;main.c: 33:         {
-{
-"34
-[; ;main.c: 34:             currently_in_oscillo = 0;
-[e = _currently_in_oscillo -> 0 `i ]
-"35
-[; ;main.c: 35:             display_menu();
-[e ( _display_menu ..  ]
-"36
-[; ;main.c: 36:         }
-}
-[e $U 373  ]
-"37
-[; ;main.c: 37:         else if(currently_in_oscillo == 1)
-[e :U 372 ]
-[e $ ! == _currently_in_oscillo -> 1 `i 374  ]
-"38
-[; ;main.c: 38:         {
-{
-"39
-[; ;main.c: 39:             currently_in_menu = 0;
-[e = _currently_in_menu -> 0 `i ]
-"40
-[; ;main.c: 40:             display_oscillo((int)((global_ADC_value/4) - 64)*(-1));
-[e ( _display_oscillo (1 * - / _global_ADC_value -> 4 `i -> 64 `i -U -> 1 `i ]
-"41
-[; ;main.c: 41:         }
-}
-[e :U 374 ]
-[e :U 373 ]
-"42
-[; ;main.c: 42:         display_7segment();
-[e ( _display_7segment ..  ]
-"43
-[; ;main.c: 43:     }
+[; ;main.c: 20:     }
 }
 [e :U 368 ]
-[e $U 369  ]
+"21
+[; ;main.c: 21:     if(frequence > 62500)
+[e $ ! > _frequence -> 62500 `l 369  ]
+"22
+[; ;main.c: 22:     {
+{
+"23
+[; ;main.c: 23:         frequence = 62500;
+[e = _frequence -> 62500 `l ]
+"24
+[; ;main.c: 24:     }
+}
+[e :U 369 ]
+"25
+[; ;main.c: 25:     if(dutycycle < 0)
+[e $ ! < _dutycycle -> 0 `i 370  ]
+"26
+[; ;main.c: 26:     {
+{
+"27
+[; ;main.c: 27:         dutycycle = 0;
+[e = _dutycycle -> 0 `i ]
+"28
+[; ;main.c: 28:     }
+}
 [e :U 370 ]
+"29
+[; ;main.c: 29:     if(dutycycle > 100)
+[e $ ! > _dutycycle -> 100 `i 371  ]
+"30
+[; ;main.c: 30:     {
+{
+"31
+[; ;main.c: 31:         dutycycle = 100;
+[e = _dutycycle -> 100 `i ]
+"32
+[; ;main.c: 32:     }
+}
+[e :U 371 ]
+"33
+[; ;main.c: 33:     PWM1_Init(frequence);
+[e ( _PWM1_Init (1 _frequence ]
+"34
+[; ;main.c: 34:     PWM1_setDC(dutycycle);
+[e ( _PWM1_setDC (1 -> _dutycycle `f ]
+"35
+[; ;main.c: 35:     need_osc_refresh = 1;
+[e = _need_osc_refresh -> 1 `i ]
+"36
+[; ;main.c: 36:     current_oscillo_mode = 0;
+[e = _current_oscillo_mode -> 0 `i ]
+"37
+[; ;main.c: 37:     need_menu_refresh = 1;
+[e = _need_menu_refresh -> 1 `i ]
+"38
+[; ;main.c: 38:     PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"39
+[; ;main.c: 39:     currently_in_oscillo = 0;
+[e = _currently_in_oscillo -> 0 `i ]
+"40
+[; ;main.c: 40:     currently_in_menu = 1;
+[e = _currently_in_menu -> 1 `i ]
+"41
+[; ;main.c: 41:     menu_selector = 1;
+[e = _menu_selector -> 1 `i ]
+"42
+[; ;main.c: 42:     while(1)
+[e :U 373 ]
+"43
+[; ;main.c: 43:     {
+{
 "44
-[; ;main.c: 44: }
+[; ;main.c: 44:         ADCON0bits.GO_DONE = 1;
+[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
+"46
+[; ;main.c: 46:         if(have_to_FillScreen == 1)
+[e $ ! == _have_to_FillScreen -> 1 `i 375  ]
+"47
+[; ;main.c: 47:         {
+{
+"48
+[; ;main.c: 48:         have_to_FillScreen = 0;
+[e = _have_to_FillScreen -> 0 `i ]
+"49
+[; ;main.c: 49:         glcd_FillScreen(0);
+[e ( _glcd_FillScreen (1 -> -> 0 `i `uc ]
+"50
+[; ;main.c: 50:         }
+}
+[e :U 375 ]
+"51
+[; ;main.c: 51:         if(currently_in_menu == 1)
+[e $ ! == _currently_in_menu -> 1 `i 376  ]
+"52
+[; ;main.c: 52:         {
+{
+"53
+[; ;main.c: 53:             currently_in_oscillo = 0;
+[e = _currently_in_oscillo -> 0 `i ]
+"54
+[; ;main.c: 54:             display_menu();
+[e ( _display_menu ..  ]
+"55
+[; ;main.c: 55:         }
+}
+[e $U 377  ]
+"56
+[; ;main.c: 56:         else if(currently_in_oscillo == 1)
+[e :U 376 ]
+[e $ ! == _currently_in_oscillo -> 1 `i 378  ]
+"57
+[; ;main.c: 57:         {
+{
+"58
+[; ;main.c: 58:             currently_in_menu = 0;
+[e = _currently_in_menu -> 0 `i ]
+"59
+[; ;main.c: 59:             display_oscillo((int)((global_ADC_value/4) - 64)*(-1));
+[e ( _display_oscillo (1 * - / _global_ADC_value -> 4 `i -> 64 `i -U -> 1 `i ]
+"60
+[; ;main.c: 60:         }
+}
+[e :U 378 ]
+[e :U 377 ]
+"61
+[; ;main.c: 61:         display_7segment();
+[e ( _display_7segment ..  ]
+"62
+[; ;main.c: 62:     }
+}
+[e :U 372 ]
+[e $U 373  ]
+[e :U 374 ]
+"63
+[; ;main.c: 63: }
 [e :UE 367 ]
 }

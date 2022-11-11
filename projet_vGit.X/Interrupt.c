@@ -43,6 +43,7 @@ void __interrupt() irq_handle()
         //INTCONbits.GIE = 0;
         //ADCON0bits.GO_DONE = 0;
         INTCONbits.RBIF = 0;
+        __delay_ms(10);
         if(PORTBbits.RB6 == 1)
         {
             if(double_edge == 0) 
@@ -74,7 +75,7 @@ void __interrupt() irq_handle()
             {
                 if(currently_in_menu == 1)
                 {
-                    if(menu_selector == 1)
+                    if(menu_selector == 0)
                     {
                         currently_in_menu = 0; //On sort du menu
                         currently_in_oscillo = 1; //On passe à l'oscillos
@@ -85,14 +86,14 @@ void __interrupt() irq_handle()
                     }
                 }
                 else if(currently_in_oscillo == 1)
-                    {
-                        currently_in_menu = 1; //On passe au menu
-                        currently_in_oscillo = 0; //On sort de l'oscillos
-                        double_edgeRB7++;
-                        need_menu_refresh = 1; //Besoin de refraichir le menu
-                        have_to_FillScreen = 1; //Besoin de rafraichir l'écran
-                        return;
-                    }
+                {
+                    currently_in_menu = 1; //On passe au menu
+                    currently_in_oscillo = 0; //On sort de l'oscillos
+                    double_edgeRB7++;
+                    need_menu_refresh = 1; //Besoin de refraichir le menu
+                    have_to_FillScreen = 1; //Besoin de rafraichir l'écran
+                    return;
+                }
             }
             else
             {

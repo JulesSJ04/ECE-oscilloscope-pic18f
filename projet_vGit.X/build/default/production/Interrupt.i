@@ -5764,6 +5764,7 @@ void __attribute__((picinterrupt(("")))) irq_handle()
 
 
         INTCONbits.RBIF = 0;
+        _delay((unsigned long)((10)*(8000000/4000.0)));
         if(PORTBbits.RB6 == 1)
         {
             if(double_edge == 0)
@@ -5795,24 +5796,25 @@ void __attribute__((picinterrupt(("")))) irq_handle()
             {
                 if(currently_in_menu == 1)
                 {
-                    if(menu_selector == 1)
+                    if(menu_selector == 0)
                     {
                         currently_in_menu = 0;
                         currently_in_oscillo = 1;
                         double_edgeRB7++;
+                        need_osc_refresh = 1;
                         have_to_FillScreen = 1;
                         return;
                     }
                 }
                 else if(currently_in_oscillo == 1)
-                    {
-                        currently_in_menu = 1;
-                        currently_in_oscillo = 0;
-                        double_edgeRB7++;
-                        need_menu_refresh = 1;
-                        have_to_FillScreen = 1;
-                        return;
-                    }
+                {
+                    currently_in_menu = 1;
+                    currently_in_oscillo = 0;
+                    double_edgeRB7++;
+                    need_menu_refresh = 1;
+                    have_to_FillScreen = 1;
+                    return;
+                }
             }
             else
             {

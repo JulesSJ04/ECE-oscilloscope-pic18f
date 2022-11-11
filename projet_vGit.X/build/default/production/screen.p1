@@ -554,6 +554,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./my_lib.h: 18: int fourth_digit;
 [p x CPUDIV = OSC1_PLL2 ]
 "19
+[; ;./my_lib.h: 19: 
 [p x PBADEN = OFF ]
 "22
 [v _currently_in_menu `i ~T0 @X0 1 e ]
@@ -581,6 +582,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _third_digit `i ~T0 @X0 1 e ]
 "39
 [v _fourth_digit `i ~T0 @X0 1 e ]
+"41
+[v _frequence `l ~T0 @X0 1 e ]
+"42
+[v _dutycycle `i ~T0 @X0 1 e ]
 "3 screen.c
 [; ;screen.c: 3: void display_line(int x, int y, int final_x,int final_y, int color)
 [v _display_line `(v ~T0 @X0 1 ef5`i`i`i`i`i ]
@@ -672,8 +677,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _display_titre ]
 [f ]
-[v F3258 `uc ~T0 @X0 -> 7 `i s ]
-[i F3258
+[v F3260 `uc ~T0 @X0 -> 7 `i s ]
+[i F3260
 :U ..
 "23
 [; ;screen.c: 23:     unsigned char string1[7] = { 'P', 'r', 'o', 'j', 'e', 't', '\0' };
@@ -687,9 +692,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string1 `uc ~T0 @X0 -> 7 `i a ]
-[e = _string1 F3258 ]
-[v F3260 `uc ~T0 @X0 -> 6 `i s ]
-[i F3260
+[e = _string1 F3260 ]
+[v F3262 `uc ~T0 @X0 -> 6 `i s ]
+[i F3262
 :U ..
 "24
 [; ;screen.c: 24:     unsigned char string2[6] = { 'M', 'C', 'U', ' ', ':', '\0' };
@@ -702,9 +707,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string2 `uc ~T0 @X0 -> 6 `i a ]
-[e = _string2 F3260 ]
-[v F3262 `uc ~T0 @X0 -> 10 `i s ]
-[i F3262
+[e = _string2 F3262 ]
+[v F3264 `uc ~T0 @X0 -> 10 `i s ]
+[i F3264
 :U ..
 "25
 [; ;screen.c: 25:  unsigned char string3[10] = {'E', 'a', 's', 'y', 'S', 'C', 'O', 'P', 'E', '\0'};
@@ -721,7 +726,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string3 `uc ~T0 @X0 -> 10 `i a ]
-[e = _string3 F3262 ]
+[e = _string3 F3264 ]
 "29
 [; ;screen.c: 29:  glcd_FillScreen(0);
 [e ( _glcd_FillScreen (1 -> -> 0 `i `uc ]
@@ -744,8 +749,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;screen.c: 35:  glcd_WriteString(string3,1,1);
 [e ( _glcd_WriteString (3 , , &U _string3 -> -> 1 `i `uc -> -> 1 `i `uc ]
 "36
-[; ;screen.c: 36:  _delay((unsigned long)((4000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;screen.c: 36:  _delay((unsigned long)((2000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "37
 [; ;screen.c: 37:  glcd_FillScreen(0);
 [e ( _glcd_FillScreen (1 -> -> 0 `i `uc ]
@@ -764,8 +769,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _display_auteur ]
 [f ]
-[v F3265 `uc ~T0 @X0 -> 3 `i s ]
-[i F3265
+[v F3267 `uc ~T0 @X0 -> 3 `i s ]
+[i F3267
 :U ..
 "43
 [; ;screen.c: 43:  unsigned char string1[3] = { 'b', 'y', '\0' };
@@ -775,9 +780,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string1 `uc ~T0 @X0 -> 3 `i a ]
-[e = _string1 F3265 ]
-[v F3267 `uc ~T0 @X0 -> 5 `i s ]
-[i F3267
+[e = _string1 F3267 ]
+[v F3269 `uc ~T0 @X0 -> 5 `i s ]
+[i F3269
 :U ..
 "44
 [; ;screen.c: 44:  unsigned char string2[5] = {'E', 'r', 'i', 'c', '\0'};
@@ -789,9 +794,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string2 `uc ~T0 @X0 -> 5 `i a ]
-[e = _string2 F3267 ]
-[v F3269 `uc ~T0 @X0 -> 2 `i s ]
-[i F3269
+[e = _string2 F3269 ]
+[v F3271 `uc ~T0 @X0 -> 2 `i s ]
+[i F3271
 :U ..
 "45
 [; ;screen.c: 45:     unsigned char string3[2] = { '&', '\0' };
@@ -800,9 +805,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string3 `uc ~T0 @X0 -> 2 `i a ]
-[e = _string3 F3269 ]
-[v F3271 `uc ~T0 @X0 -> 8 `i s ]
-[i F3271
+[e = _string3 F3271 ]
+[v F3273 `uc ~T0 @X0 -> 8 `i s ]
+[i F3273
 :U ..
 "46
 [; ;screen.c: 46:  unsigned char string4[8] = { 'Q', 'u', 'e', 'n', 't', 'i', 'n', '\0'};
@@ -817,9 +822,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string4 `uc ~T0 @X0 -> 8 `i a ]
-[e = _string4 F3271 ]
-[v F3273 `uc ~T0 @X0 -> 6 `i s ]
-[i F3273
+[e = _string4 F3273 ]
+[v F3275 `uc ~T0 @X0 -> 6 `i s ]
+[i F3275
 :U ..
 "47
 [; ;screen.c: 47:  unsigned char string5[6] = { 'J', 'u', 'l', 'e', 's', '\0'};
@@ -832,7 +837,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string5 `uc ~T0 @X0 -> 6 `i a ]
-[e = _string5 F3273 ]
+[e = _string5 F3275 ]
 "53
 [; ;screen.c: 53:  glcd_SetCursor(52,0);
 [e ( _glcd_SetCursor (2 , -> -> 52 `i `uc -> -> 0 `i `uc ]
@@ -896,8 +901,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "81
 [; ;screen.c: 81:     {
 {
-[v F3276 `uc ~T0 @X0 -> 16 `i s ]
-[i F3276
+[v F3278 `uc ~T0 @X0 -> 16 `i s ]
+[i F3278
 :U ..
 "82
 [; ;screen.c: 82:         unsigned char string1[16] = {'C','h','o','i','s','i','r',' ','u','n',' ', 'm', 'o', 'd', 'e', '\0'};
@@ -920,9 +925,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string1 `uc ~T0 @X0 -> 16 `i a ]
-[e = _string1 F3276 ]
-[v F3278 `uc ~T0 @X0 -> 15 `i s ]
-[i F3278
+[e = _string1 F3278 ]
+[v F3280 `uc ~T0 @X0 -> 15 `i s ]
+[i F3280
 :U ..
 "83
 [; ;screen.c: 83:         unsigned char string2[15] = {'1','.','O','s','c','i','l','l','o','s','c','o','p','e','\0'};
@@ -944,9 +949,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string2 `uc ~T0 @X0 -> 15 `i a ]
-[e = _string2 F3278 ]
-[v F3280 `uc ~T0 @X0 -> 16 `i s ]
-[i F3280
+[e = _string2 F3280 ]
+[v F3282 `uc ~T0 @X0 -> 16 `i s ]
+[i F3282
 :U ..
 "84
 [; ;screen.c: 84:         unsigned char string3[16] = {'2','.','R','e','c','t','a','n','g','u','l','a','i','r','e','\0'};
@@ -969,9 +974,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string3 `uc ~T0 @X0 -> 16 `i a ]
-[e = _string3 F3280 ]
-[v F3282 `uc ~T0 @X0 -> 2 `i s ]
-[i F3282
+[e = _string3 F3282 ]
+[v F3284 `uc ~T0 @X0 -> 2 `i s ]
+[i F3284
 :U ..
 "85
 [; ;screen.c: 85:         unsigned char string4[2] = {'1','\0'};
@@ -980,9 +985,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string4 `uc ~T0 @X0 -> 2 `i a ]
-[e = _string4 F3282 ]
-[v F3284 `uc ~T0 @X0 -> 2 `i s ]
-[i F3284
+[e = _string4 F3284 ]
+[v F3286 `uc ~T0 @X0 -> 2 `i s ]
+[i F3286
 :U ..
 "86
 [; ;screen.c: 86:         unsigned char string5[2] = {'2','\0'};
@@ -991,7 +996,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string5 `uc ~T0 @X0 -> 2 `i a ]
-[e = _string5 F3284 ]
+[e = _string5 F3286 ]
 "89
 [; ;screen.c: 89:         glcd_SetCursor(2,0);
 [e ( _glcd_SetCursor (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
@@ -1098,8 +1103,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "133
 [; ;screen.c: 133:         need_osc_refresh = 0;
 [e = _need_osc_refresh -> 0 `i ]
-[v F3288 `uc ~T0 @X0 -> 2 `i s ]
-[i F3288
+[v F3290 `uc ~T0 @X0 -> 2 `i s ]
+[i F3290
 :U ..
 "134
 [; ;screen.c: 134:         unsigned char string1[2] = {'1','\0'};
@@ -1108,9 +1113,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string1 `uc ~T0 @X0 -> 2 `i a ]
-[e = _string1 F3288 ]
-[v F3290 `uc ~T0 @X0 -> 2 `i s ]
-[i F3290
+[e = _string1 F3290 ]
+[v F3292 `uc ~T0 @X0 -> 2 `i s ]
+[i F3292
 :U ..
 "135
 [; ;screen.c: 135:         unsigned char string2[2] = {'2','\0'};
@@ -1119,9 +1124,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string2 `uc ~T0 @X0 -> 2 `i a ]
-[e = _string2 F3290 ]
-[v F3292 `uc ~T0 @X0 -> 2 `i s ]
-[i F3292
+[e = _string2 F3292 ]
+[v F3294 `uc ~T0 @X0 -> 2 `i s ]
+[i F3294
 :U ..
 "136
 [; ;screen.c: 136:         unsigned char string3[2] = {'E','\0'};
@@ -1130,9 +1135,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string3 `uc ~T0 @X0 -> 2 `i a ]
-[e = _string3 F3292 ]
-[v F3294 `uc ~T0 @X0 -> 2 `i s ]
-[i F3294
+[e = _string3 F3294 ]
+[v F3296 `uc ~T0 @X0 -> 2 `i s ]
+[i F3296
 :U ..
 "137
 [; ;screen.c: 137:         unsigned char string4[2] = {'|','\0'};
@@ -1141,7 +1146,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string4 `uc ~T0 @X0 -> 2 `i a ]
-[e = _string4 F3294 ]
+[e = _string4 F3296 ]
 "140
 [; ;screen.c: 140:         for(int i = 0;i<8;i++)
 {
@@ -1239,8 +1244,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;screen.c: 168:     char digit1 = (char)(first_digit+48);
 [v _digit1 `uc ~T0 @X0 1 a ]
 [e = _digit1 -> + _first_digit -> 48 `i `uc ]
-[v F3301 `uc ~T0 @X0 -> 3 `i s ]
-[i F3301
+[v F3303 `uc ~T0 @X0 -> 3 `i s ]
+[i F3303
 :U ..
 "170
 [; ;screen.c: 170:     unsigned char string_fourth_digit[3] = {digit4,'.','\0'};
@@ -1250,10 +1255,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string_fourth_digit `uc ~T0 @X0 -> 3 `i a ]
-[e = _string_fourth_digit F3301 ]
+[e = _string_fourth_digit F3303 ]
 [e ; = *U + &U _string_fourth_digit * -> -> -> 0 `i `ui `ux -> -> # *U &U _string_fourth_digit `ui `ux -> _digit4 `uc ; = *U + &U _string_fourth_digit * -> -> -> 1 `i `ui `ux -> -> # *U &U _string_fourth_digit `ui `ux -> -> 46 `ui `uc = *U + &U _string_fourth_digit * -> -> -> 2 `i `ui `ux -> -> # *U &U _string_fourth_digit `ui `ux -> -> 0 `ui `uc ]
-[v F3303 `uc ~T0 @X0 -> 2 `i s ]
-[i F3303
+[v F3305 `uc ~T0 @X0 -> 2 `i s ]
+[i F3305
 :U ..
 "171
 [; ;screen.c: 171:     unsigned char string_third_digit[2] = {digit3,'\0'};
@@ -1262,10 +1267,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string_third_digit `uc ~T0 @X0 -> 2 `i a ]
-[e = _string_third_digit F3303 ]
+[e = _string_third_digit F3305 ]
 [e ; = *U + &U _string_third_digit * -> -> -> 0 `i `ui `ux -> -> # *U &U _string_third_digit `ui `ux -> _digit3 `uc = *U + &U _string_third_digit * -> -> -> 1 `i `ui `ux -> -> # *U &U _string_third_digit `ui `ux -> -> 0 `ui `uc ]
-[v F3305 `uc ~T0 @X0 -> 2 `i s ]
-[i F3305
+[v F3307 `uc ~T0 @X0 -> 2 `i s ]
+[i F3307
 :U ..
 "172
 [; ;screen.c: 172:     unsigned char string_second_digit[2] = {digit2,'\0'};
@@ -1274,10 +1279,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string_second_digit `uc ~T0 @X0 -> 2 `i a ]
-[e = _string_second_digit F3305 ]
+[e = _string_second_digit F3307 ]
 [e ; = *U + &U _string_second_digit * -> -> -> 0 `i `ui `ux -> -> # *U &U _string_second_digit `ui `ux -> _digit2 `uc = *U + &U _string_second_digit * -> -> -> 1 `i `ui `ux -> -> # *U &U _string_second_digit `ui `ux -> -> 0 `ui `uc ]
-[v F3307 `uc ~T0 @X0 -> 2 `i s ]
-[i F3307
+[v F3309 `uc ~T0 @X0 -> 2 `i s ]
+[i F3309
 :U ..
 "173
 [; ;screen.c: 173:     unsigned char string_first_digit[2] = {digit1,'\0'};
@@ -1286,7 +1291,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _string_first_digit `uc ~T0 @X0 -> 2 `i a ]
-[e = _string_first_digit F3307 ]
+[e = _string_first_digit F3309 ]
 [e ; = *U + &U _string_first_digit * -> -> -> 0 `i `ui `ux -> -> # *U &U _string_first_digit `ui `ux -> _digit1 `uc = *U + &U _string_first_digit * -> -> -> 1 `i `ui `ux -> -> # *U &U _string_first_digit `ui `ux -> -> 0 `ui `uc ]
 "175
 [; ;screen.c: 175:     glcd_SetCursor(2,3);

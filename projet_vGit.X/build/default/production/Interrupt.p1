@@ -99,6 +99,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4 ./7segment.h
 [; ;./7segment.h: 4: void calcul_7segment(int adresh);
 [v _calcul_7segment `(v ~T0 @X0 0 ef1`i ]
+[v F3152 `(v ~T0 @X0 1 tf1`ul ]
+"187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
+[v __delay `JF3152 ~T0 @X0 0 e ]
+[p i __delay ]
 "2459 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2459:     struct {
 [s S107 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -653,6 +657,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./my_lib.h: 18: int fourth_digit;
 [p x CPUDIV = OSC1_PLL2 ]
 "19
+[; ;./my_lib.h: 19: 
 [p x PBADEN = OFF ]
 "22
 [v _currently_in_menu `i ~T0 @X0 1 e ]
@@ -680,6 +685,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _third_digit `i ~T0 @X0 1 e ]
 "39
 [v _fourth_digit `i ~T0 @X0 1 e ]
+"41
+[v _frequence `l ~T0 @X0 1 e ]
+"42
+[v _dutycycle `i ~T0 @X0 1 e ]
 "3 Interrupt.c
 [; ;Interrupt.c: 3: int double_edge;
 [v _double_edge `i ~T0 @X0 1 e ]
@@ -775,203 +784,209 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Interrupt.c: 45:         INTCONbits.RBIF = 0;
 [e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
 "46
-[; ;Interrupt.c: 46:         if(PORTBbits.RB6 == 1)
-[e $ ! == -> . . _PORTBbits 0 6 `i -> 1 `i 371  ]
+[; ;Interrupt.c: 46:         _delay((unsigned long)((10)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "47
-[; ;Interrupt.c: 47:         {
-{
+[; ;Interrupt.c: 47:         if(PORTBbits.RB6 == 1)
+[e $ ! == -> . . _PORTBbits 0 6 `i -> 1 `i 371  ]
 "48
-[; ;Interrupt.c: 48:             if(double_edge == 0)
-[e $ ! == _double_edge -> 0 `i 372  ]
+[; ;Interrupt.c: 48:         {
+{
 "49
-[; ;Interrupt.c: 49:             {
-{
+[; ;Interrupt.c: 49:             if(double_edge == 0)
+[e $ ! == _double_edge -> 0 `i 372  ]
 "50
-[; ;Interrupt.c: 50:                 if(currently_in_menu==1 && menu_selector==0)
-[e $ ! && == _currently_in_menu -> 1 `i == _menu_selector -> 0 `i 373  ]
-"51
-[; ;Interrupt.c: 51:                 {
+[; ;Interrupt.c: 50:             {
 {
-"53
-[; ;Interrupt.c: 53:                     menu_selector = 1;
-[e = _menu_selector -> 1 `i ]
+"51
+[; ;Interrupt.c: 51:                 if(currently_in_menu==1 && menu_selector==0)
+[e $ ! && == _currently_in_menu -> 1 `i == _menu_selector -> 0 `i 373  ]
+"52
+[; ;Interrupt.c: 52:                 {
+{
 "54
-[; ;Interrupt.c: 54:                     double_edge++;
-[e ++ _double_edge -> 1 `i ]
+[; ;Interrupt.c: 54:                     menu_selector = 1;
+[e = _menu_selector -> 1 `i ]
 "55
-[; ;Interrupt.c: 55:                     return;
-[e $UE 368  ]
+[; ;Interrupt.c: 55:                     double_edge++;
+[e ++ _double_edge -> 1 `i ]
 "56
-[; ;Interrupt.c: 56:                 }
+[; ;Interrupt.c: 56:                     return;
+[e $UE 368  ]
+"57
+[; ;Interrupt.c: 57:                 }
 }
 [e $U 374  ]
-"57
-[; ;Interrupt.c: 57:                 else if(currently_in_menu==1 && menu_selector==1)
+"58
+[; ;Interrupt.c: 58:                 else if(currently_in_menu==1 && menu_selector==1)
 [e :U 373 ]
 [e $ ! && == _currently_in_menu -> 1 `i == _menu_selector -> 1 `i 375  ]
-"58
-[; ;Interrupt.c: 58:                 {
-{
 "59
-[; ;Interrupt.c: 59:                     menu_selector = 0;
-[e = _menu_selector -> 0 `i ]
+[; ;Interrupt.c: 59:                 {
+{
 "60
-[; ;Interrupt.c: 60:                     double_edge++;
-[e ++ _double_edge -> 1 `i ]
+[; ;Interrupt.c: 60:                     menu_selector = 0;
+[e = _menu_selector -> 0 `i ]
 "61
-[; ;Interrupt.c: 61:                     return;
-[e $UE 368  ]
+[; ;Interrupt.c: 61:                     double_edge++;
+[e ++ _double_edge -> 1 `i ]
 "62
-[; ;Interrupt.c: 62:                 }
+[; ;Interrupt.c: 62:                     return;
+[e $UE 368  ]
+"63
+[; ;Interrupt.c: 63:                 }
 }
 [e :U 375 ]
 [e :U 374 ]
-"63
-[; ;Interrupt.c: 63:             }
+"64
+[; ;Interrupt.c: 64:             }
 }
 [e $U 376  ]
-"64
-[; ;Interrupt.c: 64:             else
-[e :U 372 ]
 "65
-[; ;Interrupt.c: 65:             {
-{
+[; ;Interrupt.c: 65:             else
+[e :U 372 ]
 "66
-[; ;Interrupt.c: 66:                 double_edge = 0;
+[; ;Interrupt.c: 66:             {
+{
+"67
+[; ;Interrupt.c: 67:                 double_edge = 0;
 [e = _double_edge -> 0 `i ]
-"68
-[; ;Interrupt.c: 68:                 return;
-[e $UE 368  ]
 "69
-[; ;Interrupt.c: 69:             }
+[; ;Interrupt.c: 69:                 return;
+[e $UE 368  ]
+"70
+[; ;Interrupt.c: 70:             }
 }
 [e :U 376 ]
-"70
-[; ;Interrupt.c: 70:         }
+"71
+[; ;Interrupt.c: 71:         }
 }
 [e :U 371 ]
-"71
-[; ;Interrupt.c: 71:         if(PORTBbits.RB7 == 1)
-[e $ ! == -> . . _PORTBbits 0 7 `i -> 1 `i 377  ]
 "72
-[; ;Interrupt.c: 72:         {
-{
+[; ;Interrupt.c: 72:         if(PORTBbits.RB7 == 1)
+[e $ ! == -> . . _PORTBbits 0 7 `i -> 1 `i 377  ]
 "73
-[; ;Interrupt.c: 73:             if(double_edgeRB7 == 0)
-[e $ ! == _double_edgeRB7 -> 0 `i 378  ]
+[; ;Interrupt.c: 73:         {
+{
 "74
-[; ;Interrupt.c: 74:             {
-{
+[; ;Interrupt.c: 74:             if(double_edgeRB7 == 0)
+[e $ ! == _double_edgeRB7 -> 0 `i 378  ]
 "75
-[; ;Interrupt.c: 75:                 if(currently_in_menu == 1)
-[e $ ! == _currently_in_menu -> 1 `i 379  ]
+[; ;Interrupt.c: 75:             {
+{
 "76
-[; ;Interrupt.c: 76:                 {
-{
+[; ;Interrupt.c: 76:                 if(currently_in_menu == 1)
+[e $ ! == _currently_in_menu -> 1 `i 379  ]
 "77
-[; ;Interrupt.c: 77:                     if(menu_selector == 1)
-[e $ ! == _menu_selector -> 1 `i 380  ]
-"78
-[; ;Interrupt.c: 78:                     {
+[; ;Interrupt.c: 77:                 {
 {
+"78
+[; ;Interrupt.c: 78:                     if(menu_selector == 0)
+[e $ ! == _menu_selector -> 0 `i 380  ]
 "79
-[; ;Interrupt.c: 79:                         currently_in_menu = 0;
-[e = _currently_in_menu -> 0 `i ]
+[; ;Interrupt.c: 79:                     {
+{
 "80
-[; ;Interrupt.c: 80:                         currently_in_oscillo = 1;
-[e = _currently_in_oscillo -> 1 `i ]
+[; ;Interrupt.c: 80:                         currently_in_menu = 0;
+[e = _currently_in_menu -> 0 `i ]
 "81
-[; ;Interrupt.c: 81:                         double_edgeRB7++;
-[e ++ _double_edgeRB7 -> 1 `i ]
+[; ;Interrupt.c: 81:                         currently_in_oscillo = 1;
+[e = _currently_in_oscillo -> 1 `i ]
 "82
-[; ;Interrupt.c: 82:                         have_to_FillScreen = 1;
-[e = _have_to_FillScreen -> 1 `i ]
+[; ;Interrupt.c: 82:                         double_edgeRB7++;
+[e ++ _double_edgeRB7 -> 1 `i ]
 "83
-[; ;Interrupt.c: 83:                         return;
-[e $UE 368  ]
+[; ;Interrupt.c: 83:                         need_osc_refresh = 1;
+[e = _need_osc_refresh -> 1 `i ]
 "84
-[; ;Interrupt.c: 84:                     }
+[; ;Interrupt.c: 84:                         have_to_FillScreen = 1;
+[e = _have_to_FillScreen -> 1 `i ]
+"85
+[; ;Interrupt.c: 85:                         return;
+[e $UE 368  ]
+"86
+[; ;Interrupt.c: 86:                     }
 }
 [e :U 380 ]
-"85
-[; ;Interrupt.c: 85:                 }
+"87
+[; ;Interrupt.c: 87:                 }
 }
 [e $U 381  ]
-"86
-[; ;Interrupt.c: 86:                 else if(currently_in_oscillo == 1)
+"88
+[; ;Interrupt.c: 88:                 else if(currently_in_oscillo == 1)
 [e :U 379 ]
 [e $ ! == _currently_in_oscillo -> 1 `i 382  ]
-"87
-[; ;Interrupt.c: 87:                     {
-{
-"88
-[; ;Interrupt.c: 88:                         currently_in_menu = 1;
-[e = _currently_in_menu -> 1 `i ]
 "89
-[; ;Interrupt.c: 89:                         currently_in_oscillo = 0;
-[e = _currently_in_oscillo -> 0 `i ]
+[; ;Interrupt.c: 89:                 {
+{
 "90
-[; ;Interrupt.c: 90:                         double_edgeRB7++;
-[e ++ _double_edgeRB7 -> 1 `i ]
+[; ;Interrupt.c: 90:                     currently_in_menu = 1;
+[e = _currently_in_menu -> 1 `i ]
 "91
-[; ;Interrupt.c: 91:                         need_menu_refresh = 1;
-[e = _need_menu_refresh -> 1 `i ]
+[; ;Interrupt.c: 91:                     currently_in_oscillo = 0;
+[e = _currently_in_oscillo -> 0 `i ]
 "92
-[; ;Interrupt.c: 92:                         have_to_FillScreen = 1;
-[e = _have_to_FillScreen -> 1 `i ]
+[; ;Interrupt.c: 92:                     double_edgeRB7++;
+[e ++ _double_edgeRB7 -> 1 `i ]
 "93
-[; ;Interrupt.c: 93:                         return;
-[e $UE 368  ]
+[; ;Interrupt.c: 93:                     need_menu_refresh = 1;
+[e = _need_menu_refresh -> 1 `i ]
 "94
-[; ;Interrupt.c: 94:                     }
+[; ;Interrupt.c: 94:                     have_to_FillScreen = 1;
+[e = _have_to_FillScreen -> 1 `i ]
+"95
+[; ;Interrupt.c: 95:                     return;
+[e $UE 368  ]
+"96
+[; ;Interrupt.c: 96:                 }
 }
 [e :U 382 ]
 [e :U 381 ]
-"95
-[; ;Interrupt.c: 95:             }
+"97
+[; ;Interrupt.c: 97:             }
 }
 [e $U 383  ]
-"96
-[; ;Interrupt.c: 96:             else
-[e :U 378 ]
-"97
-[; ;Interrupt.c: 97:             {
-{
 "98
-[; ;Interrupt.c: 98:                 double_edgeRB7 = 0;
-[e = _double_edgeRB7 -> 0 `i ]
+[; ;Interrupt.c: 98:             else
+[e :U 378 ]
 "99
-[; ;Interrupt.c: 99:                 return;
-[e $UE 368  ]
+[; ;Interrupt.c: 99:             {
+{
 "100
-[; ;Interrupt.c: 100:             }
+[; ;Interrupt.c: 100:                 double_edgeRB7 = 0;
+[e = _double_edgeRB7 -> 0 `i ]
+"101
+[; ;Interrupt.c: 101:                 return;
+[e $UE 368  ]
+"102
+[; ;Interrupt.c: 102:             }
 }
 [e :U 383 ]
-"101
-[; ;Interrupt.c: 101:         }
+"103
+[; ;Interrupt.c: 103:         }
 }
 [e $U 384  ]
-"102
-[; ;Interrupt.c: 102:         else
+"104
+[; ;Interrupt.c: 104:         else
 [e :U 377 ]
-"103
-[; ;Interrupt.c: 103:         {
-{
 "105
-[; ;Interrupt.c: 105:             return;
+[; ;Interrupt.c: 105:         {
+{
+"107
+[; ;Interrupt.c: 107:             return;
 [e $UE 368  ]
-"106
-[; ;Interrupt.c: 106:         }
+"108
+[; ;Interrupt.c: 108:         }
 }
 [e :U 384 ]
-"107
-[; ;Interrupt.c: 107:     }
+"109
+[; ;Interrupt.c: 109:     }
 }
 [e :U 370 ]
-"109
-[; ;Interrupt.c: 109:     return;
+"111
+[; ;Interrupt.c: 111:     return;
 [e $UE 368  ]
-"110
-[; ;Interrupt.c: 110: }
+"112
+[; ;Interrupt.c: 112: }
 [e :UE 368 ]
 }
