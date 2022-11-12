@@ -38,15 +38,15 @@ void main(void)
     PORTAbits.RA5 = 1;
     currently_in_oscillo = 0;
     currently_in_menu = 1;
-    menu_selector = 1;
+    menu_selector = 0;
     while(1)
     {
         ADCON0bits.GO_DONE = 1;
         //display_menu();
         if(have_to_FillScreen == 1)
         {
-        have_to_FillScreen = 0;
-        glcd_FillScreen(0);					//efface l'ecran
+            have_to_FillScreen = 0;
+            glcd_FillScreen(0);					//efface l'ecran
         }
         if(currently_in_menu == 1)
         {
@@ -56,7 +56,7 @@ void main(void)
         else if(currently_in_oscillo == 1)
         {
             currently_in_menu = 0;
-            display_oscillo((int)((global_ADC_value/4) - 64)*(-1));
+            display_oscillo((int)((global_ADC_value/4) - 62)*(-1));
         }
         display_7segment();
     }

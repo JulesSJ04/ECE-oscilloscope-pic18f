@@ -18,6 +18,75 @@ void display_line(int x, int y, int final_x,int final_y, int color)
     }
 }
 
+void draw_line(int x1,int y1,int x2,int y2, int color)
+{
+    // Iterators, counters required by algorithm
+    int x, y, dx, dy, dx1, dy1, px, py, xe, ye, i;
+    // Calculate line deltas
+    dx = x2 - x1;
+    dy = y2 - y1;
+    // Create a positive copy of deltas (makes iterating easier)
+    dx1 = fabs(dx);
+    dy1 = fabs(dy);
+    // Calculate error intervals for both axis
+    px = 2 * dy1 - dx1;
+    py = 2 * dx1 - dy1;
+    // The line is X-axis dominant
+    if (dy1 <= dx1) {
+        // Line is drawn left to right
+        if (dx >= 0) {
+            x = x1; y = y1; xe = x2;
+        } else { // Line is drawn right to left (swap ends)
+            x = x2; y = y2; xe = x1;
+        }
+        glcd_PlotPixel(x,y,color); // Draw first pixel
+        // Rasterize the line
+        for (i = 0; x < xe; i++) {
+            x = x + 1;
+            // Deal with octants...
+            if (px < 0) {
+                px = px + 2 * dy1;
+            } else {
+                if ((dx < 0 && dy < 0) || (dx > 0 && dy > 0)) {
+                    y = y + 1;
+                } else {
+                    y = y - 1;
+                }
+                px = px + 2 * (dy1 - dx1);
+            }
+            // Draw pixel from line span at
+            // currently rasterized position
+            glcd_PlotPixel(x,y,color);
+        }
+    } else { // The line is Y-axis dominant
+        // Line is drawn bottom to top
+        if (dy >= 0) {
+            x = x1; y = y1; ye = y2;
+        } else { // Line is drawn top to bottom
+            x = x2; y = y2; ye = y1;
+        }
+        glcd_PlotPixel(x,y,color); // Draw first pixel
+        // Rasterize the line
+        for (i = 0; y < ye; i++) {
+            y = y + 1;
+            // Deal with octants...
+            if (py <= 0) {
+                py = py + 2 * dx1;
+            } else {
+                if ((dx < 0 && dy<0) || (dx > 0 && dy > 0)) {
+                    x = x + 1;
+                } else {
+                    x = x - 1;
+                }
+                py = py + 2 * (dx1 - dy1);
+            }
+            // Draw pixel from line span at
+            // currently rasterized position
+            glcd_PlotPixel(x,y,color);
+        }
+    }
+}
+
 void display_titre(void)
 {
     unsigned char string1[7] = { 'P', 'r', 'o', 'j', 'e', 't', '\0' };
@@ -127,10 +196,10 @@ void display_oscillo(int ADC_value)
     currently_in_oscillo = 1;
     //int cpt;
     
-    if(need_osc_refresh == 1) //Se refresh seulement si changement
-    {
+    //if(need_osc_refresh == 1) //Se refresh seulement si changement
+    //{
         //cpt = 0;
-        need_osc_refresh = 0;
+       // need_osc_refresh = 0;
         unsigned char string1[2] = {'1','\0'};
         unsigned char string2[2] = {'2','\0'};
         unsigned char string3[2] = {'E','\0'};
@@ -142,7 +211,7 @@ void display_oscillo(int ADC_value)
             glcd_SetCursor(15,i);
             glcd_WriteString(string4,f8X8,1);
         }
-        display_line(0,17,20,17,1); //Ligne horizontale
+        display_line(0,17,17,17,1); //Ligne horizontale
         //current_oscillo_mode = 0;
         //Affichage du mode de l'oscilloscope
         if(current_oscillo_mode == 0)
@@ -160,7 +229,7 @@ void display_oscillo(int ADC_value)
             glcd_SetCursor(2,1);
             glcd_WriteString(string3,f8X8,1);
         }
-    }
+    //}
     
     char digit4 = (char)(fourth_digit+48);
     char digit3 = (char)(third_digit+48);
@@ -184,15 +253,31 @@ void display_oscillo(int ADC_value)
     //Affichage de la value de l'ADC
     if(cpt < 99)
     {
-        display_line(28+cpt,0,28+cpt,64,0);
+        display_line(27+cpt,0,27+cpt,64,0);
+        glcd_PlotPixel(cpt+27,ADC_value-1,1);
         glcd_PlotPixel(cpt+27,ADC_value,1);
+        glcd_PlotPixel(cpt+27,ADC_value+1,1);
+        //draw_line(27,0,32,50,1);
+        draw_line(27+cpt_prec1,adc_prec1,27+cpt,ADC_value,1);
+        draw_line(27+cpt_prec1,adc_prec2,27+cpt,ADC_value-1,1);
+        draw_line(27+cpt_prec1,adc_prec3,27+cpt,ADC_value+1,1);
+        cpt_prec1 = cpt;
+        adc_prec1 = ADC_value;
+        adc_prec2 = ADC_value-1;
+        adc_prec3 = ADC_value+1;
         ++cpt;
     }
     else if(cpt >= 99)
     {
         cpt = 0;
-        display_line(28+cpt,0,28+cpt,64,0);
+        display_line(27+cpt,0,27+cpt,64,0);
+        glcd_PlotPixel(cpt+27,ADC_value-1,1);
         glcd_PlotPixel(cpt+27,ADC_value,1);
+        glcd_PlotPixel(cpt+27,ADC_value+1,1);
+        cpt_prec1 = cpt;
+        adc_prec1 = ADC_value;
+        adc_prec2 = ADC_value-1;
+        adc_prec3 = ADC_value+1;
         cpt++;
     }
     

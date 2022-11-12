@@ -21,7 +21,9 @@ void initMyPIC18F(void)
     PORTB = 0b00000000;
     
     INTCONbits.GIE = 1;
+    RCONbits.IPEN = 1;
     PIE1bits.ADIE = 1;
+    IPR1bits.ADIP = 0;
     INTCONbits.PEIE = 1;
     INTCONbits.RBIE = 1;
     INTCON2bits.RBIP = 1; //Haute priorité
@@ -29,36 +31,42 @@ void initMyPIC18F(void)
     //INTCON2bits. = 1;
 }
 
-
-void __interrupt() irq_handle()
+void __interrupt(low_priority) irq_handle_low()
 {
     if(PIR1bits.ADIF == 1)
     {
         PIR1bits.ADIF = 0;
         global_ADC_value = ADRESH;
         calcul_7segment(global_ADC_value);
+        //return;
     }
+    return;
+}
+
+void __interrupt(high_priority) irq_handle_high()
+{
+    
     if(INTCONbits.RBIF == 1) 
     {
+        //PIE1bits.ADIE = 0;
+        __delay_ms(25);
         //INTCONbits.GIE = 0;
         //ADCON0bits.GO_DONE = 0;
         INTCONbits.RBIF = 0;
-        __delay_ms(10);
         if(PORTBbits.RB6 == 1)
         {
             if(double_edge == 0) 
             {
                 if(currently_in_menu==1 && menu_selector==0)
                 {
-                    
-                    menu_selector = 1; //On inverse l'état
                     double_edge++;
+                    menu_selector = 1; //On inverse l'état
                     return;
                 }
                 else if(currently_in_menu==1 && menu_selector==1)
-                {                  
-                    menu_selector = 0; //On inverse l'état
+                {           
                     double_edge++;
+                    menu_selector = 0; //On inverse l'état
                     return;
                 }
             }
@@ -69,7 +77,7 @@ void __interrupt() irq_handle()
                 return;
             }                 
         }
-        if(PORTBbits.RB7 == 1)
+        else if(PORTBbits.RB7 == 1)
         {
             if(double_edgeRB7 == 0)
             {
@@ -77,9 +85,9 @@ void __interrupt() irq_handle()
                 {
                     if(menu_selector == 0)
                     {
+                        double_edgeRB7++;
                         currently_in_menu = 0; //On sort du menu
                         currently_in_oscillo = 1; //On passe à l'oscillos
-                        double_edgeRB7++;
                         need_osc_refresh = 1; //On refraichit l'oscillo
                         have_to_FillScreen = 1; //Besoin de rafraichir l'écran
                         return;
@@ -87,9 +95,9 @@ void __interrupt() irq_handle()
                 }
                 else if(currently_in_oscillo == 1)
                 {
+                    double_edgeRB7++;
                     currently_in_menu = 1; //On passe au menu
                     currently_in_oscillo = 0; //On sort de l'oscillos
-                    double_edgeRB7++;
                     need_menu_refresh = 1; //Besoin de refraichir le menu
                     have_to_FillScreen = 1; //Besoin de rafraichir l'écran
                     return;
@@ -103,7 +111,6 @@ void __interrupt() irq_handle()
         }
         else
         {
-            
             return;         
         }      
     } 

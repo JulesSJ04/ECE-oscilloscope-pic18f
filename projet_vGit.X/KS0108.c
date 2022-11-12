@@ -406,14 +406,14 @@ void glcd_Init(unsigned char mode)
 	// Reset the display
 	PORTD = 0x00;					
 	GLCD_RST = 0;					
-	//__delay_us(1);				
+	__delay_ms(15);				
 	GLCD_RST = 1;				
 
 	GLCD_E=0;
 	GLCD_CS1=0;
 	GLCD_CS2=0;
 	GLCD_RS=0;
-	//__delay_us(1);        			//délai pour initialisation
+	__delay_ms(15);        			//délai pour initialisation
 
  	glcd_WriteByte(GLCD_LEFT,  0xC0);    // Specifie la première ligne RAM line en haut
   	glcd_WriteByte(GLCD_RIGHT, 0xC0);    //   de l'écran
@@ -461,9 +461,9 @@ void glcd_WriteByte(unsigned char side, unsigned char data)
 	// Delay10TCYx (10); 			//délai 8,33ms
 
 	GLCD_E = 1;					//Passage de E de 0 à 1
-	//__delay_us(1); 				//délai 833ns revu a 500ns
+	__delay_us(1); 				//délai 833ns revu a 500ns
 	GLCD_E = 0;					//Passage de E de 1 à 0
-	//__delay_us(1); 				//délai 833ns revu a 500ns							
+	__delay_us(1); 				//délai 833ns revu a 500ns							
 								// Le GLCD récupère les données !
 								
 	GLCD_CS1 = 0;
@@ -495,11 +495,11 @@ unsigned char data;
 	// Delay10TCYx (10); 		//délai 8,33ms
 	
 	GLCD_E = 1;				//Passage de E de 0 à 1
-	//__delay_us(1); 				//délai 833ns revu a 500ns
+	__delay_us(1); 				//délai 833ns revu a 500ns
 	
 	data = RD_DATA;			// Récupération des données
 	GLCD_E = 0;				//Passage de E de 1 à 0
-	//__delay_us(1); 				//délai 833ns revu a 500ns
+	__delay_us(1); 				//délai 833ns revu a 500ns
 	
 	GLCD_CS1 = 0;
 	GLCD_CS2 = 0;				// relachement des ChipSelect

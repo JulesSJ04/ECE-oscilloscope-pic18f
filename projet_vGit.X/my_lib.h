@@ -1,6 +1,7 @@
 #define _XTAL_FREQ 8000000 
 
 #include <xc.h>
+#include <math.h>
 #include "KS0108.h"
 #include "screen.h"
 #include "rectangle.h"
@@ -40,6 +41,11 @@ int fourth_digit;
 
 long frequence;
 int dutycycle;
+
+int cpt_prec1;
+int adc_prec1;
+int adc_prec2;
+int adc_prec3;
 /*
 #pragma config FOSC = HS
 #pragma config WDT = OFF
