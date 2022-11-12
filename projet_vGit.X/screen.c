@@ -40,6 +40,14 @@ void draw_line(int x1,int y1,int x2,int y2, int color)
             x = x2; y = y2; xe = x1;
         }
         glcd_PlotPixel(x,y,color); // Draw first pixel
+        glcd_PlotPixel(x-1,y,color);
+        glcd_PlotPixel(x+1,y,color);
+        glcd_PlotPixel(x,y-1,color);
+        glcd_PlotPixel(x,y+1,color);
+        glcd_PlotPixel(x-1,y-1,color);
+        glcd_PlotPixel(x-1,y+1,color);
+        glcd_PlotPixel(x+1,y-1,color);
+        glcd_PlotPixel(x+1,y+1,color);
         // Rasterize the line
         for (i = 0; x < xe; i++) {
             x = x + 1;
@@ -57,6 +65,14 @@ void draw_line(int x1,int y1,int x2,int y2, int color)
             // Draw pixel from line span at
             // currently rasterized position
             glcd_PlotPixel(x,y,color);
+            glcd_PlotPixel(x-1,y,color);
+            glcd_PlotPixel(x+1,y,color);
+            glcd_PlotPixel(x,y-1,color);
+            glcd_PlotPixel(x,y+1,color);
+            glcd_PlotPixel(x-1,y-1,color);
+            glcd_PlotPixel(x-1,y+1,color);
+            glcd_PlotPixel(x+1,y-1,color);
+            glcd_PlotPixel(x+1,y+1,color);
         }
     } else { // The line is Y-axis dominant
         // Line is drawn bottom to top
@@ -66,6 +82,14 @@ void draw_line(int x1,int y1,int x2,int y2, int color)
             x = x2; y = y2; ye = y1;
         }
         glcd_PlotPixel(x,y,color); // Draw first pixel
+        glcd_PlotPixel(x-1,y,color);
+        glcd_PlotPixel(x+1,y,color);
+        glcd_PlotPixel(x,y-1,color);
+        glcd_PlotPixel(x,y+1,color);
+        glcd_PlotPixel(x-1,y-1,color);
+        glcd_PlotPixel(x-1,y+1,color);
+        glcd_PlotPixel(x+1,y-1,color);
+        glcd_PlotPixel(x+1,y+1,color);
         // Rasterize the line
         for (i = 0; y < ye; i++) {
             y = y + 1;
@@ -83,6 +107,14 @@ void draw_line(int x1,int y1,int x2,int y2, int color)
             // Draw pixel from line span at
             // currently rasterized position
             glcd_PlotPixel(x,y,color);
+            glcd_PlotPixel(x-1,y,color);
+            glcd_PlotPixel(x+1,y,color);
+            glcd_PlotPixel(x,y-1,color);
+            glcd_PlotPixel(x,y+1,color);
+            glcd_PlotPixel(x-1,y-1,color);
+            glcd_PlotPixel(x-1,y+1,color);
+            glcd_PlotPixel(x+1,y-1,color);
+            glcd_PlotPixel(x+1,y+1,color);
         }
     }
 }
@@ -253,31 +285,21 @@ void display_oscillo(int ADC_value)
     //Affichage de la value de l'ADC
     if(cpt < 99)
     {
-        display_line(27+cpt,0,27+cpt,64,0);
-        glcd_PlotPixel(cpt+27,ADC_value-1,1);
-        glcd_PlotPixel(cpt+27,ADC_value,1);
-        glcd_PlotPixel(cpt+27,ADC_value+1,1);
-        //draw_line(27,0,32,50,1);
-        draw_line(27+cpt_prec1,adc_prec1,27+cpt,ADC_value,1);
-        draw_line(27+cpt_prec1,adc_prec2,27+cpt,ADC_value-1,1);
-        draw_line(27+cpt_prec1,adc_prec3,27+cpt,ADC_value+1,1);
-        cpt_prec1 = cpt;
-        adc_prec1 = ADC_value;
-        adc_prec2 = ADC_value-1;
-        adc_prec3 = ADC_value+1;
+        display_line(28+cpt,0,28+cpt,64,0);
+        glcd_PlotPixel(cpt+28,ADC_value,1);
+        draw_line(28+cpt_prec,adc_prec,28+cpt,ADC_value,1);
+        cpt_prec = cpt;
+        adc_prec = ADC_value;
         ++cpt;
     }
     else if(cpt >= 99)
     {
         cpt = 0;
-        display_line(27+cpt,0,27+cpt,64,0);
-        glcd_PlotPixel(cpt+27,ADC_value-1,1);
-        glcd_PlotPixel(cpt+27,ADC_value,1);
-        glcd_PlotPixel(cpt+27,ADC_value+1,1);
-        cpt_prec1 = cpt;
-        adc_prec1 = ADC_value;
-        adc_prec2 = ADC_value-1;
-        adc_prec3 = ADC_value+1;
+        display_line(27,0,27,64,0);
+        display_line(28+cpt,0,28+cpt,64,0);
+        glcd_PlotPixel(cpt+28,ADC_value,1);
+        cpt_prec = cpt;
+        adc_prec = ADC_value;
         cpt++;
     }
     

@@ -42,10 +42,9 @@ int fourth_digit;
 long frequence;
 int dutycycle;
 
-int cpt_prec1;
-int adc_prec1;
-int adc_prec2;
-int adc_prec3;
+int cpt_prec;
+int adc_prec;
+
 /*
 #pragma config FOSC = HS
 #pragma config WDT = OFF
