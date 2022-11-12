@@ -6161,20 +6161,24 @@ int correspondance_7segment(int val);
 #pragma config PBADEN = OFF
 
 
-int TRIGGER_VAL = 2;
+int TRIGGER_VAL;
+
 
 int currently_in_menu;
 int menu_selector;
 int need_menu_refresh;
 
+
 int current_oscillo_mode;
 int currently_in_oscillo;
 int need_osc_refresh;
 int cpt;
+int trigger_was_param;
 
 int have_to_FillScreen;
 
 int global_ADC_value;
+int global_screen_ADC_value;
 
 
 int first_digit;
@@ -6182,11 +6186,15 @@ int second_digit;
 int third_digit;
 int fourth_digit;
 
+
 long frequence;
 int dutycycle;
 
+
 int cpt_prec;
 int adc_prec;
+
+int trigger_level;
 # 1 "screen.c" 2
 
 
@@ -6490,32 +6498,52 @@ void display_oscillo(int ADC_value)
     else if(current_oscillo_mode == 1)
     {
 
-        int mult = (int)(TRIGGER_VAL*12);
-        int val_y = (int)((mult-62)*(-1));
-
-        display_line(28,val_y,127,val_y,1);
-        if(ADC_value <= val_y)
+        if(trigger_was_param == 0)
         {
-            if(cpt < 99)
+            unsigned char string_rb[7] = {'R','B','6','=','O','K','\0'};
+            if(ADC_value > 30)
             {
-                display_line(28+cpt,0,28+cpt,64,0);
-                glcd_PlotPixel(cpt+28,ADC_value,1);
-                draw_line(28+cpt_prec,adc_prec,28+cpt,ADC_value,1);
-                cpt_prec = cpt;
-                adc_prec = ADC_value;
-                ++cpt;
+                glcd_SetCursor(50,1);
+                glcd_WriteString(string_rb,1,1);
             }
-            else if(cpt >= 99)
+            else if (ADC_value <= 30)
             {
-                cpt = 0;
-                display_line(27,0,27,64,0);
-                display_line(28+cpt,0,28+cpt,64,0);
-                glcd_PlotPixel(cpt+28,ADC_value,1);
-                cpt_prec = cpt;
-                adc_prec = ADC_value;
-                cpt++;
+                glcd_SetCursor(50,7);
+                glcd_WriteString(string_rb,1,1);
+            }
+
+            display_line(28,ADC_value,127,ADC_value,1);
+            have_to_FillScreen = 1;
+        }
+        else if(trigger_was_param == 1)
+        {
+
+
+            display_line(28,TRIGGER_VAL,127,TRIGGER_VAL,1);
+            if(ADC_value <= TRIGGER_VAL)
+            {
+                if(cpt < 99)
+                {
+                    display_line(28+cpt,0,28+cpt,64,0);
+                    glcd_PlotPixel(cpt+28,ADC_value,1);
+                    draw_line(28+cpt_prec,adc_prec,28+cpt,ADC_value,1);
+                    cpt_prec = cpt;
+                    adc_prec = ADC_value;
+                    ++cpt;
+                }
+                else if(cpt >= 99)
+                {
+                    cpt = 0;
+                    display_line(27,0,27,64,0);
+                    display_line(28+cpt,0,28+cpt,64,0);
+                    glcd_PlotPixel(cpt+28,ADC_value,1);
+                    cpt_prec = cpt;
+                    adc_prec = ADC_value;
+                    cpt++;
+                }
             }
         }
+
     }
 
 

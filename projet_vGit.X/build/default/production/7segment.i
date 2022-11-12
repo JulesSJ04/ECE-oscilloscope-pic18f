@@ -6161,20 +6161,24 @@ int correspondance_7segment(int val);
 #pragma config PBADEN = OFF
 
 
-int TRIGGER_VAL = 2;
+int TRIGGER_VAL;
+
 
 int currently_in_menu;
 int menu_selector;
 int need_menu_refresh;
 
+
 int current_oscillo_mode;
 int currently_in_oscillo;
 int need_osc_refresh;
 int cpt;
+int trigger_was_param;
 
 int have_to_FillScreen;
 
 int global_ADC_value;
+int global_screen_ADC_value;
 
 
 int first_digit;
@@ -6182,11 +6186,15 @@ int second_digit;
 int third_digit;
 int fourth_digit;
 
+
 long frequence;
 int dutycycle;
 
+
 int cpt_prec;
 int adc_prec;
+
+int trigger_level;
 # 1 "7segment.c" 2
 # 16 "7segment.c"
 int global_ONE;

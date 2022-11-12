@@ -20,32 +20,40 @@
 #pragma config PBADEN = OFF
 //#pragma CONFIG DEBUG=OFF
 
-int TRIGGER_VAL = 2;
+int TRIGGER_VAL;
 
+//Menu booleans
 int currently_in_menu;
 int menu_selector; //1, 2
 int need_menu_refresh;
 
+//Oscilloscope booleans
 int current_oscillo_mode;
 int currently_in_oscillo;
 int need_osc_refresh;
 int cpt;
+int trigger_was_param;
 
 int have_to_FillScreen;
 
 int global_ADC_value;
+int global_screen_ADC_value;
    
-
+//7 seg values
 int first_digit;
 int second_digit;
 int third_digit;
 int fourth_digit;
 
+//rectangular signal params
 long frequence;
 int dutycycle;
 
+
 int cpt_prec;
 int adc_prec;
+
+int trigger_level;
 
 /*
 #pragma config FOSC = HS

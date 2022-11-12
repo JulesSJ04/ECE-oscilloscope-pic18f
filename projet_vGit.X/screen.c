@@ -306,31 +306,53 @@ void display_oscillo(int ADC_value)
     }
     else if(current_oscillo_mode == 1)
     {
-        int mult = (int)(TRIGGER_VAL*12);
-        int val_y = (int)((mult-62)*(-1));
-        display_line(28,val_y,127,val_y,1); //Ligne a franchir
-        if(ADC_value <= val_y)
+        //float trigger = trigger_level / 64
+        if(trigger_was_param == 0) //Si on a pas encore paramétré l'ADC, on affiche une ligne à l'endroit du trigger
         {
-            if(cpt < 99)
+            unsigned char string_rb[7] = {'R','B','6','=','O','K','\0'};
+            if(ADC_value > 30)
             {
-                display_line(28+cpt,0,28+cpt,64,0);
-                glcd_PlotPixel(cpt+28,ADC_value,1);
-                draw_line(28+cpt_prec,adc_prec,28+cpt,ADC_value,1);
-                cpt_prec = cpt;
-                adc_prec = ADC_value;
-                ++cpt;
+                glcd_SetCursor(50,1);
+                glcd_WriteString(string_rb,f8X8,1);
             }
-            else if(cpt >= 99)
+            else if (ADC_value <= 30)
             {
-                cpt = 0;
-                display_line(27,0,27,64,0);
-                display_line(28+cpt,0,28+cpt,64,0);
-                glcd_PlotPixel(cpt+28,ADC_value,1);
-                cpt_prec = cpt;
-                adc_prec = ADC_value;
-                cpt++;
+                glcd_SetCursor(50,7);
+                glcd_WriteString(string_rb,f8X8,1);
+            }
+            
+            display_line(28,ADC_value,127,ADC_value,1);
+            have_to_FillScreen = 1;
+        }
+        else if(trigger_was_param == 1) //Sinon on affiche courbe
+        {
+            //int mult = (int)(TRIGGER_VAL*12);
+            //int val_y = (int)((mult-62)*(-1));
+            display_line(28,TRIGGER_VAL,127,TRIGGER_VAL,1); //Ligne a franchir
+            if(ADC_value <= TRIGGER_VAL)
+            {
+                if(cpt < 99)
+                {
+                    display_line(28+cpt,0,28+cpt,64,0);
+                    glcd_PlotPixel(cpt+28,ADC_value,1);
+                    draw_line(28+cpt_prec,adc_prec,28+cpt,ADC_value,1);
+                    cpt_prec = cpt;
+                    adc_prec = ADC_value;
+                    ++cpt;
+                }
+                else if(cpt >= 99)
+                {
+                    cpt = 0;
+                    display_line(27,0,27,64,0);
+                    display_line(28+cpt,0,28+cpt,64,0);
+                    glcd_PlotPixel(cpt+28,ADC_value,1);
+                    cpt_prec = cpt;
+                    adc_prec = ADC_value;
+                    cpt++;
+                }
             }
         }
+        
     }
     //Affichage de la value de l'ADC
     

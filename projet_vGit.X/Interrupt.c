@@ -20,6 +20,9 @@ void initMyPIC18F(void)
     TRISB = 0b11000000;
     PORTB = 0b00000000;
     
+    TRISE = 0b00000100;
+    PORTE = 0b00000000;
+    
     INTCONbits.GIE = 1;
     RCONbits.IPEN = 1;
     PIE1bits.ADIE = 1;
@@ -38,7 +41,6 @@ void __interrupt(low_priority) irq_handle_low()
         PIR1bits.ADIF = 0;
         global_ADC_value = ADRESH;
         calcul_7segment(global_ADC_value);
-        //return;
     }
     return;
 }
@@ -69,18 +71,27 @@ void __interrupt(high_priority) irq_handle_high()
                     menu_selector = 0; //On inverse l'état
                     return;
                 }
-                else if(currently_in_oscillo == 1 && current_oscillo_mode == 0)
+                else if(currently_in_oscillo == 1 && current_oscillo_mode == 0 && trigger_was_param == 0)
                 {
                     double_edge++;
                     have_to_FillScreen = 1; //Besoin de refraichir l'ecran
                     current_oscillo_mode = 1; //On inverse l'état
+                    trigger_was_param = 0; //besoin de paramétrer l'oscillo
                     return;
                 }
-                else if(currently_in_oscillo == 1 && current_oscillo_mode == 1)
+                else if(currently_in_oscillo == 1 && current_oscillo_mode == 1 && trigger_was_param == 1)
                 {
                     double_edge++;
                     have_to_FillScreen = 1;
                     current_oscillo_mode = 0; //On inverse l'état
+                    return;
+                }
+                else if(currently_in_oscillo == 1 && current_oscillo_mode == 1 && trigger_was_param == 0) //Si besoin de parametrer le trigger
+                {
+                    double_edge++;
+                    TRIGGER_VAL = global_screen_ADC_value; //On set le trigger au niveau actuel
+                    have_to_FillScreen = 1;
+                    trigger_was_param = 1; //On indique que le trigger à été param
                     return;
                 }
             }

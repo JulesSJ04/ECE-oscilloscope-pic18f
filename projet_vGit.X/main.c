@@ -39,6 +39,7 @@ void main(void)
     currently_in_oscillo = 0;
     currently_in_menu = 1;
     menu_selector = 0;
+    trigger_was_param =0;
     while(1)
     {
         ADCON0bits.GO_DONE = 1;
@@ -56,7 +57,8 @@ void main(void)
         else if(currently_in_oscillo == 1)
         {
             currently_in_menu = 0;
-            display_oscillo((int)((global_ADC_value/4) - 62)*(-1));
+            global_screen_ADC_value = (int)((global_ADC_value/4) - 62)*(-1); //Récupère le niveau actuel du screen
+            display_oscillo(global_screen_ADC_value);
         }
         display_7segment();
     }

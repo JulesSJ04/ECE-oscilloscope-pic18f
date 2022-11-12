@@ -546,74 +546,82 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "12 ./my_lib.h
-[; ;./my_lib.h: 12: int have_to_FillScreen;
+[; ;./my_lib.h: 12: int cpt;
 [p x FOSC = HS ]
 "13
-[; ;./my_lib.h: 13: 
+[; ;./my_lib.h: 13: int trigger_was_param;
 [p x WDT = OFF ]
 "14
-[; ;./my_lib.h: 14: int global_ADC_value;
+[; ;./my_lib.h: 14: 
 [p x PWRT = OFF ]
 "15
-[; ;./my_lib.h: 15: 
+[; ;./my_lib.h: 15: int have_to_FillScreen;
 [p x BOR = OFF ]
 "16
 [; ;./my_lib.h: 16: 
 [p x LVP = OFF ]
 "17
-[; ;./my_lib.h: 17: int first_digit;
+[; ;./my_lib.h: 17: int global_ADC_value;
 [p x CPD = OFF ]
 "18
-[; ;./my_lib.h: 18: int second_digit;
+[; ;./my_lib.h: 18: int global_screen_ADC_value;
 [p x MCLRE = ON ]
 "19
-[; ;./my_lib.h: 19: int third_digit;
+[; ;./my_lib.h: 19: 
 [p x CPUDIV = OSC1_PLL2 ]
 "20
-[; ;./my_lib.h: 20: int fourth_digit;
+[; ;./my_lib.h: 20: 
 [p x PBADEN = OFF ]
 "23
-[; ;./my_lib.h: 23: int dutycycle;
+[; ;./my_lib.h: 23: int third_digit;
 [v _TRIGGER_VAL `i ~T0 @X0 1 e ]
-[i _TRIGGER_VAL
--> 2 `i
-]
-"25
-[; ;./my_lib.h: 25: int cpt_prec;
-[v _currently_in_menu `i ~T0 @X0 1 e ]
 "26
-[; ;./my_lib.h: 26: int adc_prec;
-[v _menu_selector `i ~T0 @X0 1 e ]
+[; ;./my_lib.h: 26: 
+[v _currently_in_menu `i ~T0 @X0 1 e ]
 "27
+[; ;./my_lib.h: 27: long frequence;
+[v _menu_selector `i ~T0 @X0 1 e ]
+"28
+[; ;./my_lib.h: 28: int dutycycle;
 [v _need_menu_refresh `i ~T0 @X0 1 e ]
-"29
-[v _current_oscillo_mode `i ~T0 @X0 1 e ]
-"30
-[v _currently_in_oscillo `i ~T0 @X0 1 e ]
 "31
-[v _need_osc_refresh `i ~T0 @X0 1 e ]
+[; ;./my_lib.h: 31: int cpt_prec;
+[v _current_oscillo_mode `i ~T0 @X0 1 e ]
 "32
-[v _cpt `i ~T0 @X0 1 e ]
+[; ;./my_lib.h: 32: int adc_prec;
+[v _currently_in_oscillo `i ~T0 @X0 1 e ]
+"33
+[; ;./my_lib.h: 33: 
+[v _need_osc_refresh `i ~T0 @X0 1 e ]
 "34
+[; ;./my_lib.h: 34: int trigger_level;
+[v _cpt `i ~T0 @X0 1 e ]
+"35
+[v _trigger_was_param `i ~T0 @X0 1 e ]
+"37
 [v _have_to_FillScreen `i ~T0 @X0 1 e ]
-"36
-[v _global_ADC_value `i ~T0 @X0 1 e ]
 "39
-[v _first_digit `i ~T0 @X0 1 e ]
+[v _global_ADC_value `i ~T0 @X0 1 e ]
 "40
-[v _second_digit `i ~T0 @X0 1 e ]
-"41
-[v _third_digit `i ~T0 @X0 1 e ]
-"42
-[v _fourth_digit `i ~T0 @X0 1 e ]
+[v _global_screen_ADC_value `i ~T0 @X0 1 e ]
+"43
+[v _first_digit `i ~T0 @X0 1 e ]
 "44
-[v _frequence `l ~T0 @X0 1 e ]
+[v _second_digit `i ~T0 @X0 1 e ]
 "45
+[v _third_digit `i ~T0 @X0 1 e ]
+"46
+[v _fourth_digit `i ~T0 @X0 1 e ]
+"49
+[v _frequence `l ~T0 @X0 1 e ]
+"50
 [v _dutycycle `i ~T0 @X0 1 e ]
-"47
+"53
 [v _cpt_prec `i ~T0 @X0 1 e ]
-"48
+"54
 [v _adc_prec `i ~T0 @X0 1 e ]
+"56
+[v _trigger_level `i ~T0 @X0 1 e ]
 "3 rectangle.c
 [; ;rectangle.c: 3: void PWM1_Init(long freq){
 [v _PWM1_Init `(v ~T0 @X0 1 ef1`l ]

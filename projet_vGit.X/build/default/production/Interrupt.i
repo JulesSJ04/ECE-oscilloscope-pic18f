@@ -6161,20 +6161,24 @@ int correspondance_7segment(int val);
 #pragma config PBADEN = OFF
 
 
-int TRIGGER_VAL = 2;
+int TRIGGER_VAL;
+
 
 int currently_in_menu;
 int menu_selector;
 int need_menu_refresh;
 
+
 int current_oscillo_mode;
 int currently_in_oscillo;
 int need_osc_refresh;
 int cpt;
+int trigger_was_param;
 
 int have_to_FillScreen;
 
 int global_ADC_value;
+int global_screen_ADC_value;
 
 
 int first_digit;
@@ -6182,11 +6186,15 @@ int second_digit;
 int third_digit;
 int fourth_digit;
 
+
 long frequence;
 int dutycycle;
 
+
 int cpt_prec;
 int adc_prec;
+
+int trigger_level;
 # 1 "Interrupt.c" 2
 
 
@@ -6210,6 +6218,9 @@ void initMyPIC18F(void)
     TRISB = 0b11000000;
     PORTB = 0b00000000;
 
+    TRISE = 0b00000100;
+    PORTE = 0b00000000;
+
     INTCONbits.GIE = 1;
     RCONbits.IPEN = 1;
     PIE1bits.ADIE = 1;
@@ -6228,7 +6239,6 @@ void __attribute__((picinterrupt(("low_priority")))) irq_handle_low()
         PIR1bits.ADIF = 0;
         global_ADC_value = ADRESH;
         calcul_7segment(global_ADC_value);
-
     }
     return;
 }
@@ -6259,18 +6269,27 @@ void __attribute__((picinterrupt(("high_priority")))) irq_handle_high()
                     menu_selector = 0;
                     return;
                 }
-                else if(currently_in_oscillo == 1 && current_oscillo_mode == 0)
+                else if(currently_in_oscillo == 1 && current_oscillo_mode == 0 && trigger_was_param == 0)
                 {
                     double_edge++;
                     have_to_FillScreen = 1;
                     current_oscillo_mode = 1;
+                    trigger_was_param = 0;
                     return;
                 }
-                else if(currently_in_oscillo == 1 && current_oscillo_mode == 1)
+                else if(currently_in_oscillo == 1 && current_oscillo_mode == 1 && trigger_was_param == 1)
                 {
                     double_edge++;
                     have_to_FillScreen = 1;
                     current_oscillo_mode = 0;
+                    return;
+                }
+                else if(currently_in_oscillo == 1 && current_oscillo_mode == 1 && trigger_was_param == 0)
+                {
+                    double_edge++;
+                    TRIGGER_VAL = global_screen_ADC_value;
+                    have_to_FillScreen = 1;
+                    trigger_was_param = 1;
                     return;
                 }
             }
