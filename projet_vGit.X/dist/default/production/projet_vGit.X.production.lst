@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.10 build 88905656 
-                                                                                               Sat Nov 12 03:37:22 2022
+                                                                                               Sat Nov 12 03:39:59 2022
 
 Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
      1                           	processor	18F4550
@@ -110,7 +110,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
     96  003608                     __pidataCOMRAM:
     97                           	opt callstack 0
     98                           
-    99                           ;initializer for display_auteur@F3748
+    99                           ;initializer for display_auteur@F3754
    100  003608  4A                 	db	74
    101  003609  75                 	db	117
    102  00360A  6C                 	db	108
@@ -118,7 +118,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    104  00360C  73                 	db	115
    105  00360D  00                 	db	0
    106                           
-   107                           ;initializer for display_titre@F3735
+   107                           ;initializer for display_titre@F3741
    108  00360E  4D                 	db	77
    109  00360F  43                 	db	67
    110  003610  55                 	db	85
@@ -126,7 +126,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    112  003612  3A                 	db	58
    113  003613  00                 	db	0
    114                           
-   115                           ;initializer for display_auteur@F3742
+   115                           ;initializer for display_auteur@F3748
    116  003614  45                 	db	69
    117  003615  72                 	db	114
    118  003616  69                 	db	105
@@ -137,36 +137,36 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    123  003619                     __pidataBANK0:
    124                           	opt callstack 0
    125                           
-   126                           ;initializer for display_auteur@F3740
+   126                           ;initializer for display_auteur@F3746
    127  003619  62                 	db	98
    128  00361A  79                 	db	121
    129  00361B  00                 	db	0
    130                           
-   131                           ;initializer for display_oscillo@F3769
+   131                           ;initializer for display_oscillo@F3775
    132  00361C  7C                 	db	124
    133  00361D  00                 	db	0
    134                           
-   135                           ;initializer for display_oscillo@F3767
+   135                           ;initializer for display_oscillo@F3773
    136  00361E  45                 	db	69
    137  00361F  00                 	db	0
    138                           
-   139                           ;initializer for display_oscillo@F3765
+   139                           ;initializer for display_oscillo@F3771
    140  003620  32                 	db	50
    141  003621  00                 	db	0
    142                           
-   143                           ;initializer for display_oscillo@F3763
+   143                           ;initializer for display_oscillo@F3769
    144  003622  31                 	db	49
    145  003623  00                 	db	0
    146                           
-   147                           ;initializer for display_menu@F3759
+   147                           ;initializer for display_menu@F3765
    148  003624  32                 	db	50
    149  003625  00                 	db	0
    150                           
-   151                           ;initializer for display_menu@F3757
+   151                           ;initializer for display_menu@F3763
    152  003626  31                 	db	49
    153  003627  00                 	db	0
    154                           
-   155                           ;initializer for display_auteur@F3744
+   155                           ;initializer for display_auteur@F3750
    156  003628  26                 	db	38
    157  003629  00                 	db	0
    158                           
@@ -174,7 +174,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    160  00349E                     __pidataBANK1:
    161                           	opt callstack 0
    162                           
-   163                           ;initializer for display_menu@F3755
+   163                           ;initializer for display_menu@F3761
    164  00349E  32                 	db	50
    165  00349F  2E                 	db	46
    166  0034A0  52                 	db	82
@@ -192,7 +192,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    178  0034AC  65                 	db	101
    179  0034AD  00                 	db	0
    180                           
-   181                           ;initializer for display_menu@F3751
+   181                           ;initializer for display_menu@F3757
    182  0034AE  43                 	db	67
    183  0034AF  68                 	db	104
    184  0034B0  6F                 	db	111
@@ -210,7 +210,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    196  0034BC  65                 	db	101
    197  0034BD  00                 	db	0
    198                           
-   199                           ;initializer for display_menu@F3753
+   199                           ;initializer for display_menu@F3759
    200  0034BE  31                 	db	49
    201  0034BF  2E                 	db	46
    202  0034C0  4F                 	db	79
@@ -227,7 +227,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    213  0034CB  65                 	db	101
    214  0034CC  00                 	db	0
    215                           
-   216                           ;initializer for display_titre@F3737
+   216                           ;initializer for display_titre@F3743
    217  0034CD  45                 	db	69
    218  0034CE  61                 	db	97
    219  0034CF  73                 	db	115
@@ -239,7 +239,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    225  0034D5  45                 	db	69
    226  0034D6  00                 	db	0
    227                           
-   228                           ;initializer for display_auteur@F3746
+   228                           ;initializer for display_auteur@F3752
    229  0034D7  51                 	db	81
    230  0034D8  75                 	db	117
    231  0034D9  65                 	db	101
@@ -249,7 +249,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    235  0034DD  6E                 	db	110
    236  0034DE  00                 	db	0
    237                           
-   238                           ;initializer for display_titre@F3733
+   238                           ;initializer for display_titre@F3739
    239  0034DF  50                 	db	80
    240  0034E0  72                 	db	114
    241  0034E1  6F                 	db	111
@@ -3705,13 +3705,13 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   3691                           	psect	dataCOMRAM
   3692  000048                     __pdataCOMRAM:
   3693                           	opt callstack 0
-  3694  000048                     display_auteur@F3748:
+  3694  000048                     display_auteur@F3754:
   3695                           	opt callstack 0
   3696  000048                     	ds	6
-  3697  00004E                     display_titre@F3735:
+  3697  00004E                     display_titre@F3741:
   3698                           	opt callstack 0
   3699  00004E                     	ds	6
-  3700  000054                     display_auteur@F3742:
+  3700  000054                     display_auteur@F3748:
   3701                           	opt callstack 0
   3702  000054                     	ds	5
   3703                           
@@ -3768,50 +3768,50 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   3754                           	psect	dataBANK0
   3755  0000E8                     __pdataBANK0:
   3756                           	opt callstack 0
-  3757  0000E8                     display_auteur@F3740:
+  3757  0000E8                     display_auteur@F3746:
   3758                           	opt callstack 0
   3759  0000E8                     	ds	3
-  3760  0000EB                     display_oscillo@F3769:
+  3760  0000EB                     display_oscillo@F3775:
   3761                           	opt callstack 0
   3762  0000EB                     	ds	2
-  3763  0000ED                     display_oscillo@F3767:
+  3763  0000ED                     display_oscillo@F3773:
   3764                           	opt callstack 0
   3765  0000ED                     	ds	2
-  3766  0000EF                     display_oscillo@F3765:
+  3766  0000EF                     display_oscillo@F3771:
   3767                           	opt callstack 0
   3768  0000EF                     	ds	2
-  3769  0000F1                     display_oscillo@F3763:
+  3769  0000F1                     display_oscillo@F3769:
   3770                           	opt callstack 0
   3771  0000F1                     	ds	2
-  3772  0000F3                     display_menu@F3759:
+  3772  0000F3                     display_menu@F3765:
   3773                           	opt callstack 0
   3774  0000F3                     	ds	2
-  3775  0000F5                     display_menu@F3757:
+  3775  0000F5                     display_menu@F3763:
   3776                           	opt callstack 0
   3777  0000F5                     	ds	2
-  3778  0000F7                     display_auteur@F3744:
+  3778  0000F7                     display_auteur@F3750:
   3779                           	opt callstack 0
   3780  0000F7                     	ds	2
   3781                           
   3782                           	psect	dataBANK1
   3783  000100                     __pdataBANK1:
   3784                           	opt callstack 0
-  3785  000100                     display_menu@F3755:
+  3785  000100                     display_menu@F3761:
   3786                           	opt callstack 0
   3787  000100                     	ds	16
-  3788  000110                     display_menu@F3751:
+  3788  000110                     display_menu@F3757:
   3789                           	opt callstack 0
   3790  000110                     	ds	16
-  3791  000120                     display_menu@F3753:
+  3791  000120                     display_menu@F3759:
   3792                           	opt callstack 0
   3793  000120                     	ds	15
-  3794  00012F                     display_titre@F3737:
+  3794  00012F                     display_titre@F3743:
   3795                           	opt callstack 0
   3796  00012F                     	ds	10
-  3797  000139                     display_auteur@F3746:
+  3797  000139                     display_auteur@F3752:
   3798                           	opt callstack 0
   3799  000139                     	ds	8
-  3800  000141                     display_titre@F3733:
+  3800  000141                     display_titre@F3739:
   3801                           	opt callstack 0
   3802  000141                     	ds	7
   3803                           
@@ -5215,7 +5215,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   5200                           	opt callstack 22
   5201  002E9C                     
   5202                           ;screen.c: 124:     unsigned char string1[7] = { 'P', 'r', 'o', 'j', 'e', 't', '\0' };
-  5203  002E9C  EE21  F041         	lfsr	2,display_titre@F3733
+  5203  002E9C  EE21  F041         	lfsr	2,display_titre@F3739
   5204  002EA0  EE10  F083         	lfsr	1,display_titre@string1
   5205  002EA4  0E06               	movlw	6
   5206  002EA6                     u4381:
@@ -5224,7 +5224,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   5209  002EAC  E2FC               	bc	u4381
   5210                           
   5211                           ;screen.c: 125:     unsigned char string2[6] = { 'M', 'C', 'U', ' ', ':', '\0' };
-  5212  002EAE  EE20  F04E         	lfsr	2,display_titre@F3735
+  5212  002EAE  EE20  F04E         	lfsr	2,display_titre@F3741
   5213  002EB2  EE10  F08A         	lfsr	1,display_titre@string2
   5214  002EB6  0E05               	movlw	5
   5215  002EB8                     u4391:
@@ -5234,7 +5234,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   5219                           
   5220                           ;screen.c: 126:  unsigned char string3[10] = {'E', 'a', 's', 'y', 'S', 'C', 'O', 'P', 'E
       +                          ', '\0'};
-  5221  002EC0  EE21  F02F         	lfsr	2,display_titre@F3737
+  5221  002EC0  EE21  F02F         	lfsr	2,display_titre@F3743
   5222  002EC4  EE10  F079         	lfsr	1,display_titre@string3
   5223  002EC8  0E09               	movlw	9
   5224  002ECA                     u4401:
@@ -5397,23 +5397,23 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   5380  0016E8                     
   5381                           ; BSR set to: 0
   5382                           ;screen.c: 235:         unsigned char string1[2] = {'1','\0'};
-  5383  0016E8  C0F1  F0A4         	movff	display_oscillo@F3763,display_oscillo@string1
-  5384  0016EC  C0F2  F0A5         	movff	display_oscillo@F3763+1,display_oscillo@string1+1
+  5383  0016E8  C0F1  F0A4         	movff	display_oscillo@F3769,display_oscillo@string1
+  5384  0016EC  C0F2  F0A5         	movff	display_oscillo@F3769+1,display_oscillo@string1+1
   5385  0016F0                     
   5386                           ; BSR set to: 0
   5387                           ;screen.c: 236:         unsigned char string2[2] = {'2','\0'};
-  5388  0016F0  C0EF  F0A6         	movff	display_oscillo@F3765,display_oscillo@string2
-  5389  0016F4  C0F0  F0A7         	movff	display_oscillo@F3765+1,display_oscillo@string2+1
+  5388  0016F0  C0EF  F0A6         	movff	display_oscillo@F3771,display_oscillo@string2
+  5389  0016F4  C0F0  F0A7         	movff	display_oscillo@F3771+1,display_oscillo@string2+1
   5390  0016F8                     
   5391                           ; BSR set to: 0
   5392                           ;screen.c: 237:         unsigned char string3[2] = {'E','\0'};
-  5393  0016F8  C0ED  F0A8         	movff	display_oscillo@F3767,display_oscillo@string3
-  5394  0016FC  C0EE  F0A9         	movff	display_oscillo@F3767+1,display_oscillo@string3+1
+  5393  0016F8  C0ED  F0A8         	movff	display_oscillo@F3773,display_oscillo@string3
+  5394  0016FC  C0EE  F0A9         	movff	display_oscillo@F3773+1,display_oscillo@string3+1
   5395  001700                     
   5396                           ; BSR set to: 0
   5397                           ;screen.c: 238:         unsigned char string4[2] = {'|','\0'};
-  5398  001700  C0EB  F0AA         	movff	display_oscillo@F3769,display_oscillo@string4
-  5399  001704  C0EC  F0AB         	movff	display_oscillo@F3769+1,display_oscillo@string4+1
+  5398  001700  C0EB  F0AA         	movff	display_oscillo@F3775,display_oscillo@string4
+  5399  001704  C0EC  F0AB         	movff	display_oscillo@F3775+1,display_oscillo@string4+1
   5400                           
   5401                           ;screen.c: 241:         for(int i = 0;i<8;i++)
   5402  001708  0E00               	movlw	0
@@ -6852,7 +6852,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   6833                           ; BSR set to: 0
   6834                           ;screen.c: 182:     {;screen.c: 183:         unsigned char string1[16] = {'C','h','o','i
       +                          ','s','i','r',' ','u','n',' ', 'm', 'o', 'd', 'e', '\0'};
-  6835  001CEC  EE21  F010         	lfsr	2,display_menu@F3751
+  6835  001CEC  EE21  F010         	lfsr	2,display_menu@F3757
   6836  001CF0  EE10  F080         	lfsr	1,display_menu@string1
   6837  001CF4  0E0F               	movlw	15
   6838  001CF6                     u4451:
@@ -6862,7 +6862,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   6842                           
   6843                           ;screen.c: 184:         unsigned char string2[15] = {'1','.','O','s','c','i','l','l','o'
       +                          ,'s','c','o','p','e','\0'};
-  6844  001CFE  EE21  F020         	lfsr	2,display_menu@F3753
+  6844  001CFE  EE21  F020         	lfsr	2,display_menu@F3759
   6845  001D02  EE10  F0A0         	lfsr	1,display_menu@string2
   6846  001D06  0E0E               	movlw	14
   6847  001D08                     u4461:
@@ -6872,7 +6872,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   6851                           
   6852                           ;screen.c: 185:         unsigned char string3[16] = {'2','.','R','e','c','t','a','n','g'
       +                          ,'u','l','a','i','r','e','\0'};
-  6853  001D10  EE21  F000         	lfsr	2,display_menu@F3755
+  6853  001D10  EE21  F000         	lfsr	2,display_menu@F3761
   6854  001D14  EE10  F090         	lfsr	1,display_menu@string3
   6855  001D18  0E0F               	movlw	15
   6856  001D1A                     u4471:
@@ -6882,13 +6882,13 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   6860  001D22                     
   6861                           ; BSR set to: 0
   6862                           ;screen.c: 186:         unsigned char string4[2] = {'1','\0'};
-  6863  001D22  C0F5  F0AF         	movff	display_menu@F3757,display_menu@string4
-  6864  001D26  C0F6  F0B0         	movff	display_menu@F3757+1,display_menu@string4+1
+  6863  001D22  C0F5  F0AF         	movff	display_menu@F3763,display_menu@string4
+  6864  001D26  C0F6  F0B0         	movff	display_menu@F3763+1,display_menu@string4+1
   6865  001D2A                     
   6866                           ; BSR set to: 0
   6867                           ;screen.c: 187:         unsigned char string5[2] = {'2','\0'};
-  6868  001D2A  C0F3  F0B1         	movff	display_menu@F3759,display_menu@string5
-  6869  001D2E  C0F4  F0B2         	movff	display_menu@F3759+1,display_menu@string5+1
+  6868  001D2A  C0F3  F0B1         	movff	display_menu@F3765,display_menu@string5
+  6869  001D2E  C0F4  F0B2         	movff	display_menu@F3765+1,display_menu@string5+1
   6870  001D32                     
   6871                           ; BSR set to: 0
   6872                           ;screen.c: 190:         glcd_SetCursor(2,0);
@@ -7813,12 +7813,12 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   7787                           	opt callstack 22
   7788  002666                     
   7789                           ;screen.c: 144:  unsigned char string1[3] = { 'b', 'y', '\0' };
-  7790  002666  C0E8  F08C         	movff	display_auteur@F3740,display_auteur@string1
-  7791  00266A  C0E9  F08D         	movff	display_auteur@F3740+1,display_auteur@string1+1
-  7792  00266E  C0EA  F08E         	movff	display_auteur@F3740+2,display_auteur@string1+2
+  7790  002666  C0E8  F08C         	movff	display_auteur@F3746,display_auteur@string1
+  7791  00266A  C0E9  F08D         	movff	display_auteur@F3746+1,display_auteur@string1+1
+  7792  00266E  C0EA  F08E         	movff	display_auteur@F3746+2,display_auteur@string1+2
   7793  002672                     
   7794                           ;screen.c: 145:  unsigned char string2[5] = {'E', 'r', 'i', 'c', '\0'};
-  7795  002672  EE20  F054         	lfsr	2,display_auteur@F3742
+  7795  002672  EE20  F054         	lfsr	2,display_auteur@F3748
   7796  002676  EE10  F087         	lfsr	1,display_auteur@string2
   7797  00267A  0E04               	movlw	4
   7798  00267C                     u4411:
@@ -7827,11 +7827,11 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   7801  002682  E2FC               	bc	u4411
   7802  002684                     
   7803                           ;screen.c: 146:     unsigned char string3[2] = { '&', '\0' };
-  7804  002684  C0F7  F08F         	movff	display_auteur@F3744,display_auteur@string3
-  7805  002688  C0F8  F090         	movff	display_auteur@F3744+1,display_auteur@string3+1
+  7804  002684  C0F7  F08F         	movff	display_auteur@F3750,display_auteur@string3
+  7805  002688  C0F8  F090         	movff	display_auteur@F3750+1,display_auteur@string3+1
   7806                           
   7807                           ;screen.c: 147:  unsigned char string4[8] = { 'Q', 'u', 'e', 'n', 't', 'i', 'n', '\0'};
-  7808  00268C  EE21  F039         	lfsr	2,display_auteur@F3746
+  7808  00268C  EE21  F039         	lfsr	2,display_auteur@F3752
   7809  002690  EE10  F079         	lfsr	1,display_auteur@string4
   7810  002694  0E07               	movlw	7
   7811  002696                     u4421:
@@ -7840,7 +7840,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   7814  00269C  E2FC               	bc	u4421
   7815                           
   7816                           ;screen.c: 148:  unsigned char string5[6] = { 'J', 'u', 'l', 'e', 's', '\0'};
-  7817  00269E  EE20  F048         	lfsr	2,display_auteur@F3748
+  7817  00269E  EE20  F048         	lfsr	2,display_auteur@F3754
   7818  0026A2  EE10  F081         	lfsr	1,display_auteur@string5
   7819  0026A6  0E05               	movlw	5
   7820  0026A8                     u4431:
@@ -14208,7 +14208,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.10 build 88905656 
-Symbol Table                                                                                   Sat Nov 12 03:37:22 2022
+Symbol Table                                                                                   Sat Nov 12 03:39:59 2022
 
                       ___fldiv@aexp 0078                        ___fldiv@bexp 0077  
                                  _x 00E7                                   _y 00E6  
@@ -14927,11 +14927,11 @@ Symbol Table                                                                    
                  ??_irq_handle_high 0001               __size_of_display_line 00B0  
              __size_of_display_menu 01F6                      __pintcode_body 23BA  
               end_of_initialization 3310                       __Lmediumconst 733A  
-                           int_func 23BA                display_oscillo@F3763 00F1  
-              display_oscillo@F3780 00CC                display_oscillo@F3765 00EF  
-              display_oscillo@F3782 00CA                display_oscillo@F3767 00ED  
-              display_oscillo@F3776 00C7                display_oscillo@F3769 00EB  
-              display_oscillo@F3778 00CE                  __end_ofi1___xxtofl 223A  
+                           int_func 23BA                display_oscillo@F3771 00EF  
+              display_oscillo@F3773 00ED                display_oscillo@F3782 00C7  
+              display_oscillo@F3775 00EB                display_oscillo@F3784 00CE  
+              display_oscillo@F3769 00F1                display_oscillo@F3786 00CC  
+              display_oscillo@F3788 00CA                  __end_ofi1___xxtofl 223A  
          ??_correspondance_7segment 0004                    ___aldiv@quotient 006A  
                            postdec1 000FE5                             postinc0 000FEE  
                  ??_calcul_7segment 002B             __size_of_glcd_WriteByte 003A  
@@ -14965,8 +14965,8 @@ Symbol Table                                                                    
            __size_of_irq_handle_low 0052                     i1___xxtofl@sign 000A  
              glcd_WriteChar8X8@side 0072               glcd_WriteChar8X8@xpos 0070  
                          __pnvBANK0 00F9  display_oscillo@string_fourth_digit 00B0  
-                display_titre@F3733 0141                  display_titre@F3735 004E  
-                display_titre@F3737 012F                           _main$1670 00C1  
+                display_titre@F3741 004E                  display_titre@F3743 012F  
+                display_titre@F3739 0141                           _main$1670 00C1  
                          _main$1669 00BD               glcd_WriteChar3x6@side 0070  
              glcd_WriteChar3x6@xpos 006D                           __pintcode 0008  
                      __pmediumconst 733A                      _glcd_WriteByte 3568  
@@ -14985,9 +14985,9 @@ Symbol Table                                                                    
                    _calcul_7segment 1A46                           _dutycycle 00FD  
                    ___aldiv@counter 0068                            _LATBbits 000F8A  
                      PWM1_Init@freq 006E                            _IPR1bits 000F9F  
-                          _PIE1bits 000F9D                   display_menu@F3751 0110  
-                 display_menu@F3753 0120                   display_menu@F3755 0100  
-                 display_menu@F3757 00F5                   display_menu@F3759 00F3  
+                          _PIE1bits 000F9D                   display_menu@F3761 0100  
+                 display_menu@F3763 00F5                   display_menu@F3757 0110  
+                 display_menu@F3765 00F3                   display_menu@F3759 0120  
                           i1u320_20 25F2                            i1u400_20 2C62  
                           i1u320_21 25EE                            i1u400_21 2C5E  
                           i1u321_20 2612                            i1u401_20 2C76  
@@ -15135,9 +15135,9 @@ display_oscillo@string_second_digit 00B5                          _ADCON0bits 00
             __end_of_irq_handle_low 006A                    display_oscillo@i 00B9  
                   PWM1_setDC@calcul 0098                            intlevel1 0000  
                           intlevel2 0000                 glcd_PlotPixel@color 006B  
-                 ??_glcd_FillScreen 006A                 display_auteur@F3740 00E8  
-               display_auteur@F3742 0054                 display_auteur@F3744 00F7  
-               display_auteur@F3746 0139                 display_auteur@F3748 0048  
+                 ??_glcd_FillScreen 006A                 display_auteur@F3750 00F7  
+               display_auteur@F3752 0139                 display_auteur@F3746 00E8  
+               display_auteur@F3754 0048                 display_auteur@F3748 0054  
                       glcd_Image@cs 006E            __end_of_glcd_WriteString 3454  
                       PWM1_setDC@dc 0092                    ?_irq_handle_high 0001  
                    _display_oscillo 16D6   display_oscillo@string_third_digit 00B3  

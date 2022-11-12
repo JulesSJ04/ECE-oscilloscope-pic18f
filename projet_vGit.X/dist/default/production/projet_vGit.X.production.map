@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.10\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\projet_vGit.X.production.sym \
   --cmf=dist/default/production\projet_vGit.X.production.cmf -z -Q18F4550 \
-  -oC:\Users\eric1\AppData\Local\Temp\sgss.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\eric1\AppData\Local\Temp\sdlg.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/projet_vGit.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=0148h-07FFh -pstack=STACK -ACODE=00h-07FFFh \
   -ACONST=00h-07FFFh -ASMALLCONST=0800h-08FFhx120 \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\eric1\AppData\Local\Temp\sgss.o \
+  C:\Users\eric1\AppData\Local\Temp\sdlg.o \
   dist/default/production\projet_vGit.X.production.o 
 
 Object code version is 3.11
@@ -36,7 +36,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\eric1\AppData\Local\Temp\sgss.o
+C:\Users\eric1\AppData\Local\Temp\sdlg.o
                 init                                 6A       6A        4        C       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -753,11 +753,11 @@ btemp                               temp         000059
 calcul_7segment@adresh              cstackCOMRAM 000029
 calcul_7segment@voltage_value       cstackCOMRAM 00002B
 correspondance_7segment@val         cstackCOMRAM 000002
-display_auteur@F3740                dataBANK0    0000E8
-display_auteur@F3742                dataCOMRAM   000054
-display_auteur@F3744                dataBANK0    0000F7
-display_auteur@F3746                dataBANK1    000139
-display_auteur@F3748                dataCOMRAM   000048
+display_auteur@F3746                dataBANK0    0000E8
+display_auteur@F3748                dataCOMRAM   000054
+display_auteur@F3750                dataBANK0    0000F7
+display_auteur@F3752                dataBANK1    000139
+display_auteur@F3754                dataCOMRAM   000048
 display_auteur@string1              cstackBANK0  00008C
 display_auteur@string2              cstackBANK0  000087
 display_auteur@string3              cstackBANK0  00008F
@@ -770,21 +770,21 @@ display_line@i                      cstackBANK0  00007C
 display_line@i_526                  cstackBANK0  00007E
 display_line@x                      cstackBANK0  000071
 display_line@y                      cstackBANK0  000073
-display_menu@F3751                  dataBANK1    000110
-display_menu@F3753                  dataBANK1    000120
-display_menu@F3755                  dataBANK1    000100
-display_menu@F3757                  dataBANK0    0000F5
-display_menu@F3759                  dataBANK0    0000F3
+display_menu@F3757                  dataBANK1    000110
+display_menu@F3759                  dataBANK1    000120
+display_menu@F3761                  dataBANK1    000100
+display_menu@F3763                  dataBANK0    0000F5
+display_menu@F3765                  dataBANK0    0000F3
 display_menu@string1                cstackBANK0  000080
 display_menu@string2                cstackBANK0  0000A0
 display_menu@string3                cstackBANK0  000090
 display_menu@string4                cstackBANK0  0000AF
 display_menu@string5                cstackBANK0  0000B1
 display_oscillo@ADC_value           cstackBANK0  0000A2
-display_oscillo@F3763               dataBANK0    0000F1
-display_oscillo@F3765               dataBANK0    0000EF
-display_oscillo@F3767               dataBANK0    0000ED
-display_oscillo@F3769               dataBANK0    0000EB
+display_oscillo@F3769               dataBANK0    0000F1
+display_oscillo@F3771               dataBANK0    0000EF
+display_oscillo@F3773               dataBANK0    0000ED
+display_oscillo@F3775               dataBANK0    0000EB
 display_oscillo@digit1              cstackBANK0  0000AF
 display_oscillo@digit2              cstackBANK0  0000AE
 display_oscillo@digit3              cstackBANK0  0000AD
@@ -798,9 +798,9 @@ display_oscillo@string_first_digit  cstackBANK0  0000B7
 display_oscillo@string_fourth_digit cstackBANK0  0000B0
 display_oscillo@string_second_digit cstackBANK0  0000B5
 display_oscillo@string_third_digit  cstackBANK0  0000B3
-display_titre@F3733                 dataBANK1    000141
-display_titre@F3735                 dataCOMRAM   00004E
-display_titre@F3737                 dataBANK1    00012F
+display_titre@F3739                 dataBANK1    000141
+display_titre@F3741                 dataCOMRAM   00004E
+display_titre@F3743                 dataBANK1    00012F
 display_titre@string1               cstackBANK0  000083
 display_titre@string2               cstackBANK0  00008A
 display_titre@string3               cstackBANK0  000079

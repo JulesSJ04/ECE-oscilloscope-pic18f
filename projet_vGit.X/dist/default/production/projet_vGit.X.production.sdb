@@ -475,11 +475,11 @@
 "125
 [v display_titre@string2 string2 `[6]uc  1 a 6 42 ]
 "123
-[v display_titre@F3733 F3733 `[7]uc  1 s 7 F3733 ]
+[v display_titre@F3739 F3739 `[7]uc  1 s 7 F3739 ]
 "124
-[v display_titre@F3735 F3735 `[6]uc  1 s 6 F3735 ]
+[v display_titre@F3741 F3741 `[6]uc  1 s 6 F3741 ]
 "125
-[v display_titre@F3737 F3737 `[10]uc  1 s 10 F3737 ]
+[v display_titre@F3743 F3743 `[10]uc  1 s 10 F3743 ]
 "140
 } 0
 "219
@@ -514,13 +514,13 @@
 "219
 [v display_oscillo@ADC_value ADC_value `i  1 p 2 66 ]
 "228
-[v display_oscillo@F3763 F3763 `[2]uc  1 s 2 F3763 ]
-"235
-[v display_oscillo@F3765 F3765 `[2]uc  1 s 2 F3765 ]
-"236
-[v display_oscillo@F3767 F3767 `[2]uc  1 s 2 F3767 ]
-"237
 [v display_oscillo@F3769 F3769 `[2]uc  1 s 2 F3769 ]
+"235
+[v display_oscillo@F3771 F3771 `[2]uc  1 s 2 F3771 ]
+"236
+[v display_oscillo@F3773 F3773 `[2]uc  1 s 2 F3773 ]
+"237
+[v display_oscillo@F3775 F3775 `[2]uc  1 s 2 F3775 ]
 "306
 } 0
 "21
@@ -572,15 +572,15 @@
 "186
 [v display_menu@string4 string4 `[2]uc  1 a 2 79 ]
 "182
-[v display_menu@F3751 F3751 `[16]uc  1 s 16 F3751 ]
+[v display_menu@F3757 F3757 `[16]uc  1 s 16 F3757 ]
 "183
-[v display_menu@F3753 F3753 `[15]uc  1 s 15 F3753 ]
+[v display_menu@F3759 F3759 `[15]uc  1 s 15 F3759 ]
 "184
-[v display_menu@F3755 F3755 `[16]uc  1 s 16 F3755 ]
+[v display_menu@F3761 F3761 `[16]uc  1 s 16 F3761 ]
 "185
-[v display_menu@F3757 F3757 `[2]uc  1 s 2 F3757 ]
+[v display_menu@F3763 F3763 `[2]uc  1 s 2 F3763 ]
 "186
-[v display_menu@F3759 F3759 `[2]uc  1 s 2 F3759 ]
+[v display_menu@F3765 F3765 `[2]uc  1 s 2 F3765 ]
 "217
 } 0
 "3
@@ -653,15 +653,15 @@
 "146
 [v display_auteur@string3 string3 `[2]uc  1 a 2 47 ]
 "143
-[v display_auteur@F3740 F3740 `[3]uc  1 s 3 F3740 ]
+[v display_auteur@F3746 F3746 `[3]uc  1 s 3 F3746 ]
 "144
-[v display_auteur@F3742 F3742 `[5]uc  1 s 5 F3742 ]
+[v display_auteur@F3748 F3748 `[5]uc  1 s 5 F3748 ]
 "145
-[v display_auteur@F3744 F3744 `[2]uc  1 s 2 F3744 ]
+[v display_auteur@F3750 F3750 `[2]uc  1 s 2 F3750 ]
 "146
-[v display_auteur@F3746 F3746 `[8]uc  1 s 8 F3746 ]
+[v display_auteur@F3752 F3752 `[8]uc  1 s 8 F3752 ]
 "147
-[v display_auteur@F3748 F3748 `[6]uc  1 s 6 F3748 ]
+[v display_auteur@F3754 F3754 `[6]uc  1 s 6 F3754 ]
 "169
 } 0
 "696 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\KS0108.c

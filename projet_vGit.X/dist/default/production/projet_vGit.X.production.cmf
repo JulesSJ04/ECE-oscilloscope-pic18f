@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\eric1\AppData\Local\Temp\sgss.o
+$C:\Users\eric1\AppData\Local\Temp\sdlg.o
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 6A 6A 4 1
 reset_vec CODE 0 0 0 4 1
@@ -114,14 +114,14 @@ MEDIUMCONST 362A-7339 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\projet_vGit.X.production.o
-18 intcodelo CODE >15664:C:\Users\eric1\AppData\Local\Temp\sgss.s
+18 intcodelo CODE >15664:C:\Users\eric1\AppData\Local\Temp\sdlg.s
 18 intcodelo CODE >34:C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\Interrupt.c
 2E intcodelo CODE >36:C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\Interrupt.c
 3C intcodelo CODE >38:C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\Interrupt.c
 3E intcodelo CODE >39:C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\Interrupt.c
 46 intcodelo CODE >40:C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\Interrupt.c
 52 intcodelo CODE >44:C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\Interrupt.c
-8 intcode CODE >18662:C:\Users\eric1\AppData\Local\Temp\sgss.s
+8 intcode CODE >18662:C:\Users\eric1\AppData\Local\Temp\sdlg.s
 8 intcode CODE >46:C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\Interrupt.c
 23BA intcode_body CODE >46:C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\Interrupt.c
 23BC intcode_body CODE >49:C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\Interrupt.c
@@ -1200,70 +1200,70 @@ D0 text6 CODE >30:C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_ju
 2364 text0 CODE >58:C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\main.c
 236C text0 CODE >59:C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\main.c
 23AE text0 CODE >61:C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\main.c
-3298 cinit CODE >5803:C:\Users\eric1\AppData\Local\Temp\sgss.s
-3298 cinit CODE >5805:C:\Users\eric1\AppData\Local\Temp\sgss.s
-3298 cinit CODE >5808:C:\Users\eric1\AppData\Local\Temp\sgss.s
-3298 cinit CODE >5991:C:\Users\eric1\AppData\Local\Temp\sgss.s
-329A cinit CODE >5992:C:\Users\eric1\AppData\Local\Temp\sgss.s
-329C cinit CODE >5993:C:\Users\eric1\AppData\Local\Temp\sgss.s
-329E cinit CODE >5994:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32A0 cinit CODE >5995:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32A2 cinit CODE >5996:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32A4 cinit CODE >5997:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32A8 cinit CODE >5998:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32AC cinit CODE >5999:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32AC cinit CODE >6000:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32AE cinit CODE >6001:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32B2 cinit CODE >6002:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32B4 cinit CODE >6003:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32B6 cinit CODE >6004:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32B8 cinit CODE >6008:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32BA cinit CODE >6009:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32BC cinit CODE >6010:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32BE cinit CODE >6011:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32C0 cinit CODE >6012:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32C2 cinit CODE >6013:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32C4 cinit CODE >6014:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32C8 cinit CODE >6015:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32CC cinit CODE >6016:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32CC cinit CODE >6017:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32CE cinit CODE >6018:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32D2 cinit CODE >6019:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32D4 cinit CODE >6020:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32D6 cinit CODE >6021:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32D8 cinit CODE >6025:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32DA cinit CODE >6026:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32DC cinit CODE >6027:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32DE cinit CODE >6028:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32E0 cinit CODE >6029:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32E2 cinit CODE >6030:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32E4 cinit CODE >6031:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32E8 cinit CODE >6032:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32EC cinit CODE >6033:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32EC cinit CODE >6034:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32EE cinit CODE >6035:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32F2 cinit CODE >6036:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32F4 cinit CODE >6037:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32F6 cinit CODE >6038:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32F8 cinit CODE >6042:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32FC cinit CODE >6043:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32FE cinit CODE >6044:C:\Users\eric1\AppData\Local\Temp\sgss.s
-32FE cinit CODE >6045:C:\Users\eric1\AppData\Local\Temp\sgss.s
-3300 cinit CODE >6046:C:\Users\eric1\AppData\Local\Temp\sgss.s
-3302 cinit CODE >6047:C:\Users\eric1\AppData\Local\Temp\sgss.s
-3304 cinit CODE >6050:C:\Users\eric1\AppData\Local\Temp\sgss.s
-3308 cinit CODE >6051:C:\Users\eric1\AppData\Local\Temp\sgss.s
-330A cinit CODE >6052:C:\Users\eric1\AppData\Local\Temp\sgss.s
-330A cinit CODE >6053:C:\Users\eric1\AppData\Local\Temp\sgss.s
-330C cinit CODE >6054:C:\Users\eric1\AppData\Local\Temp\sgss.s
-330E cinit CODE >6055:C:\Users\eric1\AppData\Local\Temp\sgss.s
-3310 cinit CODE >6061:C:\Users\eric1\AppData\Local\Temp\sgss.s
-3310 cinit CODE >6063:C:\Users\eric1\AppData\Local\Temp\sgss.s
-3312 cinit CODE >6064:C:\Users\eric1\AppData\Local\Temp\sgss.s
-3314 cinit CODE >6066:C:\Users\eric1\AppData\Local\Temp\sgss.s
-3316 cinit CODE >6067:C:\Users\eric1\AppData\Local\Temp\sgss.s
-3318 cinit CODE >6068:C:\Users\eric1\AppData\Local\Temp\sgss.s
-331A cinit CODE >6069:C:\Users\eric1\AppData\Local\Temp\sgss.s
+3298 cinit CODE >5803:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+3298 cinit CODE >5805:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+3298 cinit CODE >5808:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+3298 cinit CODE >5991:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+329A cinit CODE >5992:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+329C cinit CODE >5993:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+329E cinit CODE >5994:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32A0 cinit CODE >5995:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32A2 cinit CODE >5996:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32A4 cinit CODE >5997:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32A8 cinit CODE >5998:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32AC cinit CODE >5999:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32AC cinit CODE >6000:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32AE cinit CODE >6001:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32B2 cinit CODE >6002:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32B4 cinit CODE >6003:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32B6 cinit CODE >6004:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32B8 cinit CODE >6008:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32BA cinit CODE >6009:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32BC cinit CODE >6010:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32BE cinit CODE >6011:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32C0 cinit CODE >6012:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32C2 cinit CODE >6013:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32C4 cinit CODE >6014:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32C8 cinit CODE >6015:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32CC cinit CODE >6016:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32CC cinit CODE >6017:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32CE cinit CODE >6018:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32D2 cinit CODE >6019:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32D4 cinit CODE >6020:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32D6 cinit CODE >6021:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32D8 cinit CODE >6025:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32DA cinit CODE >6026:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32DC cinit CODE >6027:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32DE cinit CODE >6028:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32E0 cinit CODE >6029:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32E2 cinit CODE >6030:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32E4 cinit CODE >6031:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32E8 cinit CODE >6032:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32EC cinit CODE >6033:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32EC cinit CODE >6034:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32EE cinit CODE >6035:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32F2 cinit CODE >6036:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32F4 cinit CODE >6037:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32F6 cinit CODE >6038:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32F8 cinit CODE >6042:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32FC cinit CODE >6043:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32FE cinit CODE >6044:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+32FE cinit CODE >6045:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+3300 cinit CODE >6046:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+3302 cinit CODE >6047:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+3304 cinit CODE >6050:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+3308 cinit CODE >6051:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+330A cinit CODE >6052:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+330A cinit CODE >6053:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+330C cinit CODE >6054:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+330E cinit CODE >6055:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+3310 cinit CODE >6061:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+3310 cinit CODE >6063:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+3312 cinit CODE >6064:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+3314 cinit CODE >6066:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+3316 cinit CODE >6067:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+3318 cinit CODE >6068:C:\Users\eric1\AppData\Local\Temp\sdlg.s
+331A cinit CODE >6069:C:\Users\eric1\AppData\Local\Temp\sdlg.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1298,7 +1298,7 @@ __HidataBANK1 0 0 ABS 0 idataBANK1 dist/default/production\projet_vGit.X.product
 calcul_7segment@voltage_value 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\projet_vGit.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\projet_vGit.X.production.o
 _PWM1_Init 3454 0 CODE 0 text26 dist/default/production\projet_vGit.X.production.o
-__mediumconst 733A 0 MEDIUMCONST 0 mediumconst C:\Users\eric1\AppData\Local\Temp\sgss.o
+__mediumconst 733A 0 MEDIUMCONST 0 mediumconst C:\Users\eric1\AppData\Local\Temp\sdlg.o
 _second_digit 44 0 COMRAM 1 bssCOMRAM dist/default/production\projet_vGit.X.production.o
 _menu_selector E2 0 BANK0 1 bssBANK0 dist/default/production\projet_vGit.X.production.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\projet_vGit.X.production.o
@@ -1312,11 +1312,11 @@ __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\projet_vGit.X.
 __end_of_initMyPIC18F 3608 0 CODE 0 text1 dist/default/production\projet_vGit.X.production.o
 _LATD F8C 0 ABS 0 - dist/default/production\projet_vGit.X.production.o
 _TMR2 FCC 0 ABS 0 - dist/default/production\projet_vGit.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\eric1\AppData\Local\Temp\sgss.o
+___sp 0 0 STACK 2 stack C:\Users\eric1\AppData\Local\Temp\sdlg.o
 _main 223A 0 CODE 0 text0 dist/default/production\projet_vGit.X.production.o
 btemp 59 0 COMRAM 1 temp dist/default/production\projet_vGit.X.production.o
 draw_line@color 88 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
-start 6A 0 CODE 0 init C:\Users\eric1\AppData\Local\Temp\sgss.o
+start 6A 0 CODE 0 init C:\Users\eric1\AppData\Local\Temp\sdlg.o
 _global_THREE 3A 0 COMRAM 1 bssCOMRAM dist/default/production\projet_vGit.X.production.o
 ___flmul@aexp 8A 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
 ___flmul@bexp 8B 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
@@ -1353,11 +1353,11 @@ ttemp6 5D 0 COMRAM 1 temp dist/default/production\projet_vGit.X.production.o
 ttemp7 61 0 COMRAM 1 temp dist/default/production\projet_vGit.X.production.o
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\projet_vGit.X.production.o
 __end_of_glcd_WriteString 3454 0 CODE 0 text14 dist/default/production\projet_vGit.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\eric1\AppData\Local\Temp\sgss.o
-intlevel0 0 0 CODE 0 text C:\Users\eric1\AppData\Local\Temp\sgss.o
-intlevel1 0 0 CODE 0 text C:\Users\eric1\AppData\Local\Temp\sgss.o
-intlevel2 0 0 CODE 0 text C:\Users\eric1\AppData\Local\Temp\sgss.o
-intlevel3 0 0 CODE 0 text C:\Users\eric1\AppData\Local\Temp\sgss.o
+__accesstop 60 0 ABS 0 - C:\Users\eric1\AppData\Local\Temp\sdlg.o
+intlevel0 0 0 CODE 0 text C:\Users\eric1\AppData\Local\Temp\sdlg.o
+intlevel1 0 0 CODE 0 text C:\Users\eric1\AppData\Local\Temp\sdlg.o
+intlevel2 0 0 CODE 0 text C:\Users\eric1\AppData\Local\Temp\sdlg.o
+intlevel3 0 0 CODE 0 text C:\Users\eric1\AppData\Local\Temp\sdlg.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\projet_vGit.X.production.o
 draw_line@dx1 9A 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
 draw_line@dy1 9C 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
@@ -1380,17 +1380,17 @@ __end_of_irq_handle_high 2522 0 CODE 0 intcode_body dist/default/production\proj
 _ADCON0 FC2 0 ABS 0 - dist/default/production\projet_vGit.X.production.o
 _ADCON1 FC1 0 ABS 0 - dist/default/production\projet_vGit.X.production.o
 _ADRESH FC4 0 ABS 0 - dist/default/production\projet_vGit.X.production.o
-display_menu@F3751 110 0 BANK1 1 dataBANK1 dist/default/production\projet_vGit.X.production.o
-display_menu@F3753 120 0 BANK1 1 dataBANK1 dist/default/production\projet_vGit.X.production.o
-display_menu@F3755 100 0 BANK1 1 dataBANK1 dist/default/production\projet_vGit.X.production.o
-display_menu@F3757 F5 0 BANK0 1 dataBANK0 dist/default/production\projet_vGit.X.production.o
-display_menu@F3759 F3 0 BANK0 1 dataBANK0 dist/default/production\projet_vGit.X.production.o
+display_menu@F3757 110 0 BANK1 1 dataBANK1 dist/default/production\projet_vGit.X.production.o
+display_menu@F3759 120 0 BANK1 1 dataBANK1 dist/default/production\projet_vGit.X.production.o
+display_menu@F3761 100 0 BANK1 1 dataBANK1 dist/default/production\projet_vGit.X.production.o
+display_menu@F3763 F5 0 BANK0 1 dataBANK0 dist/default/production\projet_vGit.X.production.o
+display_menu@F3765 F3 0 BANK0 1 dataBANK0 dist/default/production\projet_vGit.X.production.o
 ___awdiv@dividend 60 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
 _dutycycle FD 0 BANK0 1 nvBANK0 dist/default/production\projet_vGit.X.production.o
 display_line@color 79 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\eric1\AppData\Local\Temp\sgss.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\eric1\AppData\Local\Temp\sdlg.o
 display_line@i_526 7E 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\eric1\AppData\Local\Temp\sgss.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\eric1\AppData\Local\Temp\sdlg.o
 i1___fltol@exp1 B 0 COMRAM 1 cstackCOMRAM dist/default/production\projet_vGit.X.production.o
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\projet_vGit.X.production.o
 _CCPR2L FBB 0 ABS 0 - dist/default/production\projet_vGit.X.production.o
@@ -1448,9 +1448,9 @@ glcd_WriteChar3x6@color 6A 0 BANK0 1 cstackBANK0 dist/default/production\projet_
 __end_of_glcd_WriteChar3x6 29D4 0 CODE 0 text16 dist/default/production\projet_vGit.X.production.o
 __end_of_glcd_WriteChar8X8 28BA 0 CODE 0 text15 dist/default/production\projet_vGit.X.production.o
 _irq_handle_low 18 0 CODE 0 intcodelo dist/default/production\projet_vGit.X.production.o
-display_titre@F3733 141 0 BANK1 1 dataBANK1 dist/default/production\projet_vGit.X.production.o
-display_titre@F3735 4E 0 COMRAM 1 dataCOMRAM dist/default/production\projet_vGit.X.production.o
-display_titre@F3737 12F 0 BANK1 1 dataBANK1 dist/default/production\projet_vGit.X.production.o
+display_titre@F3739 141 0 BANK1 1 dataBANK1 dist/default/production\projet_vGit.X.production.o
+display_titre@F3741 4E 0 COMRAM 1 dataCOMRAM dist/default/production\projet_vGit.X.production.o
+display_titre@F3743 12F 0 BANK1 1 dataBANK1 dist/default/production\projet_vGit.X.production.o
 display_oscillo@string1 A4 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
 display_oscillo@string2 A6 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
 display_oscillo@string3 A8 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
@@ -1511,7 +1511,7 @@ _currently_in_oscillo DC 0 BANK0 1 bssBANK0 dist/default/production\projet_vGit.
 __size_of___xxtofl 0 0 ABS 0 - dist/default/production\projet_vGit.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\projet_vGit.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\projet_vGit.X.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\eric1\AppData\Local\Temp\sgss.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\eric1\AppData\Local\Temp\sdlg.o
 ___xxtofl@arg 6A 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
 ___xxtofl@exp 69 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
 ___xxtofl@val 60 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
@@ -1601,10 +1601,10 @@ _glcd_SetCursor 331E 0 CODE 0 text17 dist/default/production\projet_vGit.X.produ
 __size_of_display_line 0 0 ABS 0 - dist/default/production\projet_vGit.X.production.o
 __size_of_display_menu 0 0 ABS 0 - dist/default/production\projet_vGit.X.production.o
 int_func 23BA 0 CODE 0 intcode_body dist/default/production\projet_vGit.X.production.o
-display_oscillo@F3763 F1 0 BANK0 1 dataBANK0 dist/default/production\projet_vGit.X.production.o
-display_oscillo@F3765 EF 0 BANK0 1 dataBANK0 dist/default/production\projet_vGit.X.production.o
-display_oscillo@F3767 ED 0 BANK0 1 dataBANK0 dist/default/production\projet_vGit.X.production.o
-display_oscillo@F3769 EB 0 BANK0 1 dataBANK0 dist/default/production\projet_vGit.X.production.o
+display_oscillo@F3769 F1 0 BANK0 1 dataBANK0 dist/default/production\projet_vGit.X.production.o
+display_oscillo@F3771 EF 0 BANK0 1 dataBANK0 dist/default/production\projet_vGit.X.production.o
+display_oscillo@F3773 ED 0 BANK0 1 dataBANK0 dist/default/production\projet_vGit.X.production.o
+display_oscillo@F3775 EB 0 BANK0 1 dataBANK0 dist/default/production\projet_vGit.X.production.o
 i1___flmul@aexp 21 0 COMRAM 1 cstackCOMRAM dist/default/production\projet_vGit.X.production.o
 i1___flmul@bexp 22 0 COMRAM 1 cstackCOMRAM dist/default/production\projet_vGit.X.production.o
 i1___flmul@prod 23 0 COMRAM 1 cstackCOMRAM dist/default/production\projet_vGit.X.production.o
@@ -1726,8 +1726,8 @@ draw_line@y1 82 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.prod
 draw_line@y2 86 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
 draw_line@xe 8E 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
 draw_line@ye 90 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
-stackhi 7FF 0 ABS 0 - C:\Users\eric1\AppData\Local\Temp\sgss.o
-stacklo 148 0 ABS 0 - C:\Users\eric1\AppData\Local\Temp\sgss.o
+stackhi 7FF 0 ABS 0 - C:\Users\eric1\AppData\Local\Temp\sdlg.o
+stacklo 148 0 ABS 0 - C:\Users\eric1\AppData\Local\Temp\sdlg.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\projet_vGit.X.production.o
 __end_of_glcd_PlotPixel 2DD6 0 CODE 0 text10 dist/default/production\projet_vGit.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\projet_vGit.X.production.o
@@ -1761,11 +1761,11 @@ ___awdiv@quotient 66 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X
 ?___flsub 12 0 COMRAM 1 cstackCOMRAM dist/default/production\projet_vGit.X.production.o
 ?___fltol 76 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\projet_vGit.X.production.o
-display_auteur@F3740 E8 0 BANK0 1 dataBANK0 dist/default/production\projet_vGit.X.production.o
-display_auteur@F3742 54 0 COMRAM 1 dataCOMRAM dist/default/production\projet_vGit.X.production.o
-display_auteur@F3744 F7 0 BANK0 1 dataBANK0 dist/default/production\projet_vGit.X.production.o
-display_auteur@F3746 139 0 BANK1 1 dataBANK1 dist/default/production\projet_vGit.X.production.o
-display_auteur@F3748 48 0 COMRAM 1 dataCOMRAM dist/default/production\projet_vGit.X.production.o
+display_auteur@F3746 E8 0 BANK0 1 dataBANK0 dist/default/production\projet_vGit.X.production.o
+display_auteur@F3748 54 0 COMRAM 1 dataCOMRAM dist/default/production\projet_vGit.X.production.o
+display_auteur@F3750 F7 0 BANK0 1 dataBANK0 dist/default/production\projet_vGit.X.production.o
+display_auteur@F3752 139 0 BANK1 1 dataBANK1 dist/default/production\projet_vGit.X.production.o
+display_auteur@F3754 48 0 COMRAM 1 dataCOMRAM dist/default/production\projet_vGit.X.production.o
 __HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\projet_vGit.X.production.o
 _need_osc_refresh DA 0 BANK0 1 bssBANK0 dist/default/production\projet_vGit.X.production.o
 i1___fltol@sign1 A 0 COMRAM 1 cstackCOMRAM dist/default/production\projet_vGit.X.production.o
@@ -1819,7 +1819,7 @@ __Ltext32 0 0 ABS 0 text32 dist/default/production\projet_vGit.X.production.o
 __Ltext33 0 0 ABS 0 text33 dist/default/production\projet_vGit.X.production.o
 __Ltext34 0 0 ABS 0 text34 dist/default/production\projet_vGit.X.production.o
 __Ltext35 0 0 ABS 0 text35 dist/default/production\projet_vGit.X.production.o
-__ramtop 800 0 RAM 0 ramtop C:\Users\eric1\AppData\Local\Temp\sgss.o
+__ramtop 800 0 RAM 0 ramtop C:\Users\eric1\AppData\Local\Temp\sdlg.o
 ___aldiv@dividend 60 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
 PWM1_setDC@calcul 98 0 BANK0 1 cstackBANK0 dist/default/production\projet_vGit.X.production.o
 __Lpowerup 6A 0 CODE 0 powerup dist/default/production\projet_vGit.X.production.o
