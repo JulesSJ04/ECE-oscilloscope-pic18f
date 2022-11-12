@@ -231,7 +231,7 @@ void display_oscillo(int ADC_value)
     //if(need_osc_refresh == 1) //Se refresh seulement si changement
     //{
         //cpt = 0;
-       // need_osc_refresh = 0;
+        //need_osc_refresh = 0;
         unsigned char string1[2] = {'1','\0'};
         unsigned char string2[2] = {'2','\0'};
         unsigned char string3[2] = {'E','\0'};
