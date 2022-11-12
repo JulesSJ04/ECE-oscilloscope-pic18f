@@ -6161,6 +6161,8 @@ int correspondance_7segment(int val);
 #pragma config PBADEN = OFF
 
 
+int TRIGGER_VAL = 2;
+
 int currently_in_menu;
 int menu_selector;
 int need_menu_refresh;
@@ -6257,6 +6259,20 @@ void __attribute__((picinterrupt(("high_priority")))) irq_handle_high()
                     menu_selector = 0;
                     return;
                 }
+                else if(currently_in_oscillo == 1 && current_oscillo_mode == 0)
+                {
+                    double_edge++;
+                    have_to_FillScreen = 1;
+                    current_oscillo_mode = 1;
+                    return;
+                }
+                else if(currently_in_oscillo == 1 && current_oscillo_mode == 1)
+                {
+                    double_edge++;
+                    have_to_FillScreen = 1;
+                    current_oscillo_mode = 0;
+                    return;
+                }
             }
             else
             {
@@ -6277,6 +6293,7 @@ void __attribute__((picinterrupt(("high_priority")))) irq_handle_high()
                         currently_in_menu = 0;
                         currently_in_oscillo = 1;
                         need_osc_refresh = 1;
+                        current_oscillo_mode = 0;
                         have_to_FillScreen = 1;
                         return;
                     }

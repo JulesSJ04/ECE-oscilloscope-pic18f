@@ -6161,6 +6161,8 @@ int correspondance_7segment(int val);
 #pragma config PBADEN = OFF
 
 
+int TRIGGER_VAL = 2;
+
 int currently_in_menu;
 int menu_selector;
 int need_menu_refresh;
@@ -6463,25 +6465,59 @@ void display_oscillo(int ADC_value)
     glcd_SetCursor(2,6);
     glcd_WriteString(string_first_digit,1,1);
 
+    if(current_oscillo_mode == 0)
+    {
+        if(cpt < 99)
+        {
+            display_line(28+cpt,0,28+cpt,64,0);
+            glcd_PlotPixel(cpt+28,ADC_value,1);
+            draw_line(28+cpt_prec,adc_prec,28+cpt,ADC_value,1);
+            cpt_prec = cpt;
+            adc_prec = ADC_value;
+            ++cpt;
+        }
+        else if(cpt >= 99)
+        {
+            cpt = 0;
+            display_line(27,0,27,64,0);
+            display_line(28+cpt,0,28+cpt,64,0);
+            glcd_PlotPixel(cpt+28,ADC_value,1);
+            cpt_prec = cpt;
+            adc_prec = ADC_value;
+            cpt++;
+        }
+    }
+    else if(current_oscillo_mode == 1)
+    {
 
-    if(cpt < 99)
-    {
-        display_line(28+cpt,0,28+cpt,64,0);
-        glcd_PlotPixel(cpt+28,ADC_value,1);
-        draw_line(28+cpt_prec,adc_prec,28+cpt,ADC_value,1);
-        cpt_prec = cpt;
-        adc_prec = ADC_value;
-        ++cpt;
+        int mult = (int)(TRIGGER_VAL*12);
+        int val_y = (int)((mult-62)*(-1));
+
+        display_line(28,val_y,127,val_y,1);
+        if(ADC_value <= val_y)
+        {
+            if(cpt < 99)
+            {
+                display_line(28+cpt,0,28+cpt,64,0);
+                glcd_PlotPixel(cpt+28,ADC_value,1);
+                draw_line(28+cpt_prec,adc_prec,28+cpt,ADC_value,1);
+                cpt_prec = cpt;
+                adc_prec = ADC_value;
+                ++cpt;
+            }
+            else if(cpt >= 99)
+            {
+                cpt = 0;
+                display_line(27,0,27,64,0);
+                display_line(28+cpt,0,28+cpt,64,0);
+                glcd_PlotPixel(cpt+28,ADC_value,1);
+                cpt_prec = cpt;
+                adc_prec = ADC_value;
+                cpt++;
+            }
+        }
     }
-    else if(cpt >= 99)
-    {
-        cpt = 0;
-        display_line(27,0,27,64,0);
-        display_line(28+cpt,0,28+cpt,64,0);
-        glcd_PlotPixel(cpt+28,ADC_value,1);
-        cpt_prec = cpt;
-        adc_prec = ADC_value;
-        cpt++;
-    }
+
+
 
 }

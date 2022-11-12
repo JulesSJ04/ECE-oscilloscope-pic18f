@@ -6161,6 +6161,8 @@ int correspondance_7segment(int val);
 #pragma config PBADEN = OFF
 
 
+int TRIGGER_VAL = 2;
+
 int currently_in_menu;
 int menu_selector;
 int need_menu_refresh;

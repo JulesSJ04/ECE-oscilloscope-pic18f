@@ -20,6 +20,8 @@
 #pragma config PBADEN = OFF
 //#pragma CONFIG DEBUG=OFF
 
+int TRIGGER_VAL = 2;
+
 int currently_in_menu;
 int menu_selector; //1, 2
 int need_menu_refresh;

@@ -69,6 +69,20 @@ void __interrupt(high_priority) irq_handle_high()
                     menu_selector = 0; //On inverse l'état
                     return;
                 }
+                else if(currently_in_oscillo == 1 && current_oscillo_mode == 0)
+                {
+                    double_edge++;
+                    have_to_FillScreen = 1; //Besoin de refraichir l'ecran
+                    current_oscillo_mode = 1; //On inverse l'état
+                    return;
+                }
+                else if(currently_in_oscillo == 1 && current_oscillo_mode == 1)
+                {
+                    double_edge++;
+                    have_to_FillScreen = 1;
+                    current_oscillo_mode = 0; //On inverse l'état
+                    return;
+                }
             }
             else
             {
@@ -89,6 +103,7 @@ void __interrupt(high_priority) irq_handle_high()
                         currently_in_menu = 0; //On sort du menu
                         currently_in_oscillo = 1; //On passe à l'oscillos
                         need_osc_refresh = 1; //On refraichit l'oscillo
+                        current_oscillo_mode = 0; //Premier mode de l'oscillo
                         have_to_FillScreen = 1; //Besoin de rafraichir l'écran
                         return;
                     }
