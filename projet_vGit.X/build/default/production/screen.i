@@ -6224,6 +6224,17 @@ void display_line(int x, int y, int final_x,int final_y, int color)
     }
 }
 
+void clear_screen(int x,int y,int final_x,int final_y)
+{
+    for(int i=y;i<final_y;i++)
+    {
+        for(int j=x;j<final_x;i++)
+        {
+            glcd_PlotPixel(i,j,0);
+        }
+    }
+}
+
 void draw_line(int x1,int y1,int x2,int y2, int color)
 {
 
@@ -6376,7 +6387,7 @@ void display_auteur(void)
 
 void display_menu(void)
 {
-# 181 "screen.c"
+# 192 "screen.c"
     if(need_menu_refresh == 1)
     {
         unsigned char string1[16] = {'C','h','o','i','s','i','r',' ','u','n',' ', 'm', 'o', 'd', 'e', '\0'};
@@ -6418,19 +6429,13 @@ void display_menu(void)
 void display_oscillo(int ADC_value)
 {
 
-
-
-
-
-
     currently_in_menu = 0;
     currently_in_oscillo = 1;
+    need_osc_refresh = 1;
+    if(need_osc_refresh == 1 || current_oscillo_mode == 1)
+    {
 
-
-
-
-
-
+        need_osc_refresh = 0;
         unsigned char string1[2] = {'1','\0'};
         unsigned char string2[2] = {'2','\0'};
         unsigned char string3[2] = {'E','\0'};
@@ -6460,7 +6465,7 @@ void display_oscillo(int ADC_value)
             glcd_SetCursor(2,1);
             glcd_WriteString(string3,1,1);
         }
-
+    }
 
     char digit4 = (char)(fourth_digit+48);
     char digit3 = (char)(third_digit+48);
@@ -6509,6 +6514,7 @@ void display_oscillo(int ADC_value)
 
         if(trigger_was_param == 0)
         {
+
             unsigned char string_rb[7] = {'R','B','6','=','O','K','\0'};
             if(ADC_value > 30)
             {

@@ -6282,6 +6282,7 @@ void __attribute__((picinterrupt(("high_priority")))) irq_handle_high()
                     double_edge++;
                     have_to_FillScreen = 1;
                     current_oscillo_mode = 1;
+
                     trigger_was_param = 0;
                     return;
                 }
@@ -6290,6 +6291,7 @@ void __attribute__((picinterrupt(("high_priority")))) irq_handle_high()
                     double_edge++;
                     have_to_FillScreen = 1;
                     trigger_was_param = 0;
+
                     current_oscillo_mode = 0;
                     return;
                 }
@@ -6298,6 +6300,7 @@ void __attribute__((picinterrupt(("high_priority")))) irq_handle_high()
                     double_edge++;
                     TRIGGER_VAL = global_screen_ADC_value;
                     have_to_FillScreen = 1;
+                    need_osc_refresh = 1;
                     trigger_was_param = 1;
                     return;
                 }
@@ -6337,6 +6340,7 @@ void __attribute__((picinterrupt(("high_priority")))) irq_handle_high()
                         currently_in_oscillo = 1;
                         need_osc_refresh = 1;
                         current_oscillo_mode = 0;
+                        need_osc_refresh = 1;
                         have_to_FillScreen = 1;
                         return;
                     }
@@ -6346,6 +6350,7 @@ void __attribute__((picinterrupt(("high_priority")))) irq_handle_high()
                         currently_in_menu = 0;
                         currently_in_oscillo = 0;
                         currently_in_rectangle = 1;
+                        need_osc_refresh = 1;
                         have_to_FillScreen = 1;
                         return;
                     }
@@ -6355,6 +6360,7 @@ void __attribute__((picinterrupt(("high_priority")))) irq_handle_high()
                     double_edgeRB7++;
                     currently_in_menu = 1;
                     currently_in_oscillo = 0;
+                    need_osc_refresh = 1;
                     currently_in_rectangle = 0;
                     trigger_was_param = 0;
                     need_menu_refresh = 1;
@@ -6368,6 +6374,7 @@ void __attribute__((picinterrupt(("high_priority")))) irq_handle_high()
                     currently_in_menu = 1;
                     currently_in_oscillo = 0;
                     currently_in_rectangle = 0;
+                    need_osc_refresh = 1;
                     need_menu_refresh = 1;
                     have_to_FillScreen = 1;
                     return;

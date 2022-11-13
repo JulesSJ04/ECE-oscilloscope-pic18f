@@ -6206,15 +6206,30 @@ int trigger_level;
 # 1 "main.c" 2
 
 
-void main(void)
+void global_variables_init()
 {
     frequence = 490;
     dutycycle = 50;
+    need_osc_refresh = 1;
+    current_oscillo_mode = 0;
+    need_menu_refresh = 1;
+    PORTAbits.RA5 = 1;
+    currently_in_oscillo = 0;
+    currently_in_rectangle = 0;
+    currently_in_menu = 1;
+    current_rectangle_mode = 0;
+    menu_selector = 0;
+    trigger_was_param =0;
+    cpt_screen_rectangle = 3;
+    cpt_prec_rectangle = 2;
+    value_prec_rectangle = 10;
+}
 
 
-
-
+void main(void)
+{
     initMyPIC18F();
+    global_variables_init();
     glcd_Init(1);
     glcd_Image();
     _delay((unsigned long)((2000)*(8000000/4000.0)));
@@ -6238,19 +6253,7 @@ void main(void)
     }
     PWM1_Init(frequence);
     PWM1_setDC(dutycycle);
-    need_osc_refresh = 1;
-    current_oscillo_mode = 0;
-    need_menu_refresh = 1;
-    PORTAbits.RA5 = 1;
-    currently_in_oscillo = 0;
-    currently_in_rectangle = 0;
-    currently_in_menu = 1;
-    current_rectangle_mode = 0;
-    menu_selector = 0;
-    trigger_was_param =0;
-    cpt_screen_rectangle = 3;
-    cpt_prec_rectangle = 2;
-    value_prec_rectangle = 10;
+
     while(1)
     {
         ADCON0bits.GO_DONE = 1;
@@ -6264,12 +6267,14 @@ void main(void)
         {
             currently_in_oscillo = 0;
             currently_in_rectangle = 0;
+
             display_menu();
         }
         else if(currently_in_oscillo == 1)
         {
             currently_in_menu = 0;
             currently_in_rectangle = 0;
+
             global_screen_ADC_value = (int)((global_ADC_value/4) - 62)*(-1);
             display_oscillo(global_screen_ADC_value);
         }

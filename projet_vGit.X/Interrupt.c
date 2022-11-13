@@ -76,6 +76,7 @@ void __interrupt(high_priority) irq_handle_high()
                     double_edge++;
                     have_to_FillScreen = 1; //Besoin de refraichir l'ecran
                     current_oscillo_mode = 1; //On inverse l'état
+                    //need_osc_refresh = 1;
                     trigger_was_param = 0; //besoin de paramétrer l'oscillo
                     return;
                 }
@@ -84,6 +85,7 @@ void __interrupt(high_priority) irq_handle_high()
                     double_edge++;
                     have_to_FillScreen = 1;
                     trigger_was_param = 0;
+                    //need_osc_refresh = 1;
                     current_oscillo_mode = 0; //On inverse l'état
                     return;
                 }
@@ -92,6 +94,7 @@ void __interrupt(high_priority) irq_handle_high()
                     double_edge++;
                     TRIGGER_VAL = global_screen_ADC_value; //On set le trigger au niveau actuel
                     have_to_FillScreen = 1;
+                    need_osc_refresh = 1;
                     trigger_was_param = 1; //On indique que le trigger à été param
                     return;
                 }
@@ -131,6 +134,7 @@ void __interrupt(high_priority) irq_handle_high()
                         currently_in_oscillo = 1; //On passe à l'oscillos
                         need_osc_refresh = 1; //On refraichit l'oscillo
                         current_oscillo_mode = 0; //Premier mode de l'oscillo
+                        need_osc_refresh = 1;
                         have_to_FillScreen = 1; //Besoin de rafraichir l'écran
                         return;
                     }
@@ -140,6 +144,7 @@ void __interrupt(high_priority) irq_handle_high()
                         currently_in_menu = 0; //On sort du menu
                         currently_in_oscillo = 0; //On passe à l'oscillos
                         currently_in_rectangle = 1;
+                        need_osc_refresh = 1;
                         have_to_FillScreen = 1; //Besoin de rafraichir l'écran
                         return;
                     }
@@ -149,6 +154,7 @@ void __interrupt(high_priority) irq_handle_high()
                     double_edgeRB7++;
                     currently_in_menu = 1; //On passe au menu
                     currently_in_oscillo = 0; //On sort de l'oscillos
+                    need_osc_refresh = 1;
                     currently_in_rectangle = 0;
                     trigger_was_param = 0; //On réinitialise le trigger
                     need_menu_refresh = 1; //Besoin de refraichir le menu
@@ -162,6 +168,7 @@ void __interrupt(high_priority) irq_handle_high()
                     currently_in_menu = 1; //On passe au menu
                     currently_in_oscillo = 0; //On sort de l'oscillos
                     currently_in_rectangle = 0;
+                    need_osc_refresh = 1;
                     need_menu_refresh = 1; //Besoin de refraichir le menu
                     have_to_FillScreen = 1; //Besoin de rafraichir l'écran
                     return;
