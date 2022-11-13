@@ -384,10 +384,14 @@ void display_rectangle(void)
     if(current_rectangle_mode == 0)
     {
         glcd_WriteString(mode1,f8X8,1);	//ecrit un ou deux 
+        frequence = ADRESH;
+        frequence = map(frequence, 0, 244, 490, 62500); // adresh va jusqua 243
     }
     else
     {
         glcd_WriteString(mode2,f8X8,1);	//ecrit un ou deux 
+        dutycycle = ADRESH;
+        dutycycle = map(dutycycle, 0, 244, 0, 100);// adresh va jusqua 243
     }
 	
     display_line(56,47,56,55,1);// ligne vertical
@@ -406,6 +410,9 @@ void display_rectangle(void)
 	glcd_WriteString(hz,f8X8,1);	//ecrit freq
     
     display_line(0,46,128,46,1);// ligne horizontal
+    
+    
+    
     
     float freq = (float) frequence * 0.0001; 
     
