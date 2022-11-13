@@ -83,6 +83,7 @@ void __interrupt(high_priority) irq_handle_high()
                 {
                     double_edge++;
                     have_to_FillScreen = 1;
+                    trigger_was_param = 0;
                     current_oscillo_mode = 0; //On inverse l'état
                     return;
                 }
@@ -149,8 +150,10 @@ void __interrupt(high_priority) irq_handle_high()
                     currently_in_menu = 1; //On passe au menu
                     currently_in_oscillo = 0; //On sort de l'oscillos
                     currently_in_rectangle = 0;
+                    trigger_was_param = 0; //On réinitialise le trigger
                     need_menu_refresh = 1; //Besoin de refraichir le menu
                     have_to_FillScreen = 1; //Besoin de rafraichir l'écran
+                    current_oscillo_mode = 0; //réinitialise les variables
                     return;
                 }
                 else if(currently_in_rectangle == 1)
