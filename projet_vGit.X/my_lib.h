@@ -30,6 +30,7 @@ int need_menu_refresh;
 //Oscilloscope booleans
 int current_oscillo_mode;
 int currently_in_oscillo;
+int currently_in_rectangle;
 int need_osc_refresh;
 int cpt;
 int trigger_was_param;
@@ -48,6 +49,11 @@ int fourth_digit;
 //rectangular signal params
 long frequence;
 int dutycycle;
+int cpt_rectangle;
+int cpt_screen_rectangle;
+int cpt_prec_rectangle;
+int value_prec_rectangle;
+int current_rectangle_mode;
 
 
 int cpt_prec;

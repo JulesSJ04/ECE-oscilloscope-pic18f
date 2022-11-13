@@ -2,7 +2,7 @@
 
 void PWM1_Init(long freq){
     OSCCON = 0b01110010;	/* Set internal clock to 8MHz */
-    TRISC = 0b11111101;		/* Set CCP1 pin as output for PWM out */
+    TRISC = 0b11111101;		/* Set CCP2 pin as output for PWM out */
         /* CCP PWM mode */
     CCP2CON = 0b00001100;
     TMR2 = 0;		/* Clear Timer2 initially */

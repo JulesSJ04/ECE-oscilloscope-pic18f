@@ -286,7 +286,7 @@ void display_oscillo(int ADC_value)
     {
         if(cpt < 99)
         {
-            display_line(28+cpt,0,28+cpt,64,0);
+            display_line(29+cpt,0,29+cpt,64,0);
             glcd_PlotPixel(cpt+28,ADC_value,1);
             draw_line(28+cpt_prec,adc_prec,28+cpt,ADC_value,1);
             cpt_prec = cpt;
@@ -297,7 +297,8 @@ void display_oscillo(int ADC_value)
         {
             cpt = 0;
             display_line(27,0,27,64,0);
-            display_line(28+cpt,0,28+cpt,64,0);
+            display_line(28,0,28,64,0);
+            display_line(29+cpt,0,29+cpt,64,0);
             glcd_PlotPixel(cpt+28,ADC_value,1);
             cpt_prec = cpt;
             adc_prec = ADC_value;
@@ -333,7 +334,7 @@ void display_oscillo(int ADC_value)
             {
                 if(cpt < 99)
                 {
-                    display_line(28+cpt,0,28+cpt,64,0);
+                    display_line(29+cpt,0,29+cpt,64,0);
                     glcd_PlotPixel(cpt+28,ADC_value,1);
                     draw_line(28+cpt_prec,adc_prec,28+cpt,ADC_value,1);
                     cpt_prec = cpt;
@@ -344,7 +345,8 @@ void display_oscillo(int ADC_value)
                 {
                     cpt = 0;
                     display_line(27,0,27,64,0);
-                    display_line(28+cpt,0,28+cpt,64,0);
+                    display_line(28,0,28,64,0);
+                    display_line(29+cpt,0,29+cpt,64,0);
                     glcd_PlotPixel(cpt+28,ADC_value,1);
                     cpt_prec = cpt;
                     adc_prec = ADC_value;
@@ -357,6 +359,159 @@ void display_oscillo(int ADC_value)
     //Affichage de la value de l'ADC
     
     
+}
+
+long map(long x, long in_min, long in_max, long out_min, long out_max) {
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+void display_rectangle(void)
+{
+    unsigned char string1[6] = { 'F', 'r', 'e', 'q', ':', '\0' };
+    unsigned char string2[4] = { 'D', 'C', ':', '\0' };
+    unsigned char mode1[7] = { 'M', 'o', 'd', 'e', ':', '1', '\0'};
+    unsigned char mode2[7] = { 'M', 'o', 'd', 'e', ':', '2', '\0'};
+    unsigned char hz[3] = { 'H', 'z', '\0'};
+    unsigned char percent[2] = { '%', '\0'};
+
+    glcd_SetCursor(7,6);				//place le curseur
+    if(current_rectangle_mode == 0)
+    {
+        glcd_WriteString(mode1,f8X8,1);	//ecrit un ou deux 
+    }
+    else
+    {
+        glcd_WriteString(mode2,f8X8,1);	//ecrit un ou deux 
+    }
+	
+    display_line(56,47,56,55,1);// ligne vertical
+    display_line(57,47,57,55,1);// ligne vertical
+    
+    glcd_SetCursor(62,6);				//place le curseur
+	glcd_WriteString(string2,f8X8,1);	//ecrit dc
+    
+    glcd_SetCursor(114,6);				//place le curseur
+    glcd_WriteString(percent,f8X8,1);	//ecrit dc
+    
+    glcd_SetCursor(11,7);				//place le curseur
+	glcd_WriteString(string1,f8X8,1);	//ecrit freq
+    
+    glcd_SetCursor(102,7);				//place le curseur
+	glcd_WriteString(hz,f8X8,1);	//ecrit freq
+    
+    display_line(0,46,128,46,1);// ligne horizontal
+    
+    float freq = (float) frequence * 0.0001; 
+    
+    int freq_digit1 = (int) freq;
+    freq -= (int) freq;
+    freq *= 10;
+    
+    int freq_digit2 = (int) freq;
+    freq -= (int) freq;
+    freq *= 10;
+    
+    int freq_digit3 = (int) freq;
+    freq -= (int) freq;
+    freq *= 10;
+    
+    int freq_digit4 = (int) freq;
+    freq -= (int) freq;
+    freq *= 10;
+    
+    int freq_digit5 = (int) freq;
+    
+    float dc = (float) dutycycle * 0.01; 
+    
+    int dc_digit1 = (int) dc;
+    dc -= (int) dc;
+    dc *= 10;
+    
+    int dc_digit2 = (int) dc;
+    dc -= (int) dc;
+    dc *= 10;
+    
+    int dc_digit3 = (int) dc;
+    
+    char fchar_digit1 = (char)(freq_digit1+48);
+    char fchar_digit2 = (char)(freq_digit2+48);
+    char fchar_digit3 = (char)(freq_digit3+48);
+    char fchar_digit4 = (char)(freq_digit4+48);
+    char fchar_digit5 = (char)(freq_digit5+48);
+    
+    char dchar_digit1 = (char)(dc_digit1+48);
+    char dchar_digit2 = (char)(dc_digit2+48);
+    char dchar_digit3 = (char)(dc_digit3+48);
+    
+    unsigned char string_f_digit1[2] = {fchar_digit1,'\0'};
+    unsigned char string_f_digit2[2] = {fchar_digit2,'\0'};
+    unsigned char string_f_digit3[2] = {fchar_digit3,'\0'};
+    unsigned char string_f_digit4[2] = {fchar_digit4,'\0'};
+    unsigned char string_f_digit5[2] = {fchar_digit5,'\0'};
+    
+    unsigned char string_d_digit1[2] = {dchar_digit1,'\0'};
+    unsigned char string_d_digit2[2] = {dchar_digit2,'\0'};
+    unsigned char string_d_digit3[2] = {dchar_digit3,'\0'};
+    
+    glcd_SetCursor(86,6);
+    glcd_WriteString(string_d_digit1,f8X8,1);
+    glcd_SetCursor(95,6);
+    glcd_WriteString(string_d_digit2,f8X8,1);
+    glcd_SetCursor(104,6);
+    glcd_WriteString(string_d_digit3,f8X8,1);
+    
+    glcd_SetCursor(51,7);
+    glcd_WriteString(string_f_digit1,f8X8,1);
+    glcd_SetCursor(60,7);
+    glcd_WriteString(string_f_digit2,f8X8,1);
+    glcd_SetCursor(74,7);
+    glcd_WriteString(string_f_digit3,f8X8,1);
+    glcd_SetCursor(83,7);
+    glcd_WriteString(string_f_digit4,f8X8,1);
+    glcd_SetCursor(92,7);
+    glcd_WriteString(string_f_digit5,f8X8,1);
+    
+    int ratio = map(frequence, 490, 62500, 1, 50);
+    int max = (int) (((float) 100) / ratio);
+    int compteur = (int) (((float) dutycycle) /ratio); 
+    
+    display_line(cpt_screen_rectangle,0,cpt_screen_rectangle,45,0);
+    if(cpt_rectangle < compteur)
+    {
+        glcd_PlotPixel(cpt_screen_rectangle,10,1);
+        if(cpt_prec_rectangle != 126)
+        {
+            draw_line(cpt_prec_rectangle,value_prec_rectangle,cpt_screen_rectangle,10,1);
+        }
+        cpt_prec_rectangle = cpt_screen_rectangle;
+        value_prec_rectangle = 10;
+    }
+    else
+    {
+        glcd_PlotPixel(cpt_screen_rectangle,35,1);
+        if(cpt_prec_rectangle != 126)
+        {
+            draw_line(cpt_prec_rectangle,value_prec_rectangle,cpt_screen_rectangle,35,1);
+        }
+        cpt_prec_rectangle = cpt_screen_rectangle;
+        value_prec_rectangle = 35;
+    }
+    if(cpt_rectangle < max)
+    {
+        cpt_rectangle++;
+    }
+    else
+    {
+        cpt_rectangle = 0;
+    }
+    if(cpt_screen_rectangle >= 126)
+    {
+        cpt_screen_rectangle = 0;
+    }
+    else
+    {
+        cpt_screen_rectangle++;
+    }
 }
 
 

@@ -2,8 +2,8 @@
 
 void main(void)
 {
-    frequence = 10000;
-    dutycycle = 75;
+    frequence = 490;
+    dutycycle = 50;
 //Init port
     //TRISB = 0;				//PORTB output
     //PORTB = 0; 
@@ -37,9 +37,14 @@ void main(void)
     need_menu_refresh = 1;
     PORTAbits.RA5 = 1;
     currently_in_oscillo = 0;
+    currently_in_rectangle = 0;
     currently_in_menu = 1;
+    current_rectangle_mode = 0;
     menu_selector = 0;
     trigger_was_param =0;
+    cpt_screen_rectangle = 3;
+    cpt_prec_rectangle = 2;
+    value_prec_rectangle = 10;
     while(1)
     {
         ADCON0bits.GO_DONE = 1;
@@ -52,13 +57,21 @@ void main(void)
         if(currently_in_menu == 1)
         {
             currently_in_oscillo = 0;
+            currently_in_rectangle = 0;
             display_menu();
         }
         else if(currently_in_oscillo == 1)
         {
             currently_in_menu = 0;
+            currently_in_rectangle = 0;
             global_screen_ADC_value = (int)((global_ADC_value/4) - 62)*(-1); //Récupère le niveau actuel du screen
             display_oscillo(global_screen_ADC_value);
+        }
+         else if(currently_in_rectangle == 1)
+        {
+            currently_in_menu = 0;
+            currently_in_oscillo = 0;
+            display_rectangle();
         }
         display_7segment();
     }
