@@ -45,8 +45,8 @@ void main(void)
     {
         dutycycle = 100;
     }
-    PWM1_Init(frequence); //min 490 Hz - max 62500Hz
-    PWM1_setDC(dutycycle); //0-100 dutyclycle
+    PWM1_Init(); //min 490 Hz - max 62500Hz
+    PWM1_setFreqDC(dutycycle, frequence); //0-100 dutyclycle
     //Initialisations variables globales
     while(1)
     {

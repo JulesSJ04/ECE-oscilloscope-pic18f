@@ -489,7 +489,8 @@ void display_rectangle(void)
     int compteur = (int) (((float) dutycycle) /ratio); 
     
     display_line(cpt_screen_rectangle,0,cpt_screen_rectangle,45,0);
-    if(cpt_rectangle < compteur)
+    PWM1_setFreqDC(dutycycle, frequence); //0-100 dutyclycle
+    if(cpt_rectangle <= compteur && compteur != 0)
     {
         glcd_PlotPixel(cpt_screen_rectangle,10,1);
         if(cpt_prec_rectangle != 126)
