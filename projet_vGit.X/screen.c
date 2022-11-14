@@ -1,5 +1,7 @@
 #include "my_lib.h"
 
+int prev_trigger_val;
+
 void display_line(int x, int y, int final_x,int final_y, int color)
 {
     if(x==final_x)
@@ -329,7 +331,12 @@ void display_oscillo(int ADC_value)
             }
             
             display_line(28,ADC_value,127,ADC_value,1);
-            have_to_FillScreen = 1;
+           
+            if(prev_trigger_val != ADC_value)
+            {
+                 prev_trigger_val = ADC_value;
+                 have_to_FillScreen = 1;
+            }
         }
         else if(trigger_was_param == 1) //Sinon on affiche courbe
         {
