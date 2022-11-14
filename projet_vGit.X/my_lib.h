@@ -7,6 +7,7 @@
 #include "rectangle.h"
 #include "Interrupt.h"
 #include "7segment.h"
+#include "utility.h"
 
 
 #pragma config FOSC = HS // Oscillator Selection bits (XT oscillator)

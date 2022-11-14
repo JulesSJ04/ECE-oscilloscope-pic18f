@@ -24,6 +24,8 @@
       <itemPath>screen.h</itemPath>
       <itemPath>Interrupt.c</itemPath>
       <itemPath>Interrupt.h</itemPath>
+      <itemPath>utility.c</itemPath>
+      <itemPath>utility.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

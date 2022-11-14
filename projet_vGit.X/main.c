@@ -1,25 +1,5 @@
 #include "my_lib.h"
 
-void global_variables_init()
-{
-    frequence = 490;
-    dutycycle = 50;
-    need_osc_refresh = 1;
-    current_oscillo_mode = 0;
-    need_menu_refresh = 1;
-    PORTAbits.RA5 = 1;
-    currently_in_oscillo = 0;
-    currently_in_rectangle = 0;
-    currently_in_menu = 1;
-    current_rectangle_mode = 0;
-    menu_selector = 0;
-    trigger_was_param =0;
-    cpt_screen_rectangle = 3;
-    cpt_prec_rectangle = 2;
-    value_prec_rectangle = 10;
-}
-
-
 void main(void)
 {
     initMyPIC18F();
@@ -29,22 +9,6 @@ void main(void)
     __delay_ms(2000);
     display_titre();
     display_auteur();
-    if(frequence < 490)
-    {
-        frequence = 490;
-    }
-    if(frequence > 62500)
-    {
-        frequence = 62500;
-    }
-    if(dutycycle < 0)
-    {
-        dutycycle = 0;
-    }
-    if(dutycycle > 100)
-    {
-        dutycycle = 100;
-    }
     PWM1_Init(); //min 490 Hz - max 62500Hz
     PWM1_setFreqDC(dutycycle, frequence); //0-100 dutyclycle
     //Initialisations variables globales

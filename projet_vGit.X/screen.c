@@ -374,9 +374,6 @@ void display_oscillo(int ADC_value)
     
 }
 
-long map(long x, long in_min, long in_max, long out_min, long out_max) {
-  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-}
 
 void display_rectangle(void)
 {
@@ -399,6 +396,22 @@ void display_rectangle(void)
         glcd_WriteString(mode2,f8X8,1);	//ecrit un ou deux 
         dutycycle = ADRESH;
         dutycycle = map(dutycycle, 0, 244, 0, 100);// adresh va jusqua 243
+    }
+    if(frequence < 490)
+    {
+        frequence = 490;
+    }
+    if(frequence > 62500)
+    {
+        frequence = 62500;
+    }
+    if(dutycycle < 0)
+    {
+        dutycycle = 0;
+    }
+    if(dutycycle > 100)
+    {
+        dutycycle = 100;
     }
 	
     display_line(56,47,56,55,1);// ligne vertical

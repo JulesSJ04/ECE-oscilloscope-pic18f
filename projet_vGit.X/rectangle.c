@@ -1,6 +1,6 @@
 #include "my_lib.h"
 
-void PWM1_Init(){
+void PWM1_Init(void){
     OSCCON = 0b01110010;	/* Set internal clock to 8MHz */
     TRISC = 0b11111101;		/* Set CCP2 pin as output for PWM out */
         /* CCP PWM mode */
