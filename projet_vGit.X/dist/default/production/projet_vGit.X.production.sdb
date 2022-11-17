@@ -92,7 +92,7 @@
 [v _display_menu display_menu `(v  1 e 1 0 ]
 "232
 [v _display_oscillo display_oscillo `(v  1 e 1 0 ]
-"378
+"377
 [v _display_rectangle display_rectangle `(v  1 e 1 0 ]
 "4 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\utility.c
 [v _map map `(l  1 e 4 0 ]
@@ -519,92 +519,92 @@
 [v display_titre@F3769 F3769 `[10]uc  1 s 10 F3769 ]
 "153
 } 0
-"378
+"377
 [v _display_rectangle display_rectangle `(v  1 e 1 0 ]
 {
-"383
+"382
 [v display_rectangle@mode2 mode2 `[7]uc  1 a 7 7 ]
-"382
+"381
 [v display_rectangle@mode1 mode1 `[7]uc  1 a 7 0 ]
-"380
-[v display_rectangle@string1 string1 `[6]uc  1 a 6 14 ]
-"437
-[v display_rectangle@freq freq `f  1 a 4 83 ]
-"457
-[v display_rectangle@dc dc `f  1 a 4 79 ]
-"381
-[v display_rectangle@string2 string2 `[4]uc  1 a 4 20 ]
-"384
-[v display_rectangle@hz hz `[3]uc  1 a 3 24 ]
-"487
-[v display_rectangle@string_d_digit3 string_d_digit3 `[2]uc  1 a 2 73 ]
-"486
-[v display_rectangle@string_d_digit2 string_d_digit2 `[2]uc  1 a 2 71 ]
-"485
-[v display_rectangle@string_d_digit1 string_d_digit1 `[2]uc  1 a 2 69 ]
-"483
-[v display_rectangle@string_f_digit5 string_f_digit5 `[2]uc  1 a 2 67 ]
-"482
-[v display_rectangle@string_f_digit4 string_f_digit4 `[2]uc  1 a 2 65 ]
-"481
-[v display_rectangle@string_f_digit3 string_f_digit3 `[2]uc  1 a 2 63 ]
-"480
-[v display_rectangle@string_f_digit2 string_f_digit2 `[2]uc  1 a 2 61 ]
-"479
-[v display_rectangle@string_f_digit1 string_f_digit1 `[2]uc  1 a 2 59 ]
-"509
-[v display_rectangle@compteur compteur `i  1 a 2 77 ]
-"507
-[v display_rectangle@ratio ratio `i  1 a 2 75 ]
-"385
-[v display_rectangle@percent percent `[2]uc  1 a 2 27 ]
-"508
-[v display_rectangle@max max `i  1 a 2 49 ]
-"467
-[v display_rectangle@dc_digit3 dc_digit3 `i  1 a 2 47 ]
-"463
-[v display_rectangle@dc_digit2 dc_digit2 `i  1 a 2 45 ]
-"459
-[v display_rectangle@dc_digit1 dc_digit1 `i  1 a 2 43 ]
-"455
-[v display_rectangle@freq_digit5 freq_digit5 `i  1 a 2 41 ]
-"451
-[v display_rectangle@freq_digit4 freq_digit4 `i  1 a 2 39 ]
-"447
-[v display_rectangle@freq_digit3 freq_digit3 `i  1 a 2 37 ]
-"443
-[v display_rectangle@freq_digit2 freq_digit2 `i  1 a 2 35 ]
-"439
-[v display_rectangle@freq_digit1 freq_digit1 `i  1 a 2 33 ]
-"477
-[v display_rectangle@dchar_digit3 dchar_digit3 `uc  1 a 1 58 ]
-"476
-[v display_rectangle@dchar_digit2 dchar_digit2 `uc  1 a 1 57 ]
-"475
-[v display_rectangle@dchar_digit1 dchar_digit1 `uc  1 a 1 56 ]
-"473
-[v display_rectangle@fchar_digit5 fchar_digit5 `uc  1 a 1 55 ]
-"472
-[v display_rectangle@fchar_digit4 fchar_digit4 `uc  1 a 1 54 ]
-"471
-[v display_rectangle@fchar_digit3 fchar_digit3 `uc  1 a 1 53 ]
-"470
-[v display_rectangle@fchar_digit2 fchar_digit2 `uc  1 a 1 52 ]
-"469
-[v display_rectangle@fchar_digit1 fchar_digit1 `uc  1 a 1 51 ]
 "379
-[v display_rectangle@F3819 F3819 `[6]uc  1 s 6 F3819 ]
+[v display_rectangle@string1 string1 `[6]uc  1 a 6 14 ]
+"436
+[v display_rectangle@freq freq `f  1 a 4 83 ]
+"456
+[v display_rectangle@dc dc `f  1 a 4 79 ]
 "380
-[v display_rectangle@F3821 F3821 `[4]uc  1 s 4 F3821 ]
-"381
-[v display_rectangle@F3823 F3823 `[7]uc  1 s 7 F3823 ]
-"382
-[v display_rectangle@F3825 F3825 `[7]uc  1 s 7 F3825 ]
+[v display_rectangle@string2 string2 `[4]uc  1 a 4 20 ]
 "383
-[v display_rectangle@F3827 F3827 `[3]uc  1 s 3 F3827 ]
+[v display_rectangle@hz hz `[3]uc  1 a 3 24 ]
+"486
+[v display_rectangle@string_d_digit3 string_d_digit3 `[2]uc  1 a 2 73 ]
+"485
+[v display_rectangle@string_d_digit2 string_d_digit2 `[2]uc  1 a 2 71 ]
+"484
+[v display_rectangle@string_d_digit1 string_d_digit1 `[2]uc  1 a 2 69 ]
+"482
+[v display_rectangle@string_f_digit5 string_f_digit5 `[2]uc  1 a 2 67 ]
+"481
+[v display_rectangle@string_f_digit4 string_f_digit4 `[2]uc  1 a 2 65 ]
+"480
+[v display_rectangle@string_f_digit3 string_f_digit3 `[2]uc  1 a 2 63 ]
+"479
+[v display_rectangle@string_f_digit2 string_f_digit2 `[2]uc  1 a 2 61 ]
+"478
+[v display_rectangle@string_f_digit1 string_f_digit1 `[2]uc  1 a 2 59 ]
+"508
+[v display_rectangle@compteur compteur `i  1 a 2 77 ]
+"506
+[v display_rectangle@ratio ratio `i  1 a 2 75 ]
 "384
+[v display_rectangle@percent percent `[2]uc  1 a 2 27 ]
+"507
+[v display_rectangle@max max `i  1 a 2 49 ]
+"466
+[v display_rectangle@dc_digit3 dc_digit3 `i  1 a 2 47 ]
+"462
+[v display_rectangle@dc_digit2 dc_digit2 `i  1 a 2 45 ]
+"458
+[v display_rectangle@dc_digit1 dc_digit1 `i  1 a 2 43 ]
+"454
+[v display_rectangle@freq_digit5 freq_digit5 `i  1 a 2 41 ]
+"450
+[v display_rectangle@freq_digit4 freq_digit4 `i  1 a 2 39 ]
+"446
+[v display_rectangle@freq_digit3 freq_digit3 `i  1 a 2 37 ]
+"442
+[v display_rectangle@freq_digit2 freq_digit2 `i  1 a 2 35 ]
+"438
+[v display_rectangle@freq_digit1 freq_digit1 `i  1 a 2 33 ]
+"476
+[v display_rectangle@dchar_digit3 dchar_digit3 `uc  1 a 1 58 ]
+"475
+[v display_rectangle@dchar_digit2 dchar_digit2 `uc  1 a 1 57 ]
+"474
+[v display_rectangle@dchar_digit1 dchar_digit1 `uc  1 a 1 56 ]
+"472
+[v display_rectangle@fchar_digit5 fchar_digit5 `uc  1 a 1 55 ]
+"471
+[v display_rectangle@fchar_digit4 fchar_digit4 `uc  1 a 1 54 ]
+"470
+[v display_rectangle@fchar_digit3 fchar_digit3 `uc  1 a 1 53 ]
+"469
+[v display_rectangle@fchar_digit2 fchar_digit2 `uc  1 a 1 52 ]
+"468
+[v display_rectangle@fchar_digit1 fchar_digit1 `uc  1 a 1 51 ]
+"378
+[v display_rectangle@F3819 F3819 `[6]uc  1 s 6 F3819 ]
+"379
+[v display_rectangle@F3821 F3821 `[4]uc  1 s 4 F3821 ]
+"380
+[v display_rectangle@F3823 F3823 `[7]uc  1 s 7 F3823 ]
+"381
+[v display_rectangle@F3825 F3825 `[7]uc  1 s 7 F3825 ]
+"382
+[v display_rectangle@F3827 F3827 `[3]uc  1 s 3 F3827 ]
+"383
 [v display_rectangle@F3829 F3829 `[2]uc  1 s 2 F3829 ]
-"549
+"548
 } 0
 "4 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\utility.c
 [v _map map `(l  1 e 4 0 ]
@@ -760,7 +760,7 @@
 [v display_oscillo@F3801 F3801 `[2]uc  1 s 2 F3801 ]
 "319
 [v display_oscillo@F3816 F3816 `[7]uc  1 s 7 F3816 ]
-"375
+"374
 } 0
 "34
 [v _draw_line draw_line `(v  1 e 1 0 ]
@@ -1095,5 +1095,5 @@
 "48 C:\Users\eric1\Downloads\ECE\2022\S1\Microcontroleur\GITHUB_jules\oscilloscope_mcu\projet_vGit.X\Interrupt.c
 [v _irq_handle_high irq_handle_high `IIH(v  1 e 1 0 ]
 {
-"190
+"194
 } 0

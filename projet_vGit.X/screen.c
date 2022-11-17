@@ -356,18 +356,17 @@ void display_oscillo(int ADC_value)
                 }
                 else if(cpt >= 99)
                 {
-                    cpt = 0;
-                    display_line(27,0,27,64,0);
-                    display_line(28,0,28,64,0);
-                    display_line(29+cpt,0,29+cpt,64,0);
-                    glcd_PlotPixel(cpt+28,ADC_value,1);
-                    cpt_prec = cpt;
-                    adc_prec = ADC_value;
-                    cpt++;
+                    //cpt = 0;
+                    //display_line(27,0,27,64,0);
+                    //display_line(28,0,28,64,0);
+                    //display_line(29+cpt,0,29+cpt,64,0);
+                    //glcd_PlotPixel(cpt+28,ADC_value,1);
+                    //cpt_prec = cpt;
+                    //adc_prec = ADC_value;
+                    //cpt++;
                 }
             }
         }
-        
     }
     //Affichage de la value de l'ADC
     

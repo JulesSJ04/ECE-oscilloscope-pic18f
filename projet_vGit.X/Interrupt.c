@@ -73,6 +73,9 @@ void __interrupt(high_priority) irq_handle_high()
                 }
                 else if(currently_in_oscillo == 1 && current_oscillo_mode == 0 && trigger_was_param == 0)
                 {
+                    cpt = 0;
+                    cpt_prec = cpt;
+                    //adc_prec = 0;
                     double_edge++;
                     have_to_FillScreen = 1; //Besoin de refraichir l'ecran
                     current_oscillo_mode = 1; //On inverse l'état
@@ -132,6 +135,7 @@ void __interrupt(high_priority) irq_handle_high()
                         currently_in_rectangle = 0;
                         currently_in_menu = 0; //On sort du menu
                         currently_in_oscillo = 1; //On passe à l'oscillos
+                        cpt_prec = cpt;
                         need_osc_refresh = 1; //On refraichit l'oscillo
                         current_oscillo_mode = 0; //Premier mode de l'oscillo
                         need_osc_refresh = 1;
