@@ -22,6 +22,7 @@ void global_variables_init(void)
     cpt_screen_rectangle = 3;
     cpt_prec_rectangle = 2;
     value_prec_rectangle = 10;
+    dans_le_mode_trigger = 0;
 }
 
 

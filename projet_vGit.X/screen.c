@@ -345,8 +345,14 @@ void display_oscillo(int ADC_value)
             display_line(28,TRIGGER_VAL,127,TRIGGER_VAL,1); //Ligne a franchir
             if(ADC_value <= TRIGGER_VAL)
             {
+                if(dans_le_mode_trigger == 0)
+                {
+                    cpt_prec = cpt;
+                    adc_prec = ADC_value;
+                }
                 if(cpt < 99)
                 {
+                    dans_le_mode_trigger = 1;
                     display_line(29+cpt,0,29+cpt,64,0);
                     glcd_PlotPixel(cpt+28,ADC_value,1);
                     draw_line(28+cpt_prec,adc_prec,28+cpt,ADC_value,1);
@@ -365,6 +371,24 @@ void display_oscillo(int ADC_value)
                     //adc_prec = ADC_value;
                     //cpt++;
                 }
+            }
+            else
+            {
+                if(cpt < 99)
+                {
+                    if(dans_le_mode_trigger == 1)
+                    {
+                        draw_line(28+cpt_prec,adc_prec,28+cpt,TRIGGER_VAL,1);
+                    }
+                    cpt_prec = cpt;
+                    adc_prec = ADC_value;
+                    ++cpt;
+                }
+                else if(cpt >= 99)
+                {
+                    
+                }
+                dans_le_mode_trigger = 0;
             }
         }
     }

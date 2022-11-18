@@ -62,6 +62,8 @@ int adc_prec;
 
 int trigger_level;
 
+int dans_le_mode_trigger;
+
 /*
 #pragma config FOSC = HS
 #pragma config WDT = OFF
